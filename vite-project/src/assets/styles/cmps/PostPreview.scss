@@ -1,0 +1,36 @@
+.pst-Preview{
+    width: 29.375rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    font-style: normal;
+    // font-weight: 600;
+    margin-left: 32.25rem;
+    margin-right: 42.3125rem;
+    margin-top: 14.625rem;
+
+.info-start{
+    display: flex;
+    flex-direction: row;
+    .three-dot-icon{
+        margin-left: 55rem;
+    }
+
+
+}
+.actions-btn{
+    display: flex;
+    flex-direction: row;
+    background-color:transparent;
+   button{
+        background-color:transparent;
+        cursor: pointer;
+        border:none;
+    }
+
+}
+
+}
+
+

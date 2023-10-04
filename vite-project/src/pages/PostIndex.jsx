@@ -6,6 +6,8 @@ import { store } from '../store/store'
 import { useEffect, useState } from 'react'
 import { loadPsts, removePst, onRemovePstOptimistic} from '../store/pst.actions'
 import { ADD_PST } from '../store/pst.reducer.js'
+import { NavHeader } from '../cmps/NavHeader'
+
 
 export function PostIndex() {
     const psts = useSelector(storeState => storeState.pstModule.psts) || []
@@ -22,7 +24,7 @@ export function PostIndex() {
 
     return (
         <section className='pst-index'>
-            <h1>pst list</h1>
+           <NavHeader />
          <PstList psts={psts} />   
         </section>
     )
