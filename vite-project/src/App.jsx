@@ -20,7 +20,7 @@ export function App() {
                             <Route element={<HomePage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
                             <Route element={<PostIndex />} path="/post" />
-                            <Route element={<PostDetails />} path="/post/:postId" />
+                            {/* <Route element={<PostDetails />} path="/post/:postId" /> */}
                         </Routes>
                     </main>
                 </section>
