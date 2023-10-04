@@ -8,9 +8,9 @@ import { loadPsts, removePst, onRemovePstOptimistic} from '../store/pst.actions'
 import { ADD_PST } from '../store/pst.reducer.js'
 
 export function PostIndex() {
-    const toys = useSelector(storeState => storeState.toyModule.toys)
+    const psts = useSelector(storeState => storeState.pstModule.psts) || []
+    console.log('psts',psts)
 
-console.log('indexx')
     useEffect(() => {
         loadPsts().catch(err => {
             console.log('err', err)
