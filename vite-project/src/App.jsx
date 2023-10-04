@@ -17,9 +17,10 @@ export function App() {
                 <section className="main-layout app">
                     <main>
                         <Routes>
-                            <Route element={<HomePage />} path="/" />
+                            {/* <Route element={<HomePage />} path="/" /> */}
+                            <Route element={<PostIndex />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
-                            <Route element={<PostIndex />} path="/post" />
+                        
                             {/* <Route element={<PostDetails />} path="/post/:postId" /> */}
                         </Routes>
                     </main>

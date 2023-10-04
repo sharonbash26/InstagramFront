@@ -111,54 +111,54 @@ function _createPst() {
             imgUrl: "1.jpg",
             by: {
                 _id: "u101",
-                fullname: "SharonBash",
-                // imgUrl: "http://some-img"
+                fullname: "sharonbash",
+                imgUrl: "s3.jpg"
             },
-            // loc: { // Optional
-            //     lat: 11.11,
-            //     lng: 22.22,
-            //     name: "Tel Aviv"
-            // },
+            loc: { // Optional
+                lat: 11.11,
+                lng: 22.22,
+                name: "Tel Aviv"
+            },
 
-            // comments: [
-            //     {
-            //         id: "c1001",
-            //         by: {
-            //             _id: "u105",
-            //             fullname: "Bob",
-            //             imgUrl: "http://some-img"
-            //         },
-            //         txt: "good one!",
-            //         likedBy: [ // Optional
-            //             {
-            //                 "_id": "u105",
-            //                 "fullname": "Bob",
-            //                 "imgUrl": "http://some-img"
-            //             }
-            //         ]
-            //     },
-            //     {
-            //         id: "c1002",
-            //         by: {
-            //             _id: "u106",
-            //             fullname: "Dob",
-            //             imgUrl: "http://some-img"
-            //         },
-            //         txt: "not good!",
-            //     }
-            // ],
-            // likedBy: [
-            //     {
-            //         _id: "u105",
-            //         fullname: "Bob",
-            //         imgUrl: "http://some-img"
-            //     },
-            //     {
-            //         _id: "u106",
-            //         fullname: "Dob",
-            //         imgUrl: "http://some-img"
-            //     }
-            // ],
+            comments: [
+                {
+                    id: "c1001",
+                    by: {
+                        _id: "u105",
+                        fullname: "Bob",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "good one!",
+                    likedBy: [ // Optional
+                        {
+                            "_id": "u105",
+                            "fullname": "Bob",
+                            "imgUrl": "http://some-img"
+                        }
+                    ]
+                },
+                {
+                    id: "c1002",
+                    by: {
+                        _id: "u106",
+                        fullname: "Dob",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "not good!",
+                }
+            ],
+            likedBy: [
+                {
+                    _id: "u105",
+                    fullname: "Bob",
+                    imgUrl: "http://some-img"
+                },
+                {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "http://some-img"
+                }
+            ],
             tags: ["fun", "romantic"]
         }
         ]
