@@ -108,10 +108,10 @@ function _createPst() {
         psts = [{
             _id: "s101",
             txt: "Best trip ever",
-            imgUrl: "../public/1.jpg",
+            imgUrl: "1.jpg",
             by: {
                 _id: "u101",
-                fullname: "Ulash Ulashi",
+                fullname: "SharonBash",
                 // imgUrl: "http://some-img"
             },
             // loc: { // Optional
@@ -161,7 +161,6 @@ function _createPst() {
             // ],
             tags: ["fun", "romantic"]
         }
-        
         ]
 
     }
