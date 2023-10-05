@@ -17,16 +17,18 @@
         margin-left: 55rem;
     }
 
-
 }
+
 .actions-btn{
     display: flex;
     flex-direction: row;
     background-color:transparent;
+    
    button{
         background-color:transparent;
         cursor: pointer;
         border:none;
+         width: 2rem; 
     }
 
 }

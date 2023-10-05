@@ -5,8 +5,8 @@ import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'pst'
 
-var psts=_createPst()
-console.log('create psts startttttt',psts)
+var psts = _createPst()
+console.log('create psts startttttt', psts)
 
 export const pstService = {
     query,
@@ -70,33 +70,50 @@ async function addPstMsg(pstId, txt) {
 
 function getEmptyPst() {
     return {
-        _id: utilService.makeId(),
+        _id: "",
         txt: "",
         imgUrl: "",
         by: {
-            _id: utilService.makeId(),
-            fullName: "",
+            _id: "",
+            fullname: "",
             imgUrl: ""
+        },
+        loc: {
+            lat: 11.11,
+            lng: 22.22,
+            name: "Tel Aviv"
         },
 
         comments: [
             {
-                id: utilService.makeId(),
+                id: "",
                 by: {
-                    _id: utilService.makeId(),
+                    _id: "",
                     fullname: "",
                     imgUrl: ""
                 },
-                txt: "good one!",
+                txt: "",
                 likedBy: [
                     {
-                        "_id": utilService.makeId(),
+                        "_id": "",
                         "fullname": "",
                         "imgUrl": ""
                     }
                 ]
-            }],
-        tags: ["fun", "romantic"]
+            },
+            {
+                id: "",
+                by: {
+                    _id: "",
+                    fullname: "",
+                    imgUrl: ""
+                },
+                txt: "",
+            }
+        ],
+        likedBy: [
+        ],
+        tags: ["", ""]
     }
 }
 
@@ -108,7 +125,7 @@ function _createPst() {
         psts = [{
             _id: "s101",
             txt: "Best trip ever",
-            imgUrl: "1.jpg",
+            imgUrl: "",
             by: {
                 _id: "u101",
                 fullname: "sharonbash",

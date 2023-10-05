@@ -2,7 +2,7 @@ import React from 'react';
 import { ImgUploader } from './ImgUploader';
 const { useState, useEffect } = React
 
-export function NavHeader() {
+export function NavHeader({onAddPst}) {
     const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
     function openModal() {
         setIsUploadModalOpen(true)
@@ -34,6 +34,9 @@ export function NavHeader() {
                             <h2>Drag photos and videos here</h2>
                             <span className="close-button" onClick={closeModal}>&times;</span>
                             <ImgUploader onUploaded={(url) => {
+                                console.log('urlFromNav',url)
+                                console.log('navvvvvvvvvvvv')
+                                onAddPst(url)
                                 closeModal();
                             }} />
                         </div>
