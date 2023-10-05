@@ -18,9 +18,13 @@ export function App() {
                     <main>
                         <Routes>
                             {/* <Route element={<HomePage />} path="/" /> */}
+
+                            <Route path="/pst" element={<PostIndex />} >
+                                <Route path='/pst/:pstId' element={<PostDetails />} />
+                            </Route>
                             <Route element={<PostIndex />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
-                        
+
                             {/* <Route element={<PostDetails />} path="/post/:postId" /> */}
                         </Routes>
                     </main>
