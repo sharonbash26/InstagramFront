@@ -34,8 +34,9 @@ export function PostPreview({ pst }) {
     return (
         <section className="pst-Preview">
             <div className="info-start">
+                <img className="profile-prev" src="s3.jpg"></img>
                 <h2>{by.fullname}</h2>
-                <h4>{utilService.randomTimeString()}</h4>
+                <h4 className="timeWhenUpload">{utilService.randomTimeString()}</h4>
                 <img className="three-dot-icon" src="3dot.svg"></img>
             </div>
 

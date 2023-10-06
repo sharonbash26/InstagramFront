@@ -13,8 +13,17 @@
 .info-start{
     display: flex;
     flex-direction: row;
+    .profile-prev{
+        width: 3rem;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        margin-right: 0.8rem;
+    }
     .three-dot-icon{
-        margin-left: 55rem;
+        margin-left: 15rem;
+    }
+    .timeWhenUpload{
+        margin-left: 0.5rem;
     }
 
 }
@@ -30,6 +39,8 @@
         border:none;
          width: 2rem; 
     }
+
+    
 
 }
 
