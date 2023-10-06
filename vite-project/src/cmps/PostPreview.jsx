@@ -54,7 +54,8 @@ export function PostPreview({ pst }) {
 
             <h4>{txt}</h4>
             <div className="comment-text-area">
-                <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
+                <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value) }  />
+                <button className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
                 {comment.length > 0 && (<button>Post</button>)}
             </div>
 
