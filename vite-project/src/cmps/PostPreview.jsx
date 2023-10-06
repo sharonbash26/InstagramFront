@@ -2,18 +2,19 @@ import { Link } from "react-router-dom";
 import { utilService } from "../services/util.service";
 import { pstService } from "../services/pst.service.local";
 import React from 'react';
+import { DetailsModal } from "./DetailsModal";
 const { useState, useEffect } = React
 // import img from '../assets/img/1.jpg'
 
 
 export function PostPreview({ pst }) {
-    const { txt, imgUrl, by, _id, comments, likedBy } = pst
+    const { txt, imgUrl, by, _id, comments, likedBy,uploadTime } = pst
     const [isLiked, setIsLiked] = useState(false)
     const [comment, setComment] = useState('')
     const [likeUrl, setLikeUrl] = useState("like.svg")
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
- 
+
     function toggleLike() {
         if (isLiked) {
             setLikeUrl("like.svg")
@@ -30,13 +31,15 @@ export function PostPreview({ pst }) {
         console.log('press like')
     }
     console.log('imgUrl previev', imgUrl)
-
+function openDetailsModal(){
+<DetailsModal />
+}
     return (
         <section className="pst-Preview">
             <div className="info-start">
                 <img className="profile-prev" src="s3.jpg"></img>
                 <h2>{by.fullname}</h2>
-                <h4 className="timeWhenUpload">{utilService.randomTimeString()}</h4>
+                <h4 className="timeWhenUpload">{uploadTime}</h4>
                 <img className="three-dot-icon" src="3dot.svg"></img>
             </div>
 
@@ -46,7 +49,7 @@ export function PostPreview({ pst }) {
                 <button className="like" onClick={toggleLike}> { }<img src={likeUrl}></img>
                 </button>
                 <Link to={`/pst/${pst._id}`}>
-                    <button className="comment"><img src="comment.svg"></img></button>
+                    <button className="comment" onClick={openDetailsModal}><img src="comment.svg"></img></button>
                 </Link>
                 <button className="share"><img src="share.svg"></img></button>
                 <button className="save"><img src="save.svg"></img></button>
@@ -55,10 +58,18 @@ export function PostPreview({ pst }) {
 
             <h4>{txt}</h4>
             <div className="comment-text-area">
-                <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value) }  />
+                <div className="see-comments">
+                    <button className="view-all-comments">View all 5 comments</button>
+                </div>
+                <div className="comment-input-container">
+                <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
+                <div className="empjiPostbtn">
                 <button className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
                 {comment.length > 0 && (<button>Post</button>)}
+                </div>
+                </div>
             </div>
+
 
 
             <hr />

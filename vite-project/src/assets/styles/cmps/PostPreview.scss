@@ -1,4 +1,4 @@
-.pst-Preview{
+.pst-Preview {
     width: 29.375rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
@@ -10,40 +10,59 @@
     margin-right: 42.3125rem;
     margin-top: 14.625rem;
 
-.info-start{
-    display: flex;
-    flex-direction: row;
-    .profile-prev{
-        width: 3rem;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        margin-right: 0.8rem;
+    .info-start {
+        display: flex;
+        flex-direction: row;
+
+        .profile-prev {
+            width: 3rem;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            margin-right: 0.8rem;
+        }
+
+        .three-dot-icon {
+            margin-left: 15rem;
+        }
+
+        .timeWhenUpload {
+            margin-left: 0.5rem;
+        }
+
     }
-    .three-dot-icon{
-        margin-left: 15rem;
-    }
-    .timeWhenUpload{
-        margin-left: 0.5rem;
+
+    .actions-btn {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+
+        button {
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            width: 2rem;
+            margin-top: 0.3rem;
+        }
+
+        .save {
+            margin-left: 21rem;
+        }
+
+        .comment-text-area {
+            .emjoi-btn {
+                margin-left: 8rem;
+
+
+                
+            }
+        
+            .comment-input-container {
+                display: flex;
+            }
+         
+
+        }
+
     }
 
 }
-
-.actions-btn{
-    display: flex;
-    flex-direction: row;
-    background-color:transparent;
-    
-   button{
-        background-color:transparent;
-        cursor: pointer;
-        border:none;
-         width: 2rem; 
-    }
-
-    
-
-}
-
-}
-
-
