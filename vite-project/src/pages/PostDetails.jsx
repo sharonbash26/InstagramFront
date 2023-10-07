@@ -3,7 +3,7 @@ import { pstService } from '../services/pst.service.local'
 import { useEffect, useState } from 'react'
 
 export function PostDetails() {
-    const [post, setPost] = useState(null)
+    const [pst, setPst] = useState(null)
 
     const { pstId } = useParams()
 
@@ -12,15 +12,15 @@ export function PostDetails() {
     }, [pstId])
 
     async function loadPost() {
-        const post = await pstService.getById(pstId)
-        setPost(post)
+        const pst = await pstService.getById(pstId)
+        console.log('ppppppppp',pst.imgUrl)
+        setPst(pst)
     }
-
-    if (!post) return <p>Loading...</p>
+    if (!pst) return <p>Loading...</p>
     return (
-        <section>
-            <h1>hello</h1>
-            <pre>{JSON.stringify(post)}</pre>
+        <section className='pst-details'>
+            {/* <pre>{JSON.stringify(pst)}</pre> */}
+
         </section>
     )
 }

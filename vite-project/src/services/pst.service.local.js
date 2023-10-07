@@ -73,6 +73,7 @@ function getEmptyPst() {
         _id: "",
         txt: "",
         imgUrl: "",
+        uploadTime:'now',
         by: {
             _id: "",
             fullname: "",
@@ -126,6 +127,7 @@ function _createPst() {
             _id: "s101",
             txt: "Best trip ever",
             imgUrl: "",
+            uploadTime:utilService.randomTimeString(),
             by: {
                 _id: "u101",
                 fullname: "sharonbash",

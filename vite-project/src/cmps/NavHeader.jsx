@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImgUploader } from './ImgUploader';
 const { useState, useEffect } = React
+import { UploadModal } from './uploadModal';
 
 export function NavHeader({ onAddPst }) {
     const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
@@ -27,29 +28,9 @@ export function NavHeader({ onAddPst }) {
                 <button className='item'><img className="profile-icon-img" src="s3.jpg"></img>Profile </button>
                 <button className='item-down'><img src="svgs_collection/svg8.svg"></img>Threads</button>
                 <button className='item-more'><img src="svgs_collection/svg10.svg"></img>More</button>
-                {isUploadModalOpen && (
-                    <div className="modal">
-                        <div className="modal-content">
-                            <h3>Create new post</h3>
-                            <div className='inner-container'>
-                                <img className='icon-upload-background' src="upload-window.svg"></img>
-                                <h3>Drag photos and videos here</h3>
-                                <span className="close-button" onClick={closeModal}>&times;</span>
-                                <ImgUploader onUploaded={(url) => {
-                                    console.log('urlFromNav', url)
-                                    console.log('navvvvvvvvvvvv')
-                                    onAddPst(url)
-                                    closeModal();
-                                }} />
-                            </div>
-
-                        </div>
-                    </div>
+                {isUploadModalOpen && (<UploadModal closeModal={closeModal} onAddPst={onAddPst} />
                 )}
-
             </section>
-
-
         </section>
     )
 }
