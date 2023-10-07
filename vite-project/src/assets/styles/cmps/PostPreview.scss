@@ -11,8 +11,10 @@
 
     .info-start {
         display: flex;
-        flex-direction: row;
-
+        justify-content: space-between;
+        .info-start-content{
+            display: flex;
+        }
         .profile-prev {
             width: 3rem;
             border-radius: 50%;
@@ -49,21 +51,25 @@
 
         
 
-        .comment-text-area {
-            .comment-input-container{
-                display: flex;
-                justify-content: space-between;
-            }
-            .emjoi-btn {
-                margin-left: 8rem;
 
 
-                
+    }
+
+    .comment-text-area {
+        .comment-input-container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .empjiPostbtn{
+            margin-left: 8rem;
+            .emjoi-btn{
+                width:1rem;
             }
      
-         
-
         }
+
+ 
+     
 
     }
 
