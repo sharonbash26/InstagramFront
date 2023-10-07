@@ -4,6 +4,10 @@ import { pstService } from "../services/pst.service.local";
 import React from 'react';
 import { DetailsModal } from "./DetailsModal";
 const { useState, useEffect } = React
+import EmojiPicker from 'emoji-picker-react';
+import { Emoji, EmojiStyle } from 'emoji-picker-react';
+
+
 // import img from '../assets/img/1.jpg'
 
 
@@ -12,9 +16,13 @@ export function PostPreview({ pst }) {
     const [isLiked, setIsLiked] = useState(false)
     const [comment, setComment] = useState('')
     const [likeUrl, setLikeUrl] = useState("like.svg")
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
-
+    function openMenuEmoji() {
+        setShowEmojiPicker(!showEmojiPicker);
+    }
     function toggleLike() {
         if (isLiked) {
             setLikeUrl("like.svg")
@@ -37,9 +45,12 @@ function openDetailsModal(){
     return (
         <section className="pst-Preview">
             <div className="info-start">
+                <div className="info-start-content">
                 <img className="profile-prev" src="s3.jpg"></img>
                 <h2>{by.fullname}</h2>
                 <h4 className="timeWhenUpload">{uploadTime}</h4>
+                </div>
+
                 <img className="three-dot-icon" src="3dot.svg"></img>
             </div>
 
@@ -64,8 +75,9 @@ function openDetailsModal(){
                 <div className="comment-input-container">
                 <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
                 <div className="empjiPostbtn">
-                <button className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
                 {comment.length > 0 && (<button>Post</button>)}
+                <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
+                {showEmojiPicker && <EmojiPicker />}
                 </div>
                 </div>
             </div>

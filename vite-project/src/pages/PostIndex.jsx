@@ -10,18 +10,28 @@ import { NavHeader } from '../cmps/NavHeader'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { addPst } from '../store/pst.actions'
 import { AppFooter } from '../cmps/AppFooter'
+import { Loading } from '../cmps/Loading'
 
 
 export function PostIndex() {
     const psts = useSelector(storeState => storeState.pstModule.psts) || []
+    const [isLoading,setIsLoading]=useState(true)
     console.log('psts', psts)
 
     useEffect(() => {
+        loadPage()
         loadPsts().catch(err => {
             console.log('err', err)
             showErrorMsg('Cannot load psts')
         })
     }, [])
+
+    
+    const loadPage = () => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
+    }
 
 
     async function onAddPst(urlFromCloud) {
@@ -37,6 +47,8 @@ export function PostIndex() {
             console.log('cannot add post')
         }
     }
+    
+    if (isLoading) return <Loading />;
     return (
         <section className='pst-index'>
             <NavHeader onAddPst={onAddPst} />
