@@ -7,8 +7,9 @@
         top: 0;
         left: 0;
         z-index: 100;
-        margin-top: 5em;
-
+        margin-top:3.0625rem;
+      
+     
         &::after {
             content: "";
             background: gray;
@@ -18,9 +19,16 @@
             margin-top: -80px;
             right: 0;
         }
+        .item-first{
+            margin-top:3.0625rem;
+        }
+   
 
 
         button {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             cursor: pointer;
             font-family: $font-family1;
             line-height: 1.25em;
@@ -28,7 +36,7 @@
             letter-spacing: normal;
             transition: background-color 0.3s, color 0.3s;
         }
-
+    
         .profile-icon-img {
             width: 1.5em;
             border-radius: 50%;

@@ -9,6 +9,7 @@ import { ADD_PST } from '../store/pst.reducer.js'
 import { NavHeader } from '../cmps/NavHeader'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { addPst } from '../store/pst.actions'
+import { AppFooter } from '../cmps/AppFooter'
 
 
 export function PostIndex() {
@@ -26,10 +27,10 @@ export function PostIndex() {
     async function onAddPst(urlFromCloud) {
         const pst = pstService.getEmptyPst()
         pst.imgUrl = urlFromCloud
-        console.log('pst imgUrlllllll',pst.imgUrl)
+        console.log('pst imgUrlllllll', pst.imgUrl)
         try {
             const savedPst = await addPst(pst)
-            console.log('saved pst from index',savedPst)
+            console.log('saved pst from index', savedPst)
             showSuccessMsg(`post added (id: ${savedPst._id})`)
         } catch (err) {
             showErrorMsg('Cannot add post')
@@ -38,11 +39,17 @@ export function PostIndex() {
     }
     return (
         <section className='pst-index'>
-            <NavHeader onAddPst={onAddPst}/>
+            <NavHeader onAddPst={onAddPst} />
+
             <div className="nested-route">
                 <Outlet />
             </div>
-            <PstList psts={psts} />
+            <div className='index-content'>
+                <PstList psts={psts} />
+                <AppFooter />
+            </div>
+
+
         </section>
     )
 }
