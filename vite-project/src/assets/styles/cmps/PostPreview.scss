@@ -1,13 +1,14 @@
 .pst-Preview {
     width: 29.375rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 18px;
     color: #000000;
     font-style: normal;
     // font-weight: 600;
      margin-inline: auto;
     margin-top: 14.625rem;
+    font-weight:normal;
 
     .info-start {
         display: flex;
@@ -20,8 +21,15 @@
             border-radius: 50%;
             margin-bottom: 1rem;
             margin-right: 0.8rem;
+
+         
+          
         }
 
+        h2{
+            font-weight: normal;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
         .three-dot-icon {
             margin-left: 15rem;
         }
@@ -59,6 +67,9 @@
         .comment-input-container{
             display: flex;
             justify-content: space-between;
+        }
+        .view-all-comments{
+            padding: 0;
         }
         .empjiPostbtn{
             margin-left: 8rem;

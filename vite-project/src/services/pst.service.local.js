@@ -14,7 +14,9 @@ export const pstService = {
     save,
     remove,
     getEmptyPst,
-    addPstMsg
+    addPstMsg,
+    psts
+    
 }
 window.cs = pstService
 

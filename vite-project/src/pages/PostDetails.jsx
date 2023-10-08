@@ -19,7 +19,7 @@ export function PostDetails() {
     if (!pst) return <p>Loading...</p>
     return (
         <section className='pst-details'>
-            {/* <pre>{JSON.stringify(pst)}</pre> */}
+            <pre>{JSON.stringify(pst)}</pre>
 
         </section>
     )

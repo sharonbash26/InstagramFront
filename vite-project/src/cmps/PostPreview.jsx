@@ -39,6 +39,7 @@ export function PostPreview({ pst }) {
         console.log('press like')
     }
     console.log('imgUrl previev', imgUrl)
+    console.log('time',pstService.psts[0].uploadTime)
 function openDetailsModal(){
 <DetailsModal />
 }
@@ -47,8 +48,8 @@ function openDetailsModal(){
             <div className="info-start">
                 <div className="info-start-content">
                 <img className="profile-prev" src="s3.jpg"></img>
-                <h2>{by.fullname}</h2>
-                <h4 className="timeWhenUpload">{uploadTime}</h4>
+                <h2>{by.fullname} <span className="dot-upper" style={{color:'gray'}}>•</span></h2>
+                <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4>
                 </div>
 
                 <img className="three-dot-icon" src="3dot.svg"></img>
@@ -70,7 +71,7 @@ function openDetailsModal(){
             <h4>{txt}</h4>
             <div className="comment-text-area">
                 <div className="see-comments">
-                    <button className="view-all-comments">View all 5 comments</button>
+                <button className="view-all-comments">View all 5 comments</button>
                 </div>
                 <div className="comment-input-container">
                 <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />

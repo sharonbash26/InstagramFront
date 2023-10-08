@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     .btn-container {
+       
         display: flex;
         flex-direction: column;
         top: 0;
@@ -12,12 +13,13 @@
         margin-top:3.0625rem;
         height: 100%;
         justify-content: space-between;
+        width: 13.5rem;
     
       
      
         &::after {
             content: "";
-            background: gray;
+            background: rgb(217, 216, 216);
             width: 0.1rem;
             position: absolute;
             height: 100vh;
@@ -25,6 +27,7 @@
             right: 0;
         }
         .item{
+            width:100%;
             padding: 1.5625rem 0.75rem 1rem;
             align-items: center;
         }
@@ -143,10 +146,6 @@
 
         }
 
-        .item-down {
-            // margin-top: 15.0625rem;
-
-        }
 
         .item-more {
             margin-top: 2.375rem;
@@ -161,7 +160,10 @@
     .logo {
         width: 6.4374em;
         height: 1.875em;
-        margin: 2.5rem;
+        padding-top: 2rem;
+        img{
+            margin-left: 1rem;
+        }
 
 
     }
