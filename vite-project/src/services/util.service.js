@@ -79,14 +79,14 @@ function randomTimeString() {
 
     switch (randomType) {
         case 'm':
-            maxValue = 59; // up to 59 minutes
+            maxValue = 30
             break;
         case 'h':
-            maxValue = 23; // up to 23 hours
-            break;
+            maxValue = 15; // up to 23 hours
+            break
         case 'd':
-            maxValue = 30; // up to 30 days, for simplicity
-            break;
+            maxValue = 4
+            break
     }
 
     const randomValue = Math.floor(Math.random() * maxValue) + 1; // +1 ensures we don't get zero
