@@ -12,7 +12,7 @@ import { Emoji, EmojiStyle } from 'emoji-picker-react';
 
 
 export function PostPreview({ pst }) {
-    const { txt, imgUrl, by, _id, comments, likedBy,uploadTime } = pst
+    const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
     const [isLiked, setIsLiked] = useState(false)
     const [comment, setComment] = useState('')
     const [likeUrl, setLikeUrl] = useState("like.svg")
@@ -39,51 +39,62 @@ export function PostPreview({ pst }) {
         console.log('press like')
     }
     console.log('imgUrl previev', imgUrl)
-    console.log('time',pstService.psts[0].uploadTime)
-function openDetailsModal(){
-<DetailsModal />
-}
+    console.log('time', pstService.psts[0].uploadTime)
+    function openDetailsModal() {
+        <DetailsModal />
+    }
+    function openThreeDotModal(){
+        console.log('333')
+    }
     return (
         <section className="pst-Preview">
             <div className="info-start">
                 <div className="info-start-content">
-                <img className="profile-prev" src="s3.jpg"></img>
-                <h2>{by.fullname} <span className="dot-upper" style={{color:'gray'}}>•</span></h2>
-                <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4>
-                </div>
+                    <img className="profile-prev" src="s3.jpg"></img>
+                    <h2>{by.fullname} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
+                    {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
+                    <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
 
-                <img className="three-dot-icon" src="3dot.svg"></img>
+                </div>
+                 <button onClick={openThreeDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
+              
             </div>
 
             {/* <img src={utilService.getAssetSrc('react.svg')} alt="pst preview"></img> */}
             <img src={imgUrl || "s3.jpg"} alt="pst preview"></img>
-            <div className="actions-btn">
-                <button className="like" onClick={toggleLike}> { }<img src={likeUrl}></img>
-                </button>
-                <Link to={`/pst/${pst._id}`}>
-                    <button className="comment" onClick={openDetailsModal}><img src="comment.svg"></img></button>
-                </Link>
-                <button className="share"><img src="share.svg"></img></button>
-                <button className="save"><img src="save.svg"></img></button>
-            </div>
-            {likesCount > 0 && <h4>{likesCount} {likesCount === 1 ? 'like' : 'likes'}</h4>}
+            <section>
+                <div className="actions-btn">
+                    <div className="actions-btn-part1">
+                        <button className="like" onClick={toggleLike}> { }<img src={likeUrl}></img>
+                        </button>
+                        <Link to={`/pst/${pst._id}`}>
+                            <button className="comment" onClick={openDetailsModal}><img src="comment.svg"></img></button>
+                        </Link>
+                        <button className="share"><img src="share.svg"></img></button>
+                    </div>
+                    <div className="actions-btn-part2">
+                        <button className="save"><img src="save.svg"></img></button>
+                    </div>
+                </div>
+                {likesCount > 0 && <h4 className="count-likes">{likesCount} {likesCount === 1 ? 'like' : 'likes'}</h4>}
+            
 
-            <h4>{txt}</h4>
+            <h4 className="description"><span>{by.fullname }</span>  {txt}</h4>
             <div className="comment-text-area">
                 <div className="see-comments">
-                <button className="view-all-comments">View all 5 comments</button>
+                    <button className="view-all-comments">View all 5 comments</button>
                 </div>
                 <div className="comment-input-container">
-                <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
-                <div className="empjiPostbtn">
-                {comment.length > 0 && (<button>Post</button>)}
-                <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
-                {showEmojiPicker && <EmojiPicker />}
-                </div>
+                    <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
+                    <div className="empjiPostbtn">
+                        {comment.length > 0 && (<button>Post</button>)}
+                        <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
+                        {showEmojiPicker && <EmojiPicker />}
+                    </div>
                 </div>
             </div>
-
-
+      
+            </section>
 
             <hr />
 

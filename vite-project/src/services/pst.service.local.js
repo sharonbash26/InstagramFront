@@ -75,7 +75,7 @@ function getEmptyPst() {
         _id: "",
         txt: "",
         imgUrl: "",
-        uploadTime:'now',
+        uploadTime:"now",
         by: {
             _id: "",
             fullname: "",

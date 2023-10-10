@@ -1,0 +1,150 @@
+.pst-Preview {
+    width: 29.375rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+    font-style: normal;
+    // font-weight: 600;
+    margin-inline: auto;
+    font-weight: normal;
+    margin-top: 22px;
+
+    .info-start {
+        display: flex;
+        justify-content: space-between;
+
+        .info-start-content {
+            display: flex;
+            margin-left: -2px;
+        }
+
+        .profile-prev {
+            width: 3rem;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            margin-right:13px;
+
+
+
+        }
+
+        h2 {
+            font-weight: normal;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .three-dot-icon {
+            margin-left: 15rem;
+        }
+
+        .timeWhenUpload {
+            margin-left: 0.5rem;
+            color: rgb(154, 152, 152);
+            font-size: 0.875rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+    }
+
+    .description {
+        margin: 2px;
+        text-align: inherit;
+        font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:rgb(0,0, 0);
+        font-weight: normal;
+
+        span{
+            color:rgb(38,38, 38);
+            font-weight:600;
+            font-size: .875rem;
+
+        }
+
+    }
+
+    .count-likes{
+        margin: 3px;
+        text-align: inherit;
+        font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:rgb(0,0, 0);
+        font-weight: normal;
+
+    }
+
+
+    .actions-btn {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        justify-content: space-around;
+
+        .actions-btn-part1 {
+            margin-left: -8px;
+        }
+
+        .actions-btn-part2 {
+            .save {
+                img {
+                    margin-left: 0.6875rem;
+                }
+            }
+        }
+
+        button {
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            width: 2rem;
+            margin-top: 0.3rem;
+        }
+
+        .save {
+            margin-left: 21rem;
+        }
+
+
+
+
+
+    }
+
+    .comment-text-area {
+        .comment-input-container {
+            display: flex;
+            justify-content: space-between;
+            font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:rgb(0,0, 0);
+            font-weight: normal;
+      
+        }
+
+        .view-all-comments {
+            padding: 0;
+            font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:rgb(115,115, 115);
+            font-weight: 400;
+            cursor: pointer;
+            
+        }
+
+        .empjiPostbtn {
+            margin-left: 11rem;
+
+            .emjoi-btn {
+                width: 1rem;
+                margin-right: -5px;
+            }
+
+        }
+
+
+
+
+    }
+
+}
