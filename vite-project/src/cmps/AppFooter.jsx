@@ -18,11 +18,11 @@ export function AppFooter() {
                 <a href="/terms">Terms</a>
                 <span> • </span>
                 <br/> 
-                <a href="/sfdf">Locations</a>
+                <a href="/Locations">Locations</a>
                 <span> • </span>
-                <a href="/dsds">Language</a>
+                <a href="/Language">Language</a>
                 <span> • </span>
-                <a href="/dfdfd">Meta Verified</a>
+                <a href="/Meta Verified">Meta Verified</a>
                <p>© 2023 INSTAGRAM FROM META</p>
             </div>
         </section>

@@ -41,6 +41,8 @@ export async function loadPsts() {
 
 export async function removePst(pstId) {
     try {
+        console.log('try to remove')
+        console.log('pstId',pstId)
         await pstService.remove(pstId)
         store.dispatch(getActionRemovePst(pstId))
     } catch (err) {

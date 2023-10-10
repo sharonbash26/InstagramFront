@@ -3,24 +3,40 @@ import { utilService } from "../services/util.service";
 import { pstService } from "../services/pst.service.local";
 import React from 'react';
 import { DetailsModal } from "./DetailsModal";
-const { useState, useEffect } = React
+const { useState, useEffect, useRef } = React
 import EmojiPicker from 'emoji-picker-react';
 import { Emoji, EmojiStyle } from 'emoji-picker-react';
 import { ThreeDotModal } from "./ThreeDotModal";
 
 
-// import img from '../assets/img/1.jpg'
-
-
-export function PostPreview({ pst }) {
+export function PostPreview({ pst, onRemovePst }) {
     const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
     const [isLiked, setIsLiked] = useState(false)
     const [comment, setComment] = useState('')
     const [likeUrl, setLikeUrl] = useState("like.svg")
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-    const [isDotModalOpen,setIsDotModalOpen]=useState(false)
+    const [isDotModalOpen, setIsDotModalOpen] = useState(false)
+    const [selectedEmoji, setSelectedEmoji] = useState("");
+    const [inputValue, setInputValue] = useState("");
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
+
+    const emojiPickerRef = useRef(null);
+
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
+                setShowEmojiPicker(false);
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     function openMenuEmoji() {
         setShowEmojiPicker(!showEmojiPicker);
@@ -45,11 +61,18 @@ export function PostPreview({ pst }) {
     function openDetailsModal() {
         <DetailsModal />
     }
-    function openDotModal(){
-     setIsDotModalOpen(true)
+    function openDotModal() {
+        setIsDotModalOpen(true)
     }
-    function closeDotModal(){
+    function closeDotModal() {
         setIsDotModalOpen(false)
+    }
+    function onClick(emojiData, event) {
+        setInputValue(
+            (inputValue) =>
+                inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
+        );
+        setSelectedEmoji(emojiData.unified);
     }
     return (
         <section className="pst-Preview">
@@ -61,9 +84,11 @@ export function PostPreview({ pst }) {
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
 
                 </div>
-                 <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
-                 {isDotModalOpen&& <ThreeDotModal closeDotModal={closeDotModal} />}
-              
+
+                <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
+                {isDotModalOpen && <ThreeDotModal closeDotModal={closeDotModal} onRemovePst={() => onRemovePst(pst._id)}></ThreeDotModal>}
+
+
             </div>
 
             {/* <img src={utilService.getAssetSrc('react.svg')} alt="pst preview"></img> */}
@@ -83,23 +108,33 @@ export function PostPreview({ pst }) {
                     </div>
                 </div>
                 {likesCount > 0 && <h4 className="count-likes">{likesCount} {likesCount === 1 ? 'like' : 'likes'}</h4>}
-            
 
-            <h4 className="description"><span>{by.fullname }</span>  {txt}</h4>
-            <div className="comment-text-area">
-                <div className="see-comments">
-                    <button className="view-all-comments">View all 5 comments</button>
-                </div>
-                <div className="comment-input-container">
-                    <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
-                    <div className="empjiPostbtn">
-                        {comment.length > 0 && (<button>Post</button>)}
-                        <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
-                        {showEmojiPicker && <EmojiPicker />}
+
+                <h4 className="description"><span>{by.fullname}</span>  {txt}</h4>
+                <div className="comment-text-area">
+                    <div className="see-comments">
+                        <button className="view-all-comments">View all 5 comments</button>
+                    </div>
+                    <div className="comment-input-container" ref={emojiPickerRef}>
+                        <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
+                        <div className="empjiPostbtn">
+                        { <Emoji unified={selectedEmoji} size={28} /> }
+                            {comment.length > 0 || selectedEmoji ? (
+                                <button className="post-btn">Post</button>
+                            ) : null}
+
+                            <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
+
+                           
+
+
+                            {showEmojiPicker && <EmojiPicker onEmojiClick={onClick} />}
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
-      
+
             </section>
 
             <hr />
