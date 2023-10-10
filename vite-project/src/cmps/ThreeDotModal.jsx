@@ -1,16 +1,20 @@
-export function ThreeDotModal() {
+export function ThreeDotModal({ closeDotModal}) {
 
     return (
+        <div className="modal-overlay">
         <section className="three-dot-modal">
-            <h4>Delete</h4>
-            <h4>Report</h4>
-            <h4>Not Interested</h4>
-            <h4>Go to post</h4>
-            <h4>Share to...</h4>
-            <h4>Copy link</h4>
-            <h4>Embed</h4>
-            <h4>About this account</h4>
-            <h4>Cancel</h4>
+            <button className="3btn" style={{ color: 'red' }}>Delete</button>
+            <button className="3btn" style={{ color: 'red' }}>Report</button>
+            <button className="3btn">Unfollow</button>
+            <button className="3btn">Add to favorites</button>
+            <button className="3btn">Not Interested</button>
+            <button className="3btn">Go to post</button>
+            <button className="3btn">Share to...</button>
+            <button className="3btn">Copy link</button>
+            <button className="3btn">About this account</button>
+            <button className="3btn">Embed</button>
+            <button className="3btn">Cancel</button>
         </section>
+        </div>
     )
 }

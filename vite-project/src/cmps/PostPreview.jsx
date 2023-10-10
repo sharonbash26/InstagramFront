@@ -6,6 +6,7 @@ import { DetailsModal } from "./DetailsModal";
 const { useState, useEffect } = React
 import EmojiPicker from 'emoji-picker-react';
 import { Emoji, EmojiStyle } from 'emoji-picker-react';
+import { ThreeDotModal } from "./ThreeDotModal";
 
 
 // import img from '../assets/img/1.jpg'
@@ -17,6 +18,7 @@ export function PostPreview({ pst }) {
     const [comment, setComment] = useState('')
     const [likeUrl, setLikeUrl] = useState("like.svg")
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const [isDotModalOpen,setIsDotModalOpen]=useState(false)
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
@@ -43,8 +45,11 @@ export function PostPreview({ pst }) {
     function openDetailsModal() {
         <DetailsModal />
     }
-    function openThreeDotModal(){
-        console.log('333')
+    function openDotModal(){
+     setIsDotModalOpen(true)
+    }
+    function closeDotModal(){
+        setIsDotModalOpen(false)
     }
     return (
         <section className="pst-Preview">
@@ -56,7 +61,8 @@ export function PostPreview({ pst }) {
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
 
                 </div>
-                 <button onClick={openThreeDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
+                 <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
+                 {isDotModalOpen&& <ThreeDotModal closeDotModal={closeDotModal} />}
               
             </div>
 
