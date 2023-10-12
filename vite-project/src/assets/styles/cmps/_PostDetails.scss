@@ -1,4 +1,97 @@
-.pst-details{
+.pst-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* two equal columns */
+    background: white;
+    border-radius: 0.5rem;
+    width: 60rem;
+    /* Sum of the two columns */
+    height: 50rem;
+    /* auto height to fit content */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* centers the modal */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for better presentation */
+
+    /* Some space inside */
+
+    .img-side-details {
+        display: block;
+        grid-column: 1 / 2;
+        /* Span the entire first column */
+        grid-row: 1 / -1;
+        /* Span from the start to the end in terms of rows */
+        min-height:100% ;
+        /* Take full height of its grid cell */
+
+
+
+        .details-img {
+          height: 769px;
+          object-fit: cover;
+            /* Take the full height of its container */
+            /* fill the parent container width */
+            /* restrict to maximum width of 20rem */
+        }
+    }
+
+    .header-container-details-modal {
+      
+
+        .details-subject {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            border-bottom: 2px  solid rgb(0, 0, 0);
+
+            .first {
+                display: flex;
+                flex-direction: row;
+              
+
+                .profile-details-img {
+                    width: 3rem;
+                    border-radius: 50%;
+                    margin-bottom: 1rem;
+                    margin-left: 0.55rem;
+                }
+
+                h4 {
+                    margin-left: 7px;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+
+                }
+
+            }
+        }
+    }
+
+    .body-container-details-modal {
+        grid-column: 2; /* occupies the second column */
+        grid-row: 2;
+        .first {
+            display: flex;
+            flex-direction: row;
    
+            .profile-details-img {
+                width: 3rem;
+                border-radius: 50%;
+                margin-bottom: 1rem;
+                margin-left: 3rem;
+                grid-row: 2/3;
+                grid-column: 2/3;
+            }
+        }
+    }
+
+
+
+
 
 }

@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { utilService } from "../services/util.service";
 import { pstService } from "../services/pst.service.local";
 import React from 'react';
-import { DetailsModal } from "./DetailsModal";
 const { useState, useEffect, useRef } = React
 import EmojiPicker from 'emoji-picker-react';
 import { Emoji, EmojiStyle } from 'emoji-picker-react';
 import { ThreeDotModal } from "./ThreeDotModal";
+import { PostDetails } from "../pages/PostDetails";
 
 
 export function PostPreview({ pst, onRemovePst }) {
@@ -59,7 +59,7 @@ export function PostPreview({ pst, onRemovePst }) {
     console.log('imgUrl previev', imgUrl)
     console.log('time', pstService.psts[0].uploadTime)
     function openDetailsModal() {
-        <DetailsModal />
+        <PostDetails openDotModal={openDotModal}  closeDotModal={ closeDotModal} onRemovePst={onRemovePst}/>
     }
     function openDotModal() {
         setIsDotModalOpen(true)
