@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from './ImgUploader'
+const history = useHistory();
 
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })

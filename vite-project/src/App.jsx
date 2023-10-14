@@ -8,6 +8,7 @@ import { store } from './store/store'
 import { PostIndex } from './pages/PostIndex'
 import { PostDetails } from './pages/PostDetails'
 import './assets/styles/main.scss'
+import { LoginSignupPage } from './pages/LoginSignupPage'
 
 export function App() {
 
@@ -22,6 +23,8 @@ export function App() {
                             <Route path="/pst" element={<PostIndex />} >
                                 <Route path='/pst/:pstId' element={<PostDetails />} />
                             </Route>
+                            <Route path="/login" element={<LoginSignupPage />} />
+
                             <Route element={<PostIndex />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
 
