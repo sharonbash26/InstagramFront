@@ -22,7 +22,7 @@ window.cs = pstService
 
 
 async function query() {
-    var psts = await asyncStorageService.query(STORAGE_KEY)
+    const psts = await asyncStorageService.query(STORAGE_KEY)
     // if (filterBy.txt) {
     //     const regex = new RegExp(filterBy.txt, 'i')
     //     psts = psts.filter(pst => regex.test(pst.vendor) || regex.test(pst.description))
@@ -39,6 +39,7 @@ function getById(pstId) {
 
 async function remove(pstId) {
     // throw new Error('Nope')
+    console.log('storgae key',STORAGE_KEY)
     await asyncStorageService.remove(STORAGE_KEY, pstId)
 }
 

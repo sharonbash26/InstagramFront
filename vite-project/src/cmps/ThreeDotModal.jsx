@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import { removePst } from "../store/pst.actions";
 
-export function ThreeDotModal({ closeDotModal, onRemovePst}) {
+export function ThreeDotModal({ closeDotModal,pst}) {
 
     const modalRef = useRef(null);
 
@@ -23,7 +24,7 @@ export function ThreeDotModal({ closeDotModal, onRemovePst}) {
     return (
         <div className="modal-overlay">
         <section className="three-dot-modal" ref={modalRef}>
-            <button className="3btn" style={{ color: 'red',fontWeight: 'bold'  }} onClick={ onRemovePst}>Delete</button>
+            <button className="3btn" style={{ color: 'red',fontWeight: 'bold'  }} onClick={()=>{removePst(pst._id)}}>Delete</button>
             <button className="3btn" style={{ color: 'red',fontWeight: 'bold'  }}>Report</button>
             <button className="3btn">Unfollow</button>
             <button className="3btn">Add to favorites</button>

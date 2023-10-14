@@ -1,10 +1,11 @@
 import { PostPreview } from "./PostPreview"
-export function PstList({psts, onRemovePst}){
+export function PstList({psts}){
     return(
         <ul className="pst-list">
         {psts.map(pst =>    
             <li className="pst-preview" key={pst._id}>
-                <PostPreview pst={pst}  onRemovePst={ onRemovePst} />
+                {/* <PostPreview pst={pst}  onRemovePst={ onRemovePst} /> */}
+                <PostPreview pst={pst}   />
              
             </li>
         )}

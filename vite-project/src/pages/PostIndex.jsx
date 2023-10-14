@@ -48,16 +48,7 @@ export function PostIndex() {
         }
     }
 
-    async function onRemovePst(pstId){
-        try{
-            console.log('remove index from insex',pstId)
-            await removePst(pstId)
-            showSuccessMsg('Pst removed')
-        }catch(err){
-            showErrorMsg('Cannot remove pst')
-        }
 
-    }
     
     if (isLoading) return <Loading />;
     return (
@@ -68,7 +59,8 @@ export function PostIndex() {
                 <Outlet />
             </div>
             <div className='index-content'>
-            <PstList psts={psts} onRemovePst={(pstId) => onRemovePst(pstId)} />
+            {/* <PstList psts={psts} onRemovePst={(pstId) => onRemovePst(pstId)} /> */}
+            <PstList psts={psts} ></PstList>
                 <AppFooter />
             </div>
 

@@ -12,6 +12,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 100;
     /* centers the modal */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     /* Optional shadow for better presentation */
@@ -24,14 +25,16 @@
         /* Span the entire first column */
         grid-row: 1 / -1;
         /* Span from the start to the end in terms of rows */
-        min-height:100% ;
+        height: 100%;
+        width: 100%;
         /* Take full height of its grid cell */
 
 
 
         .details-img {
-          height: 769px;
-          object-fit: cover;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
             /* Take the full height of its container */
             /* fill the parent container width */
             /* restrict to maximum width of 20rem */
@@ -39,19 +42,19 @@
     }
 
     .header-container-details-modal {
-      
+        grid-column: 2;
 
         .details-subject {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
-            border-bottom: 2px  solid rgb(0, 0, 0);
+            border-bottom: 2px solid rgb(0, 0, 0);
 
             .first {
                 display: flex;
                 flex-direction: row;
-              
+                
 
                 .profile-details-img {
                     width: 3rem;
@@ -73,12 +76,14 @@
     }
 
     .body-container-details-modal {
-        grid-column: 2; /* occupies the second column */
+        grid-column: 2;
+        /* occupies the second column */
         grid-row: 2;
+
         .first {
             display: flex;
             flex-direction: row;
-   
+
             .profile-details-img {
                 width: 3rem;
                 border-radius: 50%;

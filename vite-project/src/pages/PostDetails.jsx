@@ -42,18 +42,19 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                     </section>
                 </section>
 
-            </div>
-            <div className='body-container-details-modal'>
-                <section className='first'>
-                    <img className='profile-details-img' src={pst.imgUrl || "s3.jpg"} alt="pst preview"></img>
-                    <h4>{pst.by.fullname}</h4>
-                    <h4>{pst.txt}</h4>
-                    
-                </section>
-            </div>
-            <div className='actions-container'>
+                <div className='body-container-details-modal'>
+                    <section className='first'>
+                        <img className='profile-details-img' src={pst.imgUrl || "s3.jpg"} alt="pst preview"></img>
+                        <h4>{pst.by.fullname}</h4>
+                        <h4>{pst.txt}</h4>
 
+                    </section>
+                </div>
+                <div className='actions-container'>
+
+                </div>
             </div>
+
 
 
 

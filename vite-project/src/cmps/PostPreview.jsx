@@ -59,7 +59,7 @@ export function PostPreview({ pst, onRemovePst }) {
     console.log('imgUrl previev', imgUrl)
     console.log('time', pstService.psts[0].uploadTime)
     function openDetailsModal() {
-        <PostDetails openDotModal={openDotModal}  closeDotModal={ closeDotModal} onRemovePst={onRemovePst}/>
+        <PostDetails openDotModal={openDotModal} closeDotModal={closeDotModal} onRemovePst={onRemovePst} />
     }
     function openDotModal() {
         setIsDotModalOpen(true)
@@ -68,11 +68,11 @@ export function PostPreview({ pst, onRemovePst }) {
         setIsDotModalOpen(false)
     }
     function onClick(emojiData, event) {
-        setInputValue(
+        setComment(
             (inputValue) =>
                 inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
         );
-        setSelectedEmoji(emojiData.unified);
+        // setSelectedEmoji(emojiData.unified);
     }
     return (
         <section className="pst-Preview">
@@ -118,18 +118,16 @@ export function PostPreview({ pst, onRemovePst }) {
                     <div className="comment-input-container" ref={emojiPickerRef}>
                         <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
                         <div className="empjiPostbtn">
-                        { <Emoji unified={selectedEmoji} size={28} /> }
+                            {<Emoji unified={selectedEmoji} size={28} />}
                             {comment.length > 0 || selectedEmoji ? (
                                 <button className="post-btn">Post</button>
                             ) : null}
 
                             <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
 
-                           
-
-
-                            {showEmojiPicker && <EmojiPicker onEmojiClick={onClick} />}
-
+                            <div className="emoji-picker-container">
+                                {showEmojiPicker && <EmojiPicker onEmojiClick={onClick} />}
+                            </div>
 
                         </div>
                     </div>
