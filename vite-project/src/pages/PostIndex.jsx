@@ -17,68 +17,66 @@ import { LoginSignup } from '../cmps/LoginSignup'
 export function PostIndex() {
     const psts = useSelector(storeState => storeState.pstModule.psts) || []
     const [isLoading, setIsLoading] = useState(true)
-    const [isLogin, setLogin] = useState(false)
+
     console.log('psts', psts)
 
-    const navigate = useNavigate();
+
 
     useEffect(() => {
-        if (!isLogin) {
-            navigate('/login');
-        } else {
-            loadPage()
-            loadPsts().catch(err => {
-                console.log('err', err)
-                showErrorMsg('Cannot load psts')
-            })
-        }
-    }, [isLogin, navigate])
-
-
-    const loadPage = () => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 1500);
+        loadPage()
+        loadPsts().catch(err => {
+            console.log('err', err)
+            showErrorMsg('Cannot load psts')
+        })
     }
+        , [])
 
-    function toggleLogin() {
-        setLogin(prevLogin => !prevLogin);
+
+
+const loadPage = () => {
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 1500);
+}
+
+function toggleLogin() {
+    setLogin(prevLogin => !prevLogin);
+}
+
+
+async function onAddPst(urlFromCloud) {
+    const pst = pstService.getEmptyPst()
+    pst.imgUrl = urlFromCloud
+    console.log('pst imgUrlllllll', pst.imgUrl)
+    try {
+        const savedPst = await addPst(pst)
+        console.log('saved pst from index', savedPst)
+        showSuccessMsg(`post added (id: ${savedPst._id})`)
+    } catch (err) {
+        showErrorMsg('Cannot add post')
+        console.log('cannot add post')
     }
-
-
-    async function onAddPst(urlFromCloud) {
-        const pst = pstService.getEmptyPst()
-        pst.imgUrl = urlFromCloud
-        console.log('pst imgUrlllllll', pst.imgUrl)
-        try {
-            const savedPst = await addPst(pst)
-            console.log('saved pst from index', savedPst)
-            showSuccessMsg(`post added (id: ${savedPst._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add post')
-            console.log('cannot add post')
-        }
-    }
+}
 
 
 
-    if (isLoading) return <Loading />;
-    return (
+if (isLoading) return <Loading />;
+return (
 
-        <section className='pst-index'>
+    <section className='pst-index'>
 
-            <NavHeader onAddPst={onAddPst} />
+        <NavHeader onAddPst={onAddPst} />
 
-            <div className="nested-route">
-                <Outlet />
-            </div>
-            <div className='index-content'>
-                {/* <PstList psts={psts} onRemovePst={(pstId) => onRemovePst(pstId)} /> */}
-                <PstList psts={psts} ></PstList>
-                <AppFooter />
-            </div>
+        <div className="nested-route">
+            <Outlet />
+        </div>
+        <div className='index-content'>
+            {/* <PstList psts={psts} onRemovePst={(pstId) => onRemovePst(pstId)} /> */}
+            <PstList psts={psts} ></PstList>
+            <AppFooter />
+        </div>
 
-        </section>
+    </section>
 
-    )
+)
 }

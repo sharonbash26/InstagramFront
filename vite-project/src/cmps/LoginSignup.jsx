@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from './ImgUploader'
-const history = useHistory();
+
 
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
@@ -52,10 +52,14 @@ export function LoginSignup(props) {
 
     return (
         <div className="login-page">
+            <div className="logo">
+                <img src="logo.svg"></img>
+            </div>
             <p>
                 <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
             </p>
-            {!isSignup && <form className="login-form" onSubmit={onLogin}>
+            
+            {<form className="login-form" onSubmit={onLogin}>
                 <select
                     name="username"
                     value={credentials.username}
@@ -84,7 +88,7 @@ export function LoginSignup(props) {
                 <button>Login!</button>
             </form>}
             <div className="signup-section">
-                {isSignup && <form className="signup-form" onSubmit={onSignup}>
+                {<form className="signup-form" onSubmit={onSignup}>
                     <input
                         type="text"
                         name="fullname"
@@ -109,9 +113,16 @@ export function LoginSignup(props) {
                         onChange={handleChange}
                         required
                     />
-                    <ImgUploader onUploaded={onUploaded} />
+                    {/* <ImgUploader onUploaded={onUploaded} /> */}
                     <button >Signup!</button>
                 </form>}
+            </div>
+            <div className='apps-options'>
+                <h4>Get the app.</h4>
+                <section className='links-imgs'>
+                <img src='googleplay.png' className='google-play-img'></img> 
+                <img src="microsoft.png" className='microsoft-img'></img>
+                </section>
             </div>
         </div>
     )

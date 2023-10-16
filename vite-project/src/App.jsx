@@ -27,6 +27,7 @@ export function App() {
 
                             <Route element={<PostIndex />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
+                         
 
                             {/* <Route element={<PostDetails />} path="/post/:postId" /> */}
                         </Routes>

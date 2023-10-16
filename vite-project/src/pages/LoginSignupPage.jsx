@@ -3,27 +3,35 @@ import { Link, NavLink } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 export function LoginSignupPage(){
     const user = useSelector(storeState => storeState.userModule.user)
-    const [isLogin, setLogin] = useState(false)
+
+    const navigate = useNavigate();
 
 
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
+            navigate('/'); 
         } catch(err) {
             showErrorMsg('Cannot login')
+            navigate('/'); 
         }
     }
     async function onSignup(credentials) {
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
+            navigate('/');
         } catch(err) {
             showErrorMsg('Cannot signup')
+            navigate('/'); 
         }
     }
     async function onLogout() {
@@ -36,14 +44,20 @@ export function LoginSignupPage(){
     }
 
     return (
-        <header className="app-header">
+        <header className="login-signup-page">
+            <div className="illustration">
+                <img src="home-phones-2x.png" className="left-img"></img>
+                {/* <img src="frontSign.png"></img> */}
+            </div>
+
+
+
             <nav>
-                {/* {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */}
 
                 {user &&
                     <span className="user-info">
                         <Link to={`user/${user._id}`}>
-                            {user.imgUrl }
+                            {/* {user.imgUrl } */}
                             {user.fullname}
                         </Link>
                   
