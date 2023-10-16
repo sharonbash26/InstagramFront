@@ -20,27 +20,27 @@ window.userService = userService
 
 
 function getUsers() {
-    return storageService.query('user')
+    return asyncStorageService.query('user')
     // return httpService.get(`user`)
 }
 
 
 
 async function getById(userId) {
-    const user = await storageService.get('user', userId)
+    const user = await asyncStorageService.get('user', userId)
     // const user = await httpService.get(`user/${userId}`)
     return user
 }
 
 function remove(userId) {
-    return storageService.remove('user', userId)
+    return asyncStorageService.remove('user', userId)
     // return httpService.delete(`user/${userId}`)
 }
 
 async function update({_id, score}) {
-    const user = await storageService.get('user', _id)
+    const user = await asyncStorageService.get('user', _id)
     user.score = score
-    await storageService.put('user', user)
+    await asyncStorageService.put('user', user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
     // // Handle case in which admin updates other user's details
@@ -49,7 +49,7 @@ async function update({_id, score}) {
 }
 
 async function login(userCred) {
-    const users = await storageService.query('user')
+    const users = await asyncStorageService.query('user')
     const user = users.find(user => user.username === userCred.username)
     // const user = await httpService.post('auth/login', userCred)
     if (user) {
@@ -60,7 +60,7 @@ async function login(userCred) {
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     userCred.score = 10000
-    const user = await storageService.post('user', userCred)
+    const user = await asyncStorageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     return saveLocalUser(user)
 }
