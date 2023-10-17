@@ -1,19 +1,18 @@
 .user-upper-part {
+    display: flex;
     .internal-user-upper-part {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        margin-left: 25rem;
    
-
-
         .user-button {
             width: 8rem;
-            margin-left: 25rem;
+        
         }
 
         .info {
             display: flex;
             align-items: center;
-            gap: 0.625rem;
           
 
             h2 {
