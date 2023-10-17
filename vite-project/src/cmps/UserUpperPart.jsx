@@ -16,6 +16,7 @@ export function UserUpperPart() {
                 <button className='user-button'>
                     <img className="empty-user" src="emptyUser.jpeg" alt="User Placeholder"/>
                 </button>
+                <div className='info-container'>
                 <div className='info'>
                     <h2>{user.fullname}</h2>
                     <button className='edit-profile'>Edit profile</button>
@@ -30,6 +31,7 @@ export function UserUpperPart() {
                     <h4>{countFollowing} following</h4>
 
                 </section>
+                </div>
             </section>
         </section>
     )

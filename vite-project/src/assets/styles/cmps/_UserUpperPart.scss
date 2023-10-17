@@ -1,19 +1,26 @@
 .user-upper-part {
     display: flex;
+
     .internal-user-upper-part {
         display: flex;
-        flex-direction: column;
-        margin-left: 25rem;
-   
+        margin-left: 15rem;
+        width: 100%;
+        border-bottom: 2px gray solid;
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+        }
+
         .user-button {
             width: 8rem;
-         
+
         }
 
         .info {
             display: flex;
             align-items: center;
-          
+
 
             h2 {
                 margin-right: auto;
@@ -27,11 +34,11 @@
 
         .counts {
             display: flex;
-            gap:0.625rem;
+            gap: 0.625rem;
             align-items: center;
-            
 
-           
+
+
         }
 
     }

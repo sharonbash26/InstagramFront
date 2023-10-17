@@ -10,6 +10,10 @@ import { PostDetails } from './pages/PostDetails'
 import './assets/styles/main.scss'
 import { LoginSignupPage } from './pages/LoginSignupPage'
 import { ProfileUserPage } from './pages/ProfileUserPage'
+import { UserPst } from './cmps/UserPst'
+import { UserReel } from './cmps/UserReels'
+import { UserSaved } from './cmps/UserSaved'
+import { UserTagged } from './cmps/UserTagged'
 
 export function App() {
 
@@ -29,7 +33,14 @@ export function App() {
                             <Route element={<PostIndex />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
 
-                            <Route element={<ProfileUserPage />} path="/profile" />
+                            <Route element={<ProfileUserPage />} path="/profile" >
+                                <Route path="/profile/psts" element={<UserPst />}></Route>
+                                <Route path="/profile/reels" element={<UserReel />}></Route>
+                                <Route path="/profile/saved" element={<UserSaved />}></Route>
+                                <Route path="/profile/tagged" element={<UserTagged />}></Route>
+                            </Route>
+
+
                             {/* <Route element={<PostDetails />} path="/post/:postId" /> */}
                         </Routes>
                     </main>

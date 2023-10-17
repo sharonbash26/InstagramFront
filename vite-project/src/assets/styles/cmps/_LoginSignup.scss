@@ -49,7 +49,10 @@ button {
 }
 
 .apps-options{
-   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     .links-imgs{
         display: flex;
         flex-direction: row;
