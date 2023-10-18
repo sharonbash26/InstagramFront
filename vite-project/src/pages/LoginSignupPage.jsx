@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 
 export function LoginSignupPage() {
     const user = useSelector(storeState => storeState.userModule.user)
-    const slideshowImages = ["frontSign.png", "s5.jpg", "s8.jpg"]; // Add paths to your images here
+    const slideshowImages = ["frontSign.png", "a.png"]; // Add paths to your images here
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
 

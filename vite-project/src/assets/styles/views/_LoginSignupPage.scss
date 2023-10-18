@@ -1,27 +1,61 @@
+// .login-signup-page {
+//     display: flex;
+//     flex-direction: row;
+
+//     .left-img {
+//         width: 600px;
+//         height: 800px;
+//         margin-top: 10rem;
+//         margin-left: 10rem;
+//         background-image: url("home-phones-2x.png");
+//         background-repeat: no-repeat;
+//         background-position: center center;
+//         background-size: cover;
+
+//     }
+
+//     .slideshow-image {
+//         width: 90%;
+//         height: auto;
+//         // position: absolute;
+//         // top: 0;
+//         // left: 0;
+//         z-index: 100;
+//         object-fit: cover;
+//         opacity: 1;
+//         /* Fully visible by default */
+//         transition: opacity 1s ease-in-out;
+//         /* Fade effect */
+
+//     }}
+
+
+
 .login-signup-page {
     display: flex;
     flex-direction: row;
 
     .left-img {
-        width: 600;
+        position: relative;  /* Add this line */
+        width: 600px;
+        height: 800px;
         margin-top: 10rem;
         margin-left: 10rem;
         background-image: url("home-phones-2x.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
     }
 
-    
-
-}
-
-.slideshow-image {
-    width: 500px;
-    height: auto;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    z-index: 100;
-    object-fit: cover;
-    opacity: 1; /* Fully visible by default */
-    transition: opacity 1s ease-in-out; /* Fade effect */
-    
+    .slideshow-image {
+        position: absolute;
+        top: 4%;    /* Adjust these values */
+        left: 34%;    /* Adjust these values */
+        width: 52%;  /* Adjust to fit within phone screen */
+        height: 83%; /* Adjust to fit within phone screen */
+        object-fit: cover;
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+        z-index: 1;  /* Ensure it's above the background but below other elements */
+    }
 }
