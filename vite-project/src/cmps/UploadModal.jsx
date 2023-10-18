@@ -17,7 +17,8 @@ export function UploadModal({ closeModal, onAddPst }) {
           <ImgUploader onUploaded={(url) => {
             onAddPst(url);
             closeModal();
-          }} />
+          }}
+         />
         </div>
       </div>
     </div>
