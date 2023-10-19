@@ -6,14 +6,14 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { useNavigate } from 'react-router-dom';
 
 import { useEffect, useState } from 'react'
-
-
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
 
 export function LoginSignupPage() {
     const user = useSelector(storeState => storeState.userModule.user)
     const slideshowImages = ["frontSign.png", "a.png"]; // Add paths to your images here
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
-
+    const [profile, setProfile] = useState(null);
 
     const navigate = useNavigate();
 
@@ -82,6 +82,33 @@ export function LoginSignupPage() {
                 {!user &&
                     <section className="user-info">
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                        <div>
+                            {!profile ? (
+                                <LoginSocialFacebook
+                                    appId="1715906822256982"
+                                    onResolve={(response) => {
+                                        console.log(response);
+                                        setProfile(response.data);
+                                    }}
+                                    onReject={(error) => {
+                                        console.log(error);
+                                    }}
+                                >
+                                    <FacebookLoginButton />
+                                </LoginSocialFacebook>
+                            ) : (
+                                ""
+                            )}
+
+                            {profile ? (
+                                <div>
+                                    <h1>{user.fullname}</h1>
+                                    {/* <img src={profile.picture.data.url} /> */}
+                                </div>
+                            ) : (
+                                ""
+                            )}
+                        </div>
                     </section>
                 }
             </nav>
