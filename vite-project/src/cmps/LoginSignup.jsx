@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from './ImgUploader'
 
-
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
+    const [profile, setProfile] = useState(null);
 
     useEffect(() => {
         loadUsers()
@@ -86,6 +88,33 @@ export function LoginSignup(props) {
                         required
                     /> */}
                 <button>Login!</button>
+                <div className="login-with-facebook">
+                            {!profile ? (
+                                <LoginSocialFacebook
+                                    appId="1715906822256982"
+                                    onResolve={(response) => {
+                                        console.log(response);
+                                        setProfile(response.data);
+                                    }}
+                                    onReject={(error) => {
+                                        console.log(error);
+                                    }}
+                                >
+                                    <FacebookLoginButton />
+                                </LoginSocialFacebook>
+                            ) : (
+                                ""
+                            )}
+
+                            {profile ? (
+                                <div>
+                                    {/* <h1>{user.fullname}</h1> */}
+                                    {/* <img src={profile.picture.data.url} /> */}
+                                </div>
+                            ) : (
+                                ""
+                            )}
+                        </div>
             </form>}
             <div className="signup-section">
                 {<form className="signup-form" onSubmit={onSignup}>
