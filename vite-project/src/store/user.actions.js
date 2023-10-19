@@ -80,3 +80,20 @@ export async function loadUser(userId) {
         console.log('Cannot load user', err)
     }
 }
+
+export async function loadUserLoggedPsts() {
+    try {
+        const loggedInUser = userService.getLoggedinUser();
+        if (!loggedInUser) throw new Error('No user logged in');
+
+        const allPsts = await pstService.query();
+        const userPsts = allPsts.filter(pst => pst.userId === loggedInUser._id);
+
+        console.log('Psts for logged-in user:', userPsts);
+    
+
+    } catch (err) {
+        console.log('Cannot load psts', err);
+        throw err;
+    }
+}

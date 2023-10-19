@@ -29,7 +29,7 @@ export function PostIndex() {
             showErrorMsg('Cannot load psts')
         })
     }
-        , [])
+ , [])
 
 
 

@@ -80,7 +80,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, userPhotos:{src:'s7.png',src:'s5.png'}}
+    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl,imgs:['s2.jpg','s3.jpg']}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
