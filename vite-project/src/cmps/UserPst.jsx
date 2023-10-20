@@ -1,16 +1,37 @@
-import { useEffect, useState } from 'react'
-import { loadUserLoggedPsts } from '../store/user.actions'
+import { useEffect, useState } from 'react';
+import { loadUserLoggedPsts } from '../store/user.actions';
 
-export function UserPst(){
+export function UserPst() {
+    const [userPsts, setUserPsts] = useState([]); // Initialize userPsts as an empty array
+
     useEffect(() => {
-        loadUserLoggedPsts().catch(err => {
-            console.log('err', err)
-            showErrorMsg('Cannot load user Logged  psts')
-        })
-    }
- , [])
+        // Load user posts and update the state when they are loaded
+        loadUserLoggedPsts()
+            .then((psts) => {
+                setUserPsts(psts);
+                console.log('User posts:', psts);
+            })
+            .catch((err) => {
+                console.error('Error loading user posts', err);
+                showErrorMsg('Cannot load user logged posts');
+            });
+    }, []);
 
-    return(
-        <h2>users posts</h2>
-    )
+    return (
+        <div>
+            <h2>User posts</h2>
+            <ul>
+                {userPsts.map((pst, index) => (
+                    <li key={index}>
+                        <div>
+                            <p>{pst.txt}</p>
+                            <p>{pst.tag}</p>
+                            <img src={pst.imgUrl} alt="Post Image" />
+                        </div>
+                    </li>
+                ))}
+            </ul>
+
+        </div>
+    );
 }
