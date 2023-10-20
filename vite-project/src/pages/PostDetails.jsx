@@ -2,6 +2,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { pstService } from '../services/pst.service.local'
 import { useEffect, useState } from 'react'
 import { ThreeDotModal } from '../cmps/ThreeDotModal'
+import { CommentDetails } from '../cmps/CommentDetails'
+import { CommentList } from '../cmps/CommentList'
 
 export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     const [pst, setPst] = useState(null)
@@ -26,6 +28,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
 
 
         <section className='pst-details'>
+      
             {/* <pre>{JSON.stringify(pst)}</pre> */}
             <div className='img-side-details'>
                 <img className="details-img" src="s3.jpg" ></img>
@@ -50,6 +53,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
 
                     </section>
                 </div>
+                <CommentList />
                 <div className='actions-container'>
 
                 </div>

@@ -18,11 +18,13 @@ export function PostPreview({ pst, onRemovePst }) {
     const [isDotModalOpen, setIsDotModalOpen] = useState(false)
     const [selectedEmoji, setSelectedEmoji] = useState("");
     const [inputValue, setInputValue] = useState("");
+    const [newComment, setNewComment] = useState('');
+    const [countComment,setCountComment]=useState(0);
+
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
     const emojiPickerRef = useRef(null);
-
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -67,6 +69,18 @@ export function PostPreview({ pst, onRemovePst }) {
     function closeDotModal() {
         setIsDotModalOpen(false)
     }
+
+    function onSendComment() {
+        setCountComment(prevCount => prevCount + 1)
+        setNewComment(comment)
+
+
+        
+        setComment('');
+        setInputValue('');
+    }
+
+
     function onClick(emojiData, event) {
         setComment(
             (inputValue) =>
@@ -113,14 +127,17 @@ export function PostPreview({ pst, onRemovePst }) {
                 <h4 className="description"><span>{by.fullname}</span>  {txt}</h4>
                 <div className="comment-text-area">
                     <div className="see-comments">
-                        <button className="view-all-comments">View all 5 comments</button>
+                        <button className="view-all-comments">View all {countComment} comments</button>
                     </div>
+                    {newComment && (<div className="newComment">
+                        {newComment}
+                    </div>)}
                     <div className="comment-input-container" ref={emojiPickerRef}>
                         <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
                         <div className="empjiPostbtn">
                             {<Emoji unified={selectedEmoji} size={28} />}
                             {comment.length > 0 || selectedEmoji ? (
-                                <button className="post-btn">Post</button>
+                                <button className="post-btn" onClick={onSendComment}>Post</button>
                             ) : null}
 
                             <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>

@@ -21,15 +21,18 @@ export const pstService = {
 window.cs = pstService
 
 
-async function query() {
+async function query(filterBy) {
     const psts = await asyncStorageService.query(STORAGE_KEY)
-    // if (filterBy.txt) {
+    // if (filterBy.id) {
     //     const regex = new RegExp(filterBy.txt, 'i')
     //     psts = psts.filter(pst => regex.test(pst.vendor) || regex.test(pst.description))
     // }
     // if (filterBy.price) {
     //     psts = psts.filter(pst => pst.price <= filterBy.price)
     // }
+    if(filterBy.id){
+        psts=psts.filter(pst.by._id===filterBy.id)
+    }
     return psts
 }
 
@@ -141,7 +144,8 @@ function _createPst() {
                 lng: 22.22,
                 name: "Tel Aviv"
             },
-
+     
+            
             comments: [
                 {
                     id: "c1001",
