@@ -141,7 +141,8 @@ function _createPst() {
                 lng: 22.22,
                 name: "Tel Aviv"
             },
-
+     
+            
             comments: [
                 {
                     id: "c1001",
