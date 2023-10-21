@@ -31,7 +31,7 @@ export function NavHeader({ onAddPst }) {
                     <button className='item'><img src="mess.svg"></img><span>Messages</span></button>
                     <button className='item'><img src="svgs_collection/svg6.svg"></img><span>Notifications</span></button>
                     <button className='item' onClick={openModal}><img src="create.svg"></img><span>Create</span></button>
-                    <button className='item'  onClick={() => navigate('/profile')}><img className="profile-icon-img" src="s3.jpg"></img><span>Profile</span> </button>
+                    <button className='item'  onClick={() => navigate('/profile/psts')}><img className="profile-icon-img" src="s3.jpg"></img><span>Profile</span> </button>
 
                 </div>
 

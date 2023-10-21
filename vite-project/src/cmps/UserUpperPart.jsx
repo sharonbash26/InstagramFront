@@ -10,10 +10,9 @@ export function UserUpperPart() {
     let countPost = 0;
     let countFollowers = 0;
     let countFollowing = 0;
-
-    const handleUploadClick = () => {
-        setShowImgUploader(true); // Show the ImgUploader when button is clicked
-    };
+ function onsetShowImgUploader(){
+    setShowImgUploader(true)
+}
 
     return (
         <section className='user-upper-part'>
@@ -22,11 +21,11 @@ export function UserUpperPart() {
             </div>
             <section className='internal-user-upper-part'>
 
-                <button className='user-button' onClick={handleUploadClick}>
+                <button className='user-button' onClick={onsetShowImgUploader}>
                     <img className="empty-user" src="emptyUser.jpeg" alt="User Placeholder"/>
                 </button>
 
-                {showImgUploader && <ImgUploader />}  {/* This will conditionally render the ImgUploader component based on the state */}
+                {showImgUploader && <ImgUploader design={'alternative'} />}  {/* This will conditionally render the ImgUploader component based on the state */}
 
                 <div className='info-container'>
                     <div className='info'>
