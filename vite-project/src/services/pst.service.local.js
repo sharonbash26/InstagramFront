@@ -15,13 +15,15 @@ export const pstService = {
     remove,
     getEmptyPst,
     addPstMsg,
-    psts
+    psts,
+    addComment,
+    getDefaultFilter
     
 }
 window.cs = pstService
 
 
-async function query(filterBy) {
+async function query(filterBy={}) {
     const psts = await asyncStorageService.query(STORAGE_KEY)
     // if (filterBy.id) {
     //     const regex = new RegExp(filterBy.txt, 'i')
@@ -30,8 +32,13 @@ async function query(filterBy) {
     // if (filterBy.price) {
     //     psts = psts.filter(pst => pst.price <= filterBy.price)
     // }
+    console.log('filterBy',filterBy.id)
     if(filterBy.id){
-        psts=psts.filter(pst.by._id===filterBy.id)
+        // psts=psts.filter(pst.by._id===filterBy.id)
+        if(filterBy.id){
+            psts = psts.filter(pst => pst.by._id === filterBy.id);
+        }
+        
     }
     return psts
 }
@@ -195,6 +202,27 @@ function _createPst() {
     return psts
 
 }
+
+async function addComment(pstId, comment) {
+    const pst = await getById(pstId);
+    if (!pst.comments) pst.comments = [];
+    
+    const newComment = {
+        id: utilService.makeId(),
+        by: userService.getLoggedinUser(),
+        txt: comment
+    };
+    
+    pst.comments.push(newComment);
+    await asyncStorageService.put(STORAGE_KEY, pst);
+    
+    return newComment;
+}
+
+function getDefaultFilter(){
+    return {id:''}
+}
+
 
 // TEST DATA
 // asyncStorageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))

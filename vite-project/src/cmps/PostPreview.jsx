@@ -19,7 +19,7 @@ export function PostPreview({ pst, onRemovePst }) {
     const [selectedEmoji, setSelectedEmoji] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [newComment, setNewComment] = useState('');
-    const [countComment,setCountComment]=useState(0);
+    const [countComment,setCountComment]=useState(pst.comments?.length||0);
 
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
@@ -68,14 +68,18 @@ export function PostPreview({ pst, onRemovePst }) {
     }
     function closeDotModal() {
         setIsDotModalOpen(false)
-    }
+    }   
 
-    function onSendComment() {
+      function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
         setNewComment(comment)
+        console.log('pstid',pst._id)
+        console.log('comment',comment)
+        pstService.addComment(pst._id, comment);
 
 
-        
+
+
         setComment('');
         setInputValue('');
     }
