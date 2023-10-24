@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CommentDetails } from './CommentDetails';
+import { ActionsBtns } from './ActionBtns';
 export function CommentList({ pst}) {
     const psts = useSelector(storeState => storeState.pstModule.psts) || [];
-    console.log('psts from Redux:', psts);
     
     return (
-        <div className="comment-list">
+        <section className='comment-list'>
+        <div className="list">
             {pst.comments.map((comment) => (
-                <CommentDetails key={comment._id} comment={comment} />
+                <CommentDetails key={comment.id} comment={comment} />
              
             ))}
         </div>
-    );
+        <ActionsBtns pst={pst} />
+        </section>
+    )
 }

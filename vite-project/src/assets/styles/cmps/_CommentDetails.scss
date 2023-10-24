@@ -1,9 +1,19 @@
 .comment-details {
-    display: flex;
-
-    .comment {
         .data-comment {
             display: flex;
+            justify-content: space-between;
+        }
+        img{
+          width: 20px;
+        }
+        .three-dot{
+            display: none;
+        }
+        &:hover{
+            .three-dot{
+                display: inline-block;
+            }
         }
     }
-}
+
+

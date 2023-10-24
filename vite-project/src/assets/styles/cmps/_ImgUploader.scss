@@ -9,19 +9,20 @@
         font-style: normal;
         font-weight: 600;
         color: #FFFFFF;
+        background-color: #1877F2;
         position: relative;
         text-align: center;
         padding: 0.475rem 1rem;
         border-radius: 0.5rem;
     }
 
-    &.default {
-        background-color: #1877F2;
+    // &.default {
+    //     background-color: #1877F2;
 
-    }
+    // }
 
-    &.alternative {
-        background-color: transparent;
-    }
+    // &.alternative {
+    //     background-color: transparent;
+    // }
 
 }

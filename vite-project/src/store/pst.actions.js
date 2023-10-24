@@ -1,7 +1,7 @@
 import { pstService } from "../services/pst.service.local.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST,CLOSE_MODAL,OPEN_MODAL } from "./pst.reducer.js";
+import { ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST,CLOSE_MODAL,OPEN_MODAL,REMOVE_COMMENT } from "./pst.reducer.js";
 import {  useState } from 'react'
 
 // Action Creators:
@@ -9,6 +9,12 @@ export function getActionRemovePst(pstId) {
     return {
         type: REMOVE_PST,
         pstId
+    }
+}
+export function getActionRemoveComment(commentId){
+    return{
+        type:REMOVE_COMMENT,
+        commentId
     }
 }
 export function getActionAddPst(pst) {
@@ -48,6 +54,16 @@ export async function removePst(pstId) {
         store.dispatch(getActionRemovePst(pstId))
     } catch (err) {
         console.log('Cannot remove pst', err)
+        throw err
+    }
+}
+
+export async function removeComment(commentId){
+    console.log('iddd',commentId)
+    try{
+        await pstService.removeComment(commentId)
+        store.dispatch(getActionRemoveComment(commentId))
+    }catch(err){
         throw err
     }
 }
@@ -105,7 +121,6 @@ export function openModal() {
 }
 
 export function closeModal() {
-    console.log('closeeeeeeee ')
     store.dispatch({
         type: CLOSE_MODAL,
     })

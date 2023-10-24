@@ -35,7 +35,8 @@ export function UserDetails() {
         <h3>
           {user.fullname}
         </h3>
-        <div className="user-img" style={{ backgroundImage: `url('/img/u${0}.png')` }}>
+        <div className="user-img" >
+          <img src={user.imgUrl}></img>
         </div>
         <pre>
           {JSON.stringify(user, null, 2)}

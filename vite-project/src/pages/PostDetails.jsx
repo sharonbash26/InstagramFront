@@ -5,12 +5,12 @@ import { ThreeDotModal } from '../cmps/ThreeDotModal'
 import { CommentDetails } from '../cmps/CommentDetails'
 import { CommentList } from '../cmps/CommentList'
 import { useDispatch, useSelector } from 'react-redux'
-
-
+import { userService } from '../services/user.service'
 export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     const [pst, setPst] = useState(null)
     const [isDotModalOpen, setIsDotModalOpen] = useState(false)
     const navigate=useNavigate()
+    let userLogged=userService.getLoggedinUser()
     function closeModalWithRouter() {
         navigate('/pst')
     }
@@ -34,13 +34,14 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
 
             {/* <pre>{JSON.stringify(pst)}</pre> */}
             <div className='img-side-details'>
-                <img className="details-img" src="s3.jpg" ></img>
+                <img className="details-img" src={pst.imgUrl} ></img>
             </div>
 
             <div className='header-container-details-modal'>
                 <section className='details-subject'>
                     <section className='first'>
-                        <img className='profile-details-img' src={pst.imgUrl || "s3.jpg"} alt="pst preview"></img>
+                        <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
+                        <h4>{userLogged.userName}</h4>
                         <h4>{pst.by.fullname}</h4>
                     </section>
                     <section className='second'>
@@ -56,13 +57,13 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
 
                 <div className='body-container-details-modal'>
                     <section className='first'>
-                        <img className='profile-details-img' src={pst.imgUrl || "s3.jpg"} alt="pst preview"></img>
+                        <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
                         <h4>{pst.by.fullname}</h4>
                         <h4>{pst.txt}</h4>
 
                     </section>
                 </div>
-                <CommentList pst={pst} />
+                <CommentList pst={ pst} />
                 <div className='actions-container'>
 
                 </div>
