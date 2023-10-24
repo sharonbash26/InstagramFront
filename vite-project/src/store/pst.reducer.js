@@ -3,8 +3,9 @@ export const REMOVE_PST = 'REMOVE_PST'
 export const ADD_PST = 'ADD_PST'
 export const UPDATE_PST = 'UPDATE_PST'
 export const UNDO_REMOVE_PST = 'UNDO_REMOVE_PST'
-export const OPEN_MODAL='OPEN_MODAL'
-export const CLOSE_MODAL='CLOSE_MODAL'
+export const OPEN_MODAL = 'OPEN_MODAL'
+export const CLOSE_MODAL = 'CLOSE_MODAL'
+export const REMOVE_COMMENT='REMOVE_COMMENT'
 
 
 const initialState = {
@@ -38,11 +39,29 @@ export function pstReducer(state = initialState, action) {
             }
             break
         case OPEN_MODAL:
-            newState = { ...state, isModalOpen:true }
+            newState = { ...state, isModalOpen: true }
             break
         case CLOSE_MODAL:
-            newState = { ...state, isModalOpen:false }
+            newState = { ...state, isModalOpen: false }
             break
+        case REMOVE_COMMENT:
+            // Find the index of the post containing the comment
+            const pstIdx = state.psts.findIndex(pst => pst.comments.some(comment => comment.id === action.commentId));
+
+            if (pstIdx === -1) break;  // Exit if post not found
+
+            // Find the index of the comment to remove
+            const commentIdx = state.psts[pstIdx].comments.findIndex(comment => comment.id === action.commentId);
+
+            if (commentIdx === -1) break; // Exit if comment not found
+
+            // Remove the comment without mutating the state directly
+            psts = [...state.psts];
+            psts[pstIdx] = { ...psts[pstIdx], comments: [...psts[pstIdx].comments.slice(0, commentIdx), ...psts[pstIdx].comments.slice(commentIdx + 1)] };
+
+            newState = { ...state, psts };
+            break;
+
         default:
     }
     return newState

@@ -8,7 +8,7 @@ import { Emoji, EmojiStyle } from 'emoji-picker-react';
 import { ThreeDotModal } from "./ThreeDotModal";
 import { PostDetails } from "../pages/PostDetails";
 
-
+import { userService } from "../services/user.service";
 import { useDispatch, useSelector } from 'react-redux'
 
 import { closeModal, openModal } from "../store/pst.actions";
@@ -22,10 +22,10 @@ export function PostPreview({ pst, onRemovePst }) {
     const [selectedEmoji, setSelectedEmoji] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [newComment, setNewComment] = useState('');
-    const [countComment,setCountComment]=useState(pst.comments?.length||0);
-    const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen); 
-    
-
+    const [countComment, setCountComment] = useState(pst.comments?.length || 0);
+    const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen);
+    let loggedUser = userService.getLoggedinUser()
+    console.log('userrrr', loggedUser)
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
@@ -53,32 +53,30 @@ export function PostPreview({ pst, onRemovePst }) {
             setLikeUrl("like.svg")
             setIsLiked(false)
             setLikesCount(likesCount - 1)
-            console.log('likescount', likesCount)
 
         } else {
             setLikeUrl("red-likes.svg")
             setIsLiked(true)
             setLikesCount(likesCount + 1)
-            console.log('likescount', likesCount)
         }
         console.log('press like')
     }
     console.log('time', pstService.psts[0].uploadTime)
     function openDetailsModal() {
-      
+
     }
     function openDotModal() {
         setIsDotModalOpen(true)
     }
     function closeDotModal() {
         setIsDotModalOpen(false)
-    }   
+    }
 
-      function onSendComment() {
+    function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
         setNewComment(comment)
-        console.log('pstid',pst._id)
-        console.log('comment',comment)
+        console.log('pstid', pst._id)
+        console.log('comment', comment)
         pstService.addComment(pst._id, comment);
 
 
@@ -95,20 +93,20 @@ export function PostPreview({ pst, onRemovePst }) {
                 inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
         );
         // setSelectedEmoji(emojiData.unified);
-    }
+    } console.log('hhh', by.fullname)
     return (
         <section className="pst-Preview">
             <div className="info-start">
                 <div className="info-start-content">
-                    <img className="profile-prev" src="s3.jpg"></img>
-                    <h2>{by.fullname} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
+                    <img className="profile-prev" src={loggedUser.imgUrl}></img>
+                    <h2>{loggedUser.userName} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
                     {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
 
                 </div>
 
                 <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
-                {isDotModalOpen && <ThreeDotModal closeDotModal={closeDotModal} onRemovePst={() => onRemovePst(pst._id)}></ThreeDotModal>}
+                {isDotModalOpen && <ThreeDotModal closeDotModal={closeDotModal} pst={pst}></ThreeDotModal>}
 
 
             </div>
@@ -135,15 +133,16 @@ export function PostPreview({ pst, onRemovePst }) {
                 <h4 className="description"><span>{by.fullname}</span>  {txt}</h4>
                 <div className="comment-text-area">
                     <div className="see-comments">
-                    <Link to={`/pst/${pst._id}`}>
-                        <button className="view-all-comments" onClick={openDetailsModal}>View all {countComment} comments</button>
+                        <Link to={`/pst/${pst._id}`}>
+                            <button className="view-all-comments" onClick={openDetailsModal}>View all {countComment} comments</button>
                         </Link>
                     </div>
                     {newComment && (<div className="newComment">
+                        <h4>{loggedUser.userName}</h4>
                         {newComment}
                     </div>)}
                     <div className="comment-input-container" ref={emojiPickerRef}>
-                        <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => {setComment(e.target.value); setInputValue(e.target.value) }} />
+                        <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
                         <div className="empjiPostbtn">
                             {<Emoji unified={selectedEmoji} size={28} />}
                             {comment.length > 0 || selectedEmoji ? (

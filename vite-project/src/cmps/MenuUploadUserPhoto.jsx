@@ -11,7 +11,7 @@ export function MenuUploadUserPhoto() {
     function closeMenu(){
         setMenuOpen(false);
     }
-    if (!isMenuOpen) return null
+    if (!isMenuOpen) return nullthe
     return (
         <section className="menu-upload-user-photo">
             <div className="menu">

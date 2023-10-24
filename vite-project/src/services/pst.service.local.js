@@ -17,13 +17,14 @@ export const pstService = {
     addPstMsg,
     psts,
     addComment,
-    getDefaultFilter
-    
+    getDefaultFilter,
+    removeComment
+
 }
 window.cs = pstService
 
 
-async function query(filterBy={}) {
+async function query(filterBy = {}) {
     let psts = await asyncStorageService.query(STORAGE_KEY)
     // if (filterBy.id) {
     //     const regex = new RegExp(filterBy.txt, 'i')
@@ -32,13 +33,13 @@ async function query(filterBy={}) {
     // if (filterBy.price) {
     //     psts = psts.filter(pst => pst.price <= filterBy.price)
     // }
-    console.log('filterBy',filterBy.id)
-    if(filterBy.id){
+    console.log('filterBy', filterBy.id)
+    if (filterBy.id) {
         // psts=psts.filter(pst.by._id===filterBy.id)
-     
-            psts = psts.filter(pst => pst.by._id === filterBy.id);
-        
-        
+
+        psts = psts.filter(pst => pst.by._id === filterBy.id);
+
+
     }
     return psts
 }
@@ -49,8 +50,23 @@ function getById(pstId) {
 
 async function remove(pstId) {
     // throw new Error('Nope')
-    console.log('storgae key',STORAGE_KEY)
+    console.log('storgae key', STORAGE_KEY)
     await asyncStorageService.remove(STORAGE_KEY, pstId)
+}
+async function removeComment(commentId) {
+    console.log('commentId',commentId)
+    // 1. Find the post containing the comment
+    let allPsts = await asyncStorageService.query(STORAGE_KEY);
+    let foundPst = allPsts.find(pst => pst.comments.some(comment => comment.id === commentId));
+
+    // 2. If post found, remove the comment from it
+    if (foundPst) {
+        foundPst.comments = foundPst.comments.filter(comment => comment.id !== commentId);
+        // 3. Save the modified post back to storage
+        await asyncStorageService.put(STORAGE_KEY, foundPst);
+    } else {
+        throw new Error('Comment not found!');
+    }
 }
 
 async function save(pst) {
@@ -86,7 +102,7 @@ function getEmptyPst() {
         _id: "",
         txt: "",
         imgUrl: "",
-        uploadTime:"now",
+        uploadTime: "now",
         by: {
             _id: "",
             fullname: "",
@@ -115,7 +131,7 @@ function _createPst() {
             _id: "s101",
             txt: "Best trip ever",
             imgUrl: "",
-            uploadTime:utilService.randomTimeString(),
+            uploadTime: utilService.randomTimeString(),
             by: {
                 _id: "u101",
                 fullname: "sharonbash",
@@ -126,8 +142,8 @@ function _createPst() {
                 lng: 22.22,
                 name: "Tel Aviv"
             },
-     
-            
+
+
             comments: [
                 {
                     id: "c1001",
@@ -181,21 +197,21 @@ function _createPst() {
 async function addComment(pstId, comment) {
     const pst = await getById(pstId);
     if (!pst.comments) pst.comments = [];
-    
+
     const newComment = {
         id: utilService.makeId(),
         by: userService.getLoggedinUser(),
         txt: comment
     };
-    
+
     pst.comments.push(newComment);
     await asyncStorageService.put(STORAGE_KEY, pst);
-    
+
     return newComment;
 }
 
-function getDefaultFilter(){
-    return {id:''}
+function getDefaultFilter() {
+    return { id: '' }
 }
 
 

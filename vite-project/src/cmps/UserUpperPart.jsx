@@ -6,6 +6,7 @@ import { MenuUploadUserPhoto } from './MenuUploadUserPhoto'
 
 export function UserUpperPart() {
     const user = useSelector(storeState => storeState.userModule.user)
+
     // const [showImgUploader, setShowImgUploader] = useState(false)
 const [showMenu,setShowMenu]=useState(false)
     let countPost = 0
