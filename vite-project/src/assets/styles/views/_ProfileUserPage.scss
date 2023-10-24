@@ -1,11 +1,11 @@
 .profile-user-page {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers children horizontally */
-    justify-content: flex-start; /* centers children vertically */
-    height: 100vh; /* takes full viewport height */
-    padding: 20px; /* optional: add some spacing around */
-    font-size: 20px;
+    align-items: center; 
+    justify-content: flex-start; 
+    height: 100vh; 
+    padding: 1.25rem; 
+    font-size: 1.25rem;
 }
 
 

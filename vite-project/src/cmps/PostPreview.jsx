@@ -9,6 +9,9 @@ import { ThreeDotModal } from "./ThreeDotModal";
 import { PostDetails } from "../pages/PostDetails";
 
 
+import { useDispatch, useSelector } from 'react-redux'
+
+import { closeModal, openModal } from "../store/pst.actions";
 export function PostPreview({ pst, onRemovePst }) {
     const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
     const [isLiked, setIsLiked] = useState(false)
@@ -20,6 +23,8 @@ export function PostPreview({ pst, onRemovePst }) {
     const [inputValue, setInputValue] = useState("");
     const [newComment, setNewComment] = useState('');
     const [countComment,setCountComment]=useState(pst.comments?.length||0);
+    const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen); 
+    
 
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
@@ -58,10 +63,9 @@ export function PostPreview({ pst, onRemovePst }) {
         }
         console.log('press like')
     }
-    console.log('imgUrl previev', imgUrl)
     console.log('time', pstService.psts[0].uploadTime)
     function openDetailsModal() {
-        <PostDetails openDotModal={openDotModal} closeDotModal={closeDotModal} onRemovePst={onRemovePst} />
+      
     }
     function openDotModal() {
         setIsDotModalOpen(true)
@@ -131,13 +135,15 @@ export function PostPreview({ pst, onRemovePst }) {
                 <h4 className="description"><span>{by.fullname}</span>  {txt}</h4>
                 <div className="comment-text-area">
                     <div className="see-comments">
-                        <button className="view-all-comments">View all {countComment} comments</button>
+                    <Link to={`/pst/${pst._id}`}>
+                        <button className="view-all-comments" onClick={openDetailsModal}>View all {countComment} comments</button>
+                        </Link>
                     </div>
                     {newComment && (<div className="newComment">
                         {newComment}
                     </div>)}
                     <div className="comment-input-container" ref={emojiPickerRef}>
-                        <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
+                        <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => {setComment(e.target.value); setInputValue(e.target.value) }} />
                         <div className="empjiPostbtn">
                             {<Emoji unified={selectedEmoji} size={28} />}
                             {comment.length > 0 || selectedEmoji ? (

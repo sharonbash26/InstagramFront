@@ -11,38 +11,38 @@ import { FacebookLoginButton } from "react-social-login-buttons";
 
 export function LoginSignupPage() {
     const user = useSelector(storeState => storeState.userModule.user)
-    const slideshowImages = ["frontSign.png", "a.png"]; // Add paths to your images here
+    const slideshowImages = ["frontSign.png", "a.png"]
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
-    // const [profile, setProfile] = useState(null);
+
 
     const navigate = useNavigate();
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setCurrentImgIndex((prevIndex) => (prevIndex + 1) % slideshowImages.length);
-        }, 5000); // Change image every 5 seconds
+        }, 5000)
 
-        return () => clearTimeout(timer); // Clean up on component unmount
-    }, [currentImgIndex]);
+        return () => clearTimeout(timer)
+    }, [currentImgIndex])
 
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
-            navigate('/');
+            navigate('/pst')
         } catch (err) {
             showErrorMsg('Cannot login')
-            navigate('/');
+            navigate('//pst')
         }
     }
     async function onSignup(credentials) {
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
-            navigate('/');
+            navigate('/pst')
         } catch (err) {
             showErrorMsg('Cannot signup')
-            navigate('/');
+            navigate('/pst')
         }
     }
     async function onLogout() {
@@ -60,13 +60,7 @@ export function LoginSignupPage() {
                 <div className="left-img">
                     <img src={slideshowImages[currentImgIndex]} alt="Slideshow" className="slideshow-image" />
                 </div>
-
-
-                {/* <img src="frontSign.png"></img> */}
             </div>
-
-
-
             <nav>
 
                 {user &&
@@ -81,13 +75,10 @@ export function LoginSignupPage() {
                 }
                 {!user &&
                     <section className="user-info">
-           
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-
                     </section>
                 }
             </nav>
-
         </header>
     )
 

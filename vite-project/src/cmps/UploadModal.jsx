@@ -1,7 +1,8 @@
 import { ImgUploader } from './ImgUploader';
 import React from 'react';
+import { closeModal } from '../store/pst.actions';
 
-export function UploadModal({ closeModal, onAddPst }) {
+export function UploadModal({  onAddPst }) {
   return (
     <div className="modal">
       <svg onClick={closeModal} aria-label="Close" className="cross-icon" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18">

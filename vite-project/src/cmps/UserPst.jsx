@@ -19,7 +19,7 @@ export function UserPst() {
 
     return (
         <div>
-            <h2>User posts</h2>
+          
             <ul>
                 {userPsts.map((pst, index) => (
                     <li key={index}>

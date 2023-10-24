@@ -66,6 +66,7 @@ export async function logout() {
             user: null
         })
         // socketService.logout()
+        console.log('logout sucess')
     } catch (err) {
         console.log('Cannot logout', err)
         throw err

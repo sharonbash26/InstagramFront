@@ -2,17 +2,17 @@
     display: flex;
     justify-content: center;
 
+
     button {
         font-family: $font-family1;
         font-size: 0.875rem;
         font-style: normal;
         font-weight: 600;
-        // background-color:#1877F2 ;
         color: #FFFFFF;
         position: relative;
         text-align: center;
         padding: 0.475rem 1rem;
-        border-radius: 8px;
+        border-radius: 0.5rem;
     }
 
     &.default {
