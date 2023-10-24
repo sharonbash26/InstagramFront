@@ -1,7 +1,8 @@
 import { pstService } from "../services/pst.service.local.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST } from "./pst.reducer.js";
+import { ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST,CLOSE_MODAL,OPEN_MODAL } from "./pst.reducer.js";
+import {  useState } from 'react'
 
 // Action Creators:
 export function getActionRemovePst(pstId) {
@@ -96,4 +97,16 @@ export function onRemovePstOptimistic(pstId) {
                 type: UNDO_REMOVE_PST
             })
         })
+}
+export function openModal() {
+    store.dispatch({
+        type: OPEN_MODAL,
+    })
+}
+
+export function closeModal() {
+    console.log('closeeeeeeee ')
+    store.dispatch({
+        type: CLOSE_MODAL,
+    })
 }

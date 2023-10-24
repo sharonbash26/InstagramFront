@@ -44,10 +44,6 @@ export function LoginSignup(props) {
         clearState()
     }
 
-    function toggleSignup() {
-        setIsSignup(!isSignup)
-    }
-
     function onUploaded(imgUrl) {
         setCredentials({ ...credentials, imgUrl })
     }
@@ -58,9 +54,8 @@ export function LoginSignup(props) {
                 <img src="logo.svg"></img>
             </div>
             <p>
-                <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
             </p>
-            
+
             {<form className="login-form" onSubmit={onLogin}>
                 <select
                     name="username"
@@ -70,51 +65,35 @@ export function LoginSignup(props) {
                     <option value="">Select User</option>
                     {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
                 </select>
-                {/* <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    /> */}
+
                 <button>Login!</button>
                 <div className="login-with-facebook">
-                            {!profile ? (
-                                <LoginSocialFacebook
-                                    appId="1715906822256982"
-                                    onResolve={(response) => {
-                                        console.log(response);
-                                        setProfile(response.data);
-                                    }}
-                                    onReject={(error) => {
-                                        console.log(error);
-                                    }}
-                                >
-                                    <FacebookLoginButton />
-                                </LoginSocialFacebook>
-                            ) : (
-                                ""
-                            )}
+                    {!profile ? (
+                        <LoginSocialFacebook
+                            appId="1715906822256982"
+                            onResolve={(response) => {
+                                console.log(response);
+                                setProfile(response.data);
+                            }}
+                            onReject={(error) => {
+                                console.log(error);
+                            }}
+                        >
+                            <FacebookLoginButton />
+                        </LoginSocialFacebook>
+                    ) : (
+                        ""
+                    )}
 
-                            {profile ? (
-                                <div>
-                                    {/* <h1>{user.fullname}</h1> */}
-                                    {/* <img src={profile.picture.data.url} /> */}
-                                </div>
-                            ) : (
-                                ""
-                            )}
+                    {profile ? (
+                        <div>
+                            {/* <h1>{user.fullname}</h1> */}
+                            {/* <img src={profile.picture.data.url} /> */}
                         </div>
+                    ) : (
+                        ""
+                    )}
+                </div>
             </form>}
             <div className="signup-section">
                 {<form className="signup-form" onSubmit={onSignup}>
@@ -149,8 +128,8 @@ export function LoginSignup(props) {
             <div className='apps-options'>
                 <h4>Get the app.</h4>
                 <section className='links-imgs'>
-                <img src='googleplay.png' className='google-play-img'></img> 
-                <img src="microsoft.png" className='microsoft-img'></img>
+                    <img src='googleplay.png' className='google-play-img'></img>
+                    <img src="microsoft.png" className='microsoft-img'></img>
                 </section>
             </div>
         </div>

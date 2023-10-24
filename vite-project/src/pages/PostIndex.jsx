@@ -1,17 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { PstList } from '../cmps/PostList'
 import { pstService } from '../services/pst.service.local'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { store } from '../store/store'
 import { useEffect, useState } from 'react'
-import { loadPsts, removePst, onRemovePstOptimistic } from '../store/pst.actions'
-import { ADD_PST } from '../store/pst.reducer.js'
+import { loadPsts } from '../store/pst.actions'
 import { NavHeader } from '../cmps/NavHeader'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { addPst } from '../store/pst.actions'
 import { AppFooter } from '../cmps/AppFooter'
 import { Loading } from '../cmps/Loading'
-import { LoginSignup } from '../cmps/LoginSignup'
+
 
 
 export function PostIndex() {
@@ -29,54 +27,47 @@ export function PostIndex() {
             showErrorMsg('Cannot load psts')
         })
     }
- , [])
+        , [])
 
 
 
-const loadPage = () => {
-    setTimeout(() => {
-        setIsLoading(false);
-    }, 1500);
-}
-
-function toggleLogin() {
-    setLogin(prevLogin => !prevLogin);
-}
-
-
-async function onAddPst(urlFromCloud) {
-    const pst = pstService.getEmptyPst()
-    pst.imgUrl = urlFromCloud
-    console.log('pst imgUrlllllll', pst.imgUrl)
-    try {
-        const savedPst = await addPst(pst)
-        console.log('saved pst from index', savedPst)
-        showSuccessMsg(`post added (id: ${savedPst._id})`)
-    } catch (err) {
-        showErrorMsg('Cannot add post')
-        console.log('cannot add post')
+    const loadPage = () => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
     }
-}
 
+    async function onAddPst(urlFromCloud) {
+        const pst = pstService.getEmptyPst()
+        pst.imgUrl = urlFromCloud
+        console.log('pst imgUrlllllll', pst.imgUrl)
+        try {
+            const savedPst = await addPst(pst)
+            console.log('saved pst from index', savedPst)
+            showSuccessMsg(`post added (id: ${savedPst._id})`)
+        } catch (err) {
+            showErrorMsg('Cannot add post')
+            console.log('cannot add post')
+        }
+    }
 
+    if (isLoading) return <Loading />;
+    return (
 
-if (isLoading) return <Loading />;
-return (
+        <section className='pst-index'>
 
-    <section className='pst-index'>
+            <NavHeader onAddPst={onAddPst} />
 
-        <NavHeader onAddPst={onAddPst} />
+            <div className="nested-route">
+                <Outlet />
+            </div>
+            <div className='index-content'>
+                {/* <PstList psts={psts} onRemovePst={(pstId) => onRemovePst(pstId)} /> */}
+                <PstList psts={psts} ></PstList>
+                <AppFooter />
+            </div>
 
-        <div className="nested-route">
-            <Outlet />
-        </div>
-        <div className='index-content'>
-            {/* <PstList psts={psts} onRemovePst={(pstId) => onRemovePst(pstId)} /> */}
-            <PstList psts={psts} ></PstList>
-            <AppFooter />
-        </div>
+        </section>
 
-    </section>
-
-)
+    )
 }

@@ -24,7 +24,7 @@ window.cs = pstService
 
 
 async function query(filterBy={}) {
-    const psts = await asyncStorageService.query(STORAGE_KEY)
+    let psts = await asyncStorageService.query(STORAGE_KEY)
     // if (filterBy.id) {
     //     const regex = new RegExp(filterBy.txt, 'i')
     //     psts = psts.filter(pst => regex.test(pst.vendor) || regex.test(pst.description))
@@ -35,9 +35,9 @@ async function query(filterBy={}) {
     console.log('filterBy',filterBy.id)
     if(filterBy.id){
         // psts=psts.filter(pst.by._id===filterBy.id)
-        if(filterBy.id){
+     
             psts = psts.filter(pst => pst.by._id === filterBy.id);
-        }
+        
         
     }
     return psts
@@ -99,35 +99,10 @@ function getEmptyPst() {
         },
 
         comments: [
-            {
-                id: "",
-                by: {
-                    _id: "",
-                    fullname: "",
-                    imgUrl: ""
-                },
-                txt: "",
-                likedBy: [
-                    {
-                        "_id": "",
-                        "fullname": "",
-                        "imgUrl": ""
-                    }
-                ]
-            },
-            {
-                id: "",
-                by: {
-                    _id: "",
-                    fullname: "",
-                    imgUrl: ""
-                },
-                txt: "",
-            }
         ],
         likedBy: [
         ],
-        tags: ["", ""]
+        tags: []
     }
 }
 

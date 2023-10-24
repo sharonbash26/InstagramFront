@@ -5,7 +5,7 @@
         display: flex;
         margin-left: 15rem;
         width: 100%;
-        border-bottom: 2px gray solid;
+        border-bottom: 0.125em gray solid;
 
         .info-container {
             display: flex;
@@ -36,14 +36,7 @@
             display: flex;
             gap: 0.625rem;
             align-items: center;
-
-
-
         }
 
     }
-
-
-
-
 }

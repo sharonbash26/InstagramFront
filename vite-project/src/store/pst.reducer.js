@@ -3,17 +3,19 @@ export const REMOVE_PST = 'REMOVE_PST'
 export const ADD_PST = 'ADD_PST'
 export const UPDATE_PST = 'UPDATE_PST'
 export const UNDO_REMOVE_PST = 'UNDO_REMOVE_PST'
+export const OPEN_MODAL='OPEN_MODAL'
+export const CLOSE_MODAL='CLOSE_MODAL'
 
 
 const initialState = {
     psts: [],
-    lastRemovedPst: null
+    lastRemovedPst: null,
+    isModalOpen: false
 }
 
 export function pstReducer(state = initialState, action) {
     var newState = state
     var psts
-    var pstt
     switch (action.type) {
         case SET_PSTS:
             newState = { ...state, psts: action.psts }
@@ -34,6 +36,12 @@ export function pstReducer(state = initialState, action) {
             if (state.lastRemovedPst) {
                 newState = { ...state, psts: [...state.psts, state.lastRemovedPst], lastRemovedPst: null }
             }
+            break
+        case OPEN_MODAL:
+            newState = { ...state, isModalOpen:true }
+            break
+        case CLOSE_MODAL:
+            newState = { ...state, isModalOpen:false }
             break
         default:
     }

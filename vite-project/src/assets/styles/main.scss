@@ -8,33 +8,31 @@
 @import "basics/helpers";
 @import "basics/layout";
 @import "basics/base";
-@import "basics/links";
-@import "basics/forms";
 
 
 // Views
-@import "views/AboutUs";
-@import "views/HomePage";
 @import "views/PostIndex";
 @import "views/UserDetails";
 @import "views/LoginSignupPage";
 @import "views/ProfileUserPage";
 
 // Components
-// @import "cmps/AppHeader";
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
 @import "cmps/NavHeader";
 @import "cmps/PostPreview";
-@import "cmps/PostList.scss";
-@import "cmps/ImgUploader.scss";
-@import "cmps/UploadModal.scss";
-@import "cmps/Loading.scss";
+@import "cmps/PostList";
+@import "cmps/ImgUploader";
 @import "cmps/ThreeDotModal";
 @import "cmps/PostDetails";
 @import "cmps/LoginSignup";
 @import "cmps/UserUpperPart";
 @import "cmps/UserBottomPart";
+@import "cmps/MoreModal";
+@import "cmps/MenuUploadUserPhoto";
+@import "cmps/Loading";
+@import "cmps/UploadModal";
+
 
 
 

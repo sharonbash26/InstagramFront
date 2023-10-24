@@ -1,44 +1,11 @@
-// .login-signup-page {
-//     display: flex;
-//     flex-direction: row;
-
-//     .left-img {
-//         width: 600px;
-//         height: 800px;
-//         margin-top: 10rem;
-//         margin-left: 10rem;
-//         background-image: url("home-phones-2x.png");
-//         background-repeat: no-repeat;
-//         background-position: center center;
-//         background-size: cover;
-
-//     }
-
-//     .slideshow-image {
-//         width: 90%;
-//         height: auto;
-//         // position: absolute;
-//         // top: 0;
-//         // left: 0;
-//         z-index: 100;
-//         object-fit: cover;
-//         opacity: 1;
-//         /* Fully visible by default */
-//         transition: opacity 1s ease-in-out;
-//         /* Fade effect */
-
-//     }}
-
-
-
 .login-signup-page {
     display: flex;
     flex-direction: row;
 
     .left-img {
         position: relative;  /* Add this line */
-        width: 600px;
-        height: 800px;
+        width: 37.5rem;
+        height: 50rem;
         margin-top: 10rem;
         margin-left: 10rem;
         background-image: url("home-phones-2x.png");

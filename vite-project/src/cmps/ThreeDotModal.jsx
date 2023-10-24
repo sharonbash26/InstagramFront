@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { removePst } from "../store/pst.actions";
 
 export function ThreeDotModal({ closeDotModal,pst}) {
+  console.log('psttttt',pst)
 
     const modalRef = useRef(null);
 
