@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CommentDetails } from './CommentDetails';
-import { ActionsBtns } from './ActionBtns';
+import { AllActionBtns } from './AllActionBtns';
+
 export function CommentList({ pst}) {
     const psts = useSelector(storeState => storeState.pstModule.psts) || [];
     
@@ -12,7 +13,7 @@ export function CommentList({ pst}) {
              
             ))}
         </div>
-        <ActionsBtns pst={pst} />
+        <AllActionBtns pst={pst} />
         </section>
     )
 }
