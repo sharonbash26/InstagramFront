@@ -3,6 +3,7 @@ import EmojiPicker from 'emoji-picker-react';
 import { Emoji, EmojiStyle } from 'emoji-picker-react';
 import { ThreeDotModal } from './ThreeDotModal';
 import { pstService } from "../services/pst.service.local";
+import { SET_SELECTED_POST } from '../store/pst.reducer';
 
 const { useState, useEffect, useRef } = React
 export function AllActionBtns({ pst }) {
@@ -86,7 +87,7 @@ export function AllActionBtns({ pst }) {
         setNewComment(comment)
         console.log('pstid', pst._id)
         console.log('comment', comment)
-        pstService.addComment(pst._id, comment);
+     pstService.addComment(pst._id, comment);
 
 
 
