@@ -45,7 +45,7 @@
 
     .description {
         margin: 0.125rem;
-        text-align: inherit;
+        // text-align: inherit;
         font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         font-size: 0.875rem;
         color: rgb(0, 0, 0);
@@ -57,6 +57,20 @@
             font-size: .875rem;
 
         }
+
+        .newComment {
+            h4 {
+                margin-bottom: 0.25rem; /* Adjust this as needed to reduce the space below the username */
+                /* Other styles if needed */
+            }
+        
+            /* Assuming newComment is a paragraph or div. If it's another element, adjust accordingly. */
+            p, div {
+                margin-top: 0; /* Removes space above the comment text */
+                /* Other styles if needed */
+            }
+        }
+        
 
     }
 

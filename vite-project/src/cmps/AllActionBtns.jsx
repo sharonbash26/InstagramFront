@@ -20,6 +20,7 @@ export function AllActionBtns({ pst }) {
 
     const [inputValue, setInputValue] = useState("");
     const [newComment, setNewComment] = useState('');
+
     // const [isDotModalOpen, setIsDotModalOpen] = useState(false)
     useEffect(() => {
         function handleClickOutside(event) {
@@ -72,7 +73,13 @@ export function AllActionBtns({ pst }) {
         console.log('press like')
     }
 
-
+    function onClick(emojiData, event) {
+        setComment(
+            (inputValue) =>
+                inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
+        );
+        // setSelectedEmoji(emojiData.unified);
+    }
 
     function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
@@ -89,6 +96,9 @@ export function AllActionBtns({ pst }) {
     }
     return (
         <section className='all-action-btns'>
+        
+
+         
             <div className="actions-btn">
 
                 <div className="actions-btn-part1">
@@ -128,7 +138,7 @@ export function AllActionBtns({ pst }) {
                     </div>
                 </div>
             </div>
-        
+          
         </section >
     )
 }
