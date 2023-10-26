@@ -6,10 +6,13 @@ import { CommentDetails } from '../cmps/CommentDetails'
 import { CommentList } from '../cmps/CommentList'
 import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../services/user.service'
+import { loadPost } from '../store/pst.actions'
+
 export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
-    const [pst, setPst] = useState(null)
+    // const [pst, setPst] = useState(null)
     const [isDotModalOpen, setIsDotModalOpen] = useState(false)
     const navigate = useNavigate()
+      const pst = useSelector(storeState => storeState.pstModule.selectedPost)
     let userLogged = userService.getLoggedinUser()
     function closeModalWithRouter() {
         navigate('/pst')
@@ -18,14 +21,14 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     const { pstId } = useParams()
 
     useEffect(() => {
-        loadPost()
-    }, [pstId])
+        loadPost(pstId)
+    }, [])
 
-    async function loadPost() {
-        const pst = await pstService.getById(pstId)
-        setPst(pst)
-        console.log('pst txt', pst.by.fullname)
-    }
+    // async function loadPost() {
+    //     const pst = await pstService.getById(pstId)
+    //     setPst(pst)
+    //     console.log('pst txt', pst.by.fullname)
+    // }
     if (!pst) return <p>Loading...</p>
     return (
 

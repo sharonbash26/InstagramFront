@@ -5,11 +5,14 @@ export const UPDATE_PST = 'UPDATE_PST'
 export const UNDO_REMOVE_PST = 'UNDO_REMOVE_PST'
 export const OPEN_MODAL = 'OPEN_MODAL'
 export const CLOSE_MODAL = 'CLOSE_MODAL'
-export const REMOVE_COMMENT='REMOVE_COMMENT'
+export const REMOVE_COMMENT = 'REMOVE_COMMENT'
+export const SET_SELECTED_POST = 'SET_SELECTED_POST'
+
 
 
 const initialState = {
     psts: [],
+    selectedPost: null,
     lastRemovedPst: null,
     isModalOpen: false
 }
@@ -21,6 +24,9 @@ export function pstReducer(state = initialState, action) {
         case SET_PSTS:
             newState = { ...state, psts: action.psts }
             break
+        case SET_SELECTED_POST:
+            newState = { ...state, selectedPost: action.post }
+            break   
         case REMOVE_PST:
             const lastRemovedPst = state.psts.find(pst => pst._id === action.pstId)
             psts = state.psts.filter(pst => pst._id !== action.pstId)
@@ -59,7 +65,7 @@ export function pstReducer(state = initialState, action) {
             psts = [...state.psts];
             psts[pstIdx] = { ...psts[pstIdx], comments: [...psts[pstIdx].comments.slice(0, commentIdx), ...psts[pstIdx].comments.slice(commentIdx + 1)] };
 
-            newState = { ...state, psts };
+            newState = { ...state, psts, selectedPost: psts[pstIdx]  };
             break;
 
         default:
