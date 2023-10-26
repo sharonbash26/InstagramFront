@@ -1,7 +1,7 @@
 import { pstService } from "../services/pst.service.local.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST,CLOSE_MODAL,OPEN_MODAL,REMOVE_COMMENT } from "./pst.reducer.js";
+import { SET_SELECTED_POST, ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST,CLOSE_MODAL,OPEN_MODAL,REMOVE_COMMENT } from "./pst.reducer.js";
 import {  useState } from 'react'
 
 // Action Creators:
@@ -61,12 +61,23 @@ export async function removePst(pstId) {
 export async function removeComment(commentId){
     console.log('iddd',commentId)
     try{
-        await pstService.removeComment(commentId)
+        const updatedPost = await pstService.removeComment(commentId)
+
         store.dispatch(getActionRemoveComment(commentId))
     }catch(err){
         throw err
     }
 }
+// loadPost
+export async function loadPost(pstId) {
+    try {
+        const post = await pstService.getById(pstId)
+        store.dispatch({type: SET_SELECTED_POST, post})
+    } catch(err) {
+        console.log(err)
+    }
+    }
+
 
 export async function addPst(pst) {
     try {
