@@ -1,4 +1,7 @@
 .comment-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .data-comment {
         display: flex;
         justify-content: space-between;
@@ -21,12 +24,13 @@
 
 .comment-details {
     display: flex;
+    align-items: flex-start;
 
     .textual {
         margin-left: 1rem;
         .textual-1{
             display: flex;
-            gap:3px;
+            gap:12px;
             h4{
                 font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                 font-weight: 600;

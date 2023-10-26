@@ -39,7 +39,7 @@ export function CommentDetails({pst, comment }) {
                 </div>
                 <section className='textual'>
                     <div className='textual-1'>
-                        <h4>{user.userName}</h4>
+                        <h4>{comment.by.fullname}</h4>
                         <h4>{comment.txt}</h4>
                     </div>
 
@@ -53,20 +53,26 @@ export function CommentDetails({pst, comment }) {
 
 
                     </div>
+         
 
                 </section>
 
-
+      
 
 
                 {/* <button className='three-dot' onClick={openMenuComment}><img src="3dot.svg"></img></button> */}
                 {isMenuComment && <MenuComment comment={comment} />}
-                <div className="like-btn">
+                {/* <div className="like-btn">
+                    <button className="like" onClick={toggleLike}>
+                        <img className='like-img-red' src={likeUrl}></img>
+                    </button>
+                </div> */}
+            </div>
+            <div className="like-btn">
                     <button className="like" onClick={toggleLike}>
                         <img className='like-img-red' src={likeUrl}></img>
                     </button>
                 </div>
-            </div>
             {/* </div> */}
         </section>
 

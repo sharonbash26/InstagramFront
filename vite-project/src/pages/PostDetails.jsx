@@ -61,7 +61,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                 <section className='details-subject'>
                             <section className='first'>
                                 <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
-                                <h4>{userLogged.userName}</h4>
+                                {/* <h4>{userLogged.userName}</h4> */}
                                 <h4>{pst.by.fullname}</h4>
                             </section>
                             <section className='second'>
