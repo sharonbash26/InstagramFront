@@ -137,9 +137,14 @@ export function PostPreview({ pst, onRemovePst }) {
                             <button className="view-all-comments" onClick={openDetailsModal}>View all {countComment} comments</button>
                         </Link>
                     </div>
-                    {newComment && (<div className="newComment">
-                        <h4>{loggedUser.userName}</h4>
+                    {newComment && 
+                    (<div className="newComment">
+                        {/* <h4 style={padding:0,margin:0}>{loggedUser.userName}</h4> */}
+                        <h4 style={{ padding: 0, margin: 0 }}>{loggedUser.userName}</h4>
+
                         {newComment}
+                        {/* <p className="userComment">{newComment}</p> */}
+
                     </div>)}
                     <div className="comment-input-container" ref={emojiPickerRef}>
                         <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />

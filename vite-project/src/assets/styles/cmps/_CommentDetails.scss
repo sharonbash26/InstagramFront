@@ -1,19 +1,60 @@
 .comment-details {
-        .data-comment {
-            display: flex;
-            justify-content: space-between;
-        }
-        img{
-          width: 20px;
-        }
-        .three-dot{
-            display: none;
-        }
-        &:hover{
-            .three-dot{
-                display: inline-block;
-            }
-        }
+    .data-comment {
+        display: flex;
+        justify-content: space-between;
     }
 
+  .profile-comment-img {
+        width: 35px;
+    }
 
+    .three-dot {
+        display: none;
+    }
+
+    &:hover {
+        .three-dot {
+            display: inline-block;
+        }
+    }
+}
+
+.comment-details {
+    display: flex;
+
+    .textual {
+        margin-left: 1rem;
+        .textual-1{
+            display: flex;
+            gap:3px;
+            h4{
+                font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                font-weight: 600;
+                font-size: 22px;
+            }
+        }
+        .textual-2{
+            display: flex;
+            .date-time{
+                margin-right: 7px;
+            }
+            .likes-on-comment{
+                margin-right:7px;
+            }
+            p{
+                // font-size: 18px;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            }
+        }
+        .textual-1 h4, .textual-2 h4 {
+            margin: 0;
+            padding: 0;
+        }
+    
+ 
+    }
+
+  .like-img-red{
+        width: 1.375rem;
+    }
+}

@@ -54,7 +54,7 @@ async function remove(pstId) {
     await asyncStorageService.remove(STORAGE_KEY, pstId)
 }
 async function removeComment(commentId) {
-    console.log('commentId',commentId)
+    console.log('commentId', commentId)
     // 1. Find the post containing the comment
     let allPsts = await asyncStorageService.query(STORAGE_KEY);
     let foundPst = allPsts.find(pst => pst.comments.some(comment => comment.id === commentId));
@@ -130,11 +130,11 @@ function _createPst() {
         psts = [{
             _id: "s101",
             txt: "Best trip ever",
-            imgUrl: "",
+            imgUrl: "a1.jpg",
             uploadTime: utilService.randomTimeString(),
             by: {
                 _id: "u101",
-                fullname: "sharonbash",
+                fullname: "yuile23",
                 imgUrl: "s3.jpg"
             },
             loc: { // Optional
@@ -149,10 +149,10 @@ function _createPst() {
                     id: "c1001",
                     by: {
                         _id: "u105",
-                        fullname: "Bob",
+                        fullname: "sharon_bash",
                         imgUrl: "http://some-img"
                     },
-                    txt: "good one!",
+                    txt: "וואו",
                     likedBy: [ // Optional
                         {
                             "_id": "u105",
@@ -168,7 +168,176 @@ function _createPst() {
                         fullname: "Dob",
                         imgUrl: "http://some-img"
                     },
-                    txt: "not good!",
+                    txt: "מהמםםםםםםםםם",
+                },
+                {
+                    id: "c1003",
+                    by: {
+                        _id: "u107",
+                        fullname: "Tomer12",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מדהיםםםםםםם",
+                },
+                {
+                    id: "c1004",
+                    by: {
+                        _id: "u108",
+                        fullname: "Yovel",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מדהיםם",
+                }
+            ],
+            likedBy: [
+                {
+                    _id: "u105",
+                    fullname: "Bob",
+                    imgUrl: "http://some-img"
+                },
+                {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "http://some-img"
+                }
+            ],
+            tags: ["fun", "romantic"]
+        }, {
+            _id: "s102",
+            txt: "My last photo from party",
+            imgUrl: "b2.jpg",
+            uploadTime: utilService.randomTimeString(),
+            by: {
+                _id: "u109",
+                fullname: "yaelK1",
+                imgUrl: "s3.jpg"
+            },
+            loc: { // Optional
+                lat: 11.11,
+                lng: 22.22,
+                name: "Tel Aviv"
+            },
+
+
+            comments: [
+                {
+                    id: "c10099",
+                    by: {
+                        _id: "u1055",
+                        fullname: "sharon_bash",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "וואו",
+                    likedBy: [ // Optional
+                        {
+                            "_id": "u105",
+                            "fullname": "Bob",
+                            "imgUrl": "http://some-img"
+                        }
+                    ]
+                },
+                {
+                    id: "c10076",
+                    by: {
+                        _id: "u106",
+                        fullname: "Dob",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מהמםםםםםםםםם",
+                },
+                {
+                    id: "c100323",
+                    by: {
+                        _id: "u1072",
+                        fullname: "Tomer12",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מדהיםםםםםםם",
+                },
+                {
+                    id: "c10041",
+                    by: {
+                        _id: "u108",
+                        fullname: "Yovel",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מדהיםם",
+                }
+            ],
+            likedBy: [
+                {
+                    _id: "u105",
+                    fullname: "Bob",
+                    imgUrl: "http://some-img"
+                },
+                {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "http://some-img"
+                }
+            ],
+            tags: ["fun", "romantic"]
+        },
+        {
+            _id: utilService.makeId(),
+            txt: "wowwwwwwwwwwwww i cant believe!!!!!!!!!!",
+            imgUrl: "e5.jpg",
+            uploadTime: utilService.randomTimeString(),
+            by: {
+                _id: utilService.makeId(),
+                fullname: "mor_cohen",
+                imgUrl: "s3.jpg"
+            },
+            loc: { // Optional
+                lat: 11.11,
+                lng: 22.22,
+                name: "Tel Aviv"
+            },
+
+
+            comments: [
+                {
+                    id: "c1001",
+                    by: {
+                        _id: "u105",
+                        fullname: "sharon_bash",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "וואו",
+                    likedBy: [ // Optional
+                        {
+                            "_id": "u105",
+                            "fullname": "Bob",
+                            "imgUrl": "http://some-img"
+                        }
+                    ]
+                },
+                {
+                    id: "c1002",
+                    by: {
+                        _id: "u106",
+                        fullname: "Dob",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מהמםםםםםםםםם",
+                },
+                {
+                    id: "c1003",
+                    by: {
+                        _id: "u107",
+                        fullname: "Tomer12",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מדהיםםםםםםם",
+                },
+                {
+                    id: "c1004",
+                    by: {
+                        _id: "u108",
+                        fullname: "Yovel",
+                        imgUrl: "http://some-img"
+                    },
+                    txt: "מדהיםם",
                 }
             ],
             likedBy: [
@@ -185,6 +354,7 @@ function _createPst() {
             ],
             tags: ["fun", "romantic"]
         }
+
         ]
 
     }

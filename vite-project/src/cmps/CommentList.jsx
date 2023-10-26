@@ -8,12 +8,14 @@ export function CommentList({ pst}) {
     return (
         <section className='comment-list'>
         <div className="list">
-            {pst.comments.map((comment) => (
-                <CommentDetails key={comment.id} comment={comment} />
+            {pst.comments.map((comment, index) => (
+                <CommentDetails key={index} pst={pst} comment={comment} />
              
             ))}
         </div>
+        <div className="2">
         <AllActionBtns pst={pst} />
+        </div>
         </section>
     )
 }
