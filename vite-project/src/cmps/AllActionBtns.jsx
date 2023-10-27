@@ -4,6 +4,7 @@ import { Emoji, EmojiStyle } from 'emoji-picker-react';
 import { ThreeDotModal } from './ThreeDotModal';
 import { pstService } from "../services/pst.service.local";
 import { SET_SELECTED_POST } from '../store/pst.reducer';
+import { useDispatch } from 'react-redux';
 
 const { useState, useEffect, useRef } = React
 export function AllActionBtns({ pst }) {
@@ -11,11 +12,12 @@ export function AllActionBtns({ pst }) {
     const [isLiked, setIsLiked] = useState(false)
     const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
     const [countComment, setCountComment] = useState(pst.comments?.length || 0)
-    var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
+    const [likesCount, setLikesCount] = useState(likedBy?.length || 0)
     const emojiPickerRef = useRef(null);
     const [comment, setComment] = useState('')
     const [selectedEmoji, setSelectedEmoji] = useState("");
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const dispatch = useDispatch()
 
 
 
@@ -82,24 +84,21 @@ export function AllActionBtns({ pst }) {
         // setSelectedEmoji(emojiData.unified);
     }
 
-    function onSendComment() {
+    async function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
         setNewComment(comment)
         console.log('pstid', pst._id)
         console.log('comment', comment)
-     pstService.addComment(pst._id, comment);
-
-
-
-
+        const updatedPst =  await pstService.addComment(pst._id, comment);
+        dispatch({type: 'SET_SELECTED_POST', post: updatedPst})
         setComment('');
         setInputValue('');
     }
     return (
         <section className='all-action-btns'>
-        
 
-         
+
+
             <div className="actions-btn">
 
                 <div className="actions-btn-part1">
@@ -112,15 +111,15 @@ export function AllActionBtns({ pst }) {
                 <div className="actions-btn-part2">
                     <button className="save"><img src="save.svg"></img></button>
                 </div>
-          
-              
+
+
             </div>
-            
+
             <div className="comment-text-area">
-            <div className='time-upload'>
-                <h4>{likesCount} likes</h4>
-                <p>3 DAYS AGO</p>
-            </div>
+                <div className='time-upload'>
+                    <h4>{likesCount} likes</h4>
+                    <p>3 DAYS AGO</p>
+                </div>
 
                 <div className="comment-input-container" ref={emojiPickerRef}>
                     <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
@@ -139,7 +138,7 @@ export function AllActionBtns({ pst }) {
                     </div>
                 </div>
             </div>
-          
+
         </section >
     )
 }

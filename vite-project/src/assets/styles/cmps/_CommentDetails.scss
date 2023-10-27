@@ -8,7 +8,8 @@
     }
 
   .profile-comment-img {
-        width: 35px;
+        width: 32px;
+        height: 32px;
     }
 
     .three-dot {
@@ -35,6 +36,9 @@
                 font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                 font-weight: 600;
                 font-size: 22px;
+            }
+            .comment-txt{
+                font-weight: 400;
             }
         }
         .textual-2{

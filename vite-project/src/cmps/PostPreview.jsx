@@ -78,10 +78,6 @@ export function PostPreview({ pst, onRemovePst }) {
         console.log('pstid', pst._id)
         console.log('comment', comment)
         pstService.addComment(pst._id, comment);
-
-
-
-
         setComment('');
         setInputValue('');
     }
@@ -92,19 +88,16 @@ export function PostPreview({ pst, onRemovePst }) {
             (inputValue) =>
                 inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
         );
-        // setSelectedEmoji(emojiData.unified);
     } console.log('hhh', by.fullname)
     return (
         <section className="pst-Preview">
             <div className="info-start">
                 <div className="info-start-content">
                     <img className="profile-prev" src={loggedUser.imgUrl}></img>
-                    <h2>{loggedUser.userName} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
+                    <h2>{by.fullname||loggedUser.userName} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
                     {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
-
                 </div>
-
                 <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
                 {isDotModalOpen && <ThreeDotModal closeDotModal={closeDotModal} pst={pst}></ThreeDotModal>}
 

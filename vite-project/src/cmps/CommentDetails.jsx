@@ -40,7 +40,7 @@ export function CommentDetails({pst, comment }) {
                 <section className='textual'>
                     <div className='textual-1'>
                         <h4>{comment.by.fullname}</h4>
-                        <h4>{comment.txt}</h4>
+                        <h4 className='comment-txt'>{comment.txt}</h4>
                     </div>
 
                     <div className='textual-2'>

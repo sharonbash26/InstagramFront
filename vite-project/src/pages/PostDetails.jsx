@@ -41,28 +41,14 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
             </div>
 
             <div className='header-container-details-modal'>
-                {/* <section className='details-subject'>
-                    <section className='first'>
-                        <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
-                        <h4>{userLogged.userName}</h4>
-                        <h4>{pst.by.fullname}</h4>
-                    </section>
-                    <section className='second'>
-                        <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
-                        {isDotModalOpen && <ThreeDotModal closeDotModal={closeDotModal} onRemovePst={() => onRemovePst(pst._id)}></ThreeDotModal>}
-                        <svg onClick={closeModalWithRouter} aria-label="Close" className="cross-icon" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18">
-                            <title>Close</title>
-                            <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"></polyline>
-                            <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
-                        </svg>
-                    </section>
-                </section> */}
                 <div className='all'>
                 <section className='details-subject'>
                             <section className='first'>
                                 <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
                                 {/* <h4>{userLogged.userName}</h4> */}
-                                <h4>{pst.by.fullname}</h4>
+                                {/* <h4 style={{margin-top:6px}}>{pst.by.fullname}</h4> */}
+                                <h4 style={{ marginTop: '6px' }}>{pst.by.fullname}</h4>
+
                             </section>
                             <section className='second'>
                                 <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
@@ -77,11 +63,9 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                     <div className='body-container-details-modal'>
                         <section className='first'>
                             <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
-                            <h4>{pst.by.fullname}</h4>
+                            <h4 className='pst-by'>{pst.by.fullname}</h4>
                             <h4>{pst.txt}</h4>
-
                         </section>
-     
                     </div>
 
                     <CommentList pst={pst} />

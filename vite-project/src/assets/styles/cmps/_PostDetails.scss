@@ -46,6 +46,8 @@
             justify-content: space-between;
             width: 100%;
             border-bottom: 0.8px solid rgb(217, 216, 216);
+            padding-top: 15px;
+            padding-right: 9px;
 
             .first {
                 display: flex;
@@ -53,10 +55,11 @@
                 
 
                 .profile-details-img {
-                    width: 3rem;
+                    width: 32px;
+                    height: 32px    ;
                     border-radius: 50%;
                     margin-bottom: 1rem;
-                    margin-left: 0.55rem;
+                    margin-left: 12px;
                 }
 
                 h4 {
@@ -87,13 +90,21 @@
             flex-direction: row;
 
             .profile-details-img {
-                width: 3rem;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
                 margin-bottom: 1rem;
-                margin-left: 0.77rem;
+                margin-left: 12px;
                 grid-row: 2/3;
                 grid-column: 2/3;
             }
+        }
+        h4{
+            margin-left: 5px;
+            margin-top: 8px;
+        }
+        .pst-by{
+            margin-top: 8px;
         }
 
     }
