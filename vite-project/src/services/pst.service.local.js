@@ -619,15 +619,7 @@ function _createPst() {
                         }
                     ]
                 },
-                {
-                    id: "c1002",
-                    by: {
-                        _id: "u106",
-                        fullname: "Dob",
-                        imgUrl: "http://some-img"
-                    },
-                    txt: "מהמםםםםםםםםם",
-                },
+  
                 {
                     id: "c1003",
                     by: {
@@ -710,7 +702,7 @@ function _createPst() {
                         fullname: "Tomer12",
                         imgUrl: "http://some-img"
                     },
-                    txt: "מדהיםםםםםםם",
+                    txt: "מדהיםםםם",
                 },
                 {
                     id: "c10041",
@@ -738,7 +730,7 @@ function _createPst() {
         },
         {
             _id: utilService.makeId(),
-            txt: "wowwwwwwwwwwwww i cant believe!!!!!!!!!!",
+            txt: "wow i cant believe!!!!!!!",
             imgUrl: "e5.jpg",
             uploadTime: utilService.randomTimeString(),
             by: {
@@ -833,9 +825,8 @@ async function addComment(pstId, comment) {
     };
 
     pst.comments.push(newComment);
-    await asyncStorageService.put(STORAGE_KEY, pst);
-
-    return newComment;
+    const updatedPost = await asyncStorageService.put(STORAGE_KEY, pst);
+    return updatedPost
 }
 
 function getDefaultFilter() {
