@@ -19,6 +19,7 @@
     &:hover {
         .three-dot {
             display: inline-block;
+            
         }
     }
 }
@@ -26,7 +27,7 @@
 .comment-details {
     display: flex;
     align-items: flex-start;
-
+cursor: pointer;
     .textual {
         margin-left: 1rem;
         .textual-1{
@@ -35,7 +36,8 @@
             h4{
                 font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                 font-weight: 600;
-                font-size: 22px;
+                font-size: 0.875rem;
+                
             }
             .comment-txt{
                 font-weight: 400;
@@ -45,13 +47,22 @@
             display: flex;
             .date-time{
                 margin-right: 7px;
+                font-weight: 400;
+                font-size: 0.75rem;
+                color:rgb(115, 115, 115);
             }
             .likes-on-comment{
                 margin-right:7px;
+                font-weight: 600;
+                color:rgb(115, 115, 115);
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+                font-size: 0.75rem;
             }
             p{
-                // font-size: 18px;
+                font-size: 0.75rem;
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                font-weight: 600;
+                color:rgb(115,115,115);
             }
         }
         .textual-1 h4, .textual-2 h4 {
@@ -63,6 +74,8 @@
     }
 
   .like-img-red{
-        width: 1.375rem;
+        width:0.75rem;
+        height: 0.75rem;
+
     }
 }

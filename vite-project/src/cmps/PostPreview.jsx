@@ -105,7 +105,7 @@ export function PostPreview({ pst, onRemovePst }) {
             </div>
 
             {/* <img src={utilService.getAssetSrc('react.svg')} alt="pst preview"></img> */}
-            <img src={imgUrl || "s3.jpg"} alt="pst preview"></img>
+            <img className="pst-img" src={imgUrl || "s3.jpg"} alt="pst preview"></img>
             <section>
                 <div className="actions-btn">
                     <div className="actions-btn-part1">

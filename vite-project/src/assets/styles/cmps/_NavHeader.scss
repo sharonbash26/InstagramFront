@@ -3,6 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 15.25rem;
     .btn-container {
        
         display: flex;
@@ -19,8 +20,8 @@
      
         &::after {
             content: "";
-            background: rgb(217, 216, 216);
-            width: 0.1rem;
+            background: rgb(231, 231, 231);
+            width: 0.062rem;
             position: absolute;
             height: 100vh;
             margin-top: -80px;
@@ -30,6 +31,9 @@
             width:100%;
             padding: 1.5625rem 0.75rem 1rem;
             align-items: center;
+        }
+        .first{
+            width: 15.3rem;
         }
         .item-first{
            padding-top: 0.75rem;
@@ -56,7 +60,7 @@
         }
 
         button:hover {
-            background: #e0e0e0;
+            background: #f6f6f6;
             color: #000;
         }
 
@@ -71,7 +75,8 @@
         }
 
         span {
-            margin-left: 0.9375rem;
+            // margin-left: 0.9375rem;
+            margin-left: -0.063rem;
 
         }
 
@@ -149,8 +154,13 @@
 
         .item-more {
             margin-top: 2.375rem;
+            width: 15.3rem;
         }
-
+        .item-down{
+            margin-bottom: -1.875rem;
+            width:15.3rem;
+        }
+       
 
 
 
