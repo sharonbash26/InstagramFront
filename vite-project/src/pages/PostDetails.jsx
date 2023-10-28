@@ -66,6 +66,9 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                             <h4 className='pst-by'>{pst.by.fullname}</h4>
                             <h4>{pst.txt}</h4>
                         </section>
+                        {/* <div className='time'> */}
+                            <p className='timee'>3d</p>
+                            {/* </div> */}
                     </div>
 
                     <CommentList pst={pst} />

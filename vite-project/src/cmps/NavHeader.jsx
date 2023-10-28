@@ -11,24 +11,13 @@ import { MoreModal } from './MoreModal';
 import { userService } from '../services/user.service';
 
 export function NavHeader({ onAddPst }) {
-    const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen); 
-    console.log('isModal',isModalOpen)
-    const [isMoreModalOpen,setIsMoreModalOpen]=useState(false)
-    let userImgPorfile=userService.getLoggedinUser().imgUrl
-    console.log('user prf img',userImgPorfile)
+    const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen);
+    const [isMoreModalOpen, setIsMoreModalOpen] = useState(false)
+    let userImgPorfile = userService.getLoggedinUser().imgUrl
+    const navigate = useNavigate();
+    function onOpenMoreModal() {
+        setIsMoreModalOpen(true)
 
-    // const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
-        const navigate = useNavigate();
-    // function openModal() {
-    //     setIsUploadModalOpen(true)
-    // }
-    // function closeModal() {
-    //     setIsUploadModalOpen(false)
-    // }
-
-    function onOpenMoreModal(){
-      setIsMoreModalOpen(true)
-      
     }
     return (
         <section className="container-nav-side">
@@ -46,14 +35,14 @@ export function NavHeader({ onAddPst }) {
                     <button className='item'><img src="mess.svg"></img><span>Messages</span></button>
                     <button className='item'><img src="svgs_collection/svg6.svg"></img><span>Notifications</span></button>
                     <button className='item' onClick={openModal}><img src="create.svg"></img><span>Create</span></button>
-                    <button className='item'  onClick={() => navigate('/profile/psts')}><img className="profile-icon-img" src={userImgPorfile}></img><span>Profile</span> </button>
+                    <button className='item' onClick={() => navigate('/profile/psts')}><img className="profile-icon-img" src={userImgPorfile}></img><span>Profile</span> </button>
 
                 </div>
 
                 <div className='second'>
                     <button className='item item-down'><img src="svgs_collection/svg8.svg"></img><span>Threads</span></button>
                     <button className='item item-more'><img src="svgs_collection/svg10.svg" onClick={onOpenMoreModal}></img><span>More</span></button>
-                    {isMoreModalOpen&&<MoreModal />}
+                    {isMoreModalOpen && <MoreModal />}
                     {isModalOpen && (<UploadModal closeModal={closeModal} onAddPst={onAddPst} />
                     )}
 

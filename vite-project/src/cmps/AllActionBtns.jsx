@@ -117,7 +117,7 @@ export function AllActionBtns({ pst }) {
 
             <div className="comment-text-area">
                 <div className='time-upload'>
-                    <h4>{likesCount} likes</h4>
+                    <h4 className='like-count-in-all-actions'>{likesCount} likes</h4>
                     <p>3 DAYS AGO</p>
                 </div>
 

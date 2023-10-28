@@ -1,7 +1,8 @@
 .app-footer{
     color: #D2D2D2;
     font-family: $font-family1;
-    font-size: 0.89rem;
+    font-size: 0.75rem;
+    font-weight: 400;
     .footer-content{
         color:#D2D2D2;
         margin-top: 25rem;
@@ -15,5 +16,9 @@
 
     span{
         font-size: 8px;
+    }
+    p{
+        font-size: 0.75rem;
+
     }
 }

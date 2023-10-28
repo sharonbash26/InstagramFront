@@ -16,22 +16,37 @@
         .info-start-content {
             display: flex;
             margin-left: -0.125rem;
+            .dot-upper{
+                font-size: 0.875rem;
+                color:rgb(115, 115, 115);
+                font-weight: 400;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
         }
 
         .profile-prev {
-            width: 3rem;
+            width: 2rem;
+            height: 2rem;
             border-radius: 50%;
             margin-bottom: 1rem;
             margin-right: 0.8125rem;
+            object-fit: cover;
+            cursor: pointer;
         }
 
         h2 {
-            font-weight: normal;
+            font-weight: 600;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
         }
 
         .three-dot-icon {
             margin-left: 12rem;
+            color:rgb(0, 0, 0) ;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         .timeWhenUpload {
@@ -39,8 +54,17 @@
             color: rgb(154, 152, 152);
             font-size: 0.875rem;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            cursor: pointer;
         }
 
+    }
+
+    .pst-img {
+        width: 29.25rem;
+        height: 29.25rem;
+        object-fit: cover;
+        object-position: center;
     }
 
     .description {
@@ -60,17 +84,15 @@
 
         .newComment {
             h4 {
-                margin-bottom: 0.25rem; /* Adjust this as needed to reduce the space below the username */
-                /* Other styles if needed */
+                margin-bottom: 0.25rem;
             }
-        
-            /* Assuming newComment is a paragraph or div. If it's another element, adjust accordingly. */
-            p, div {
-                margin-top: 0; /* Removes space above the comment text */
-                /* Other styles if needed */
+
+            p,
+            div {
+                margin-top: 0;
             }
         }
-        
+
 
     }
 
@@ -80,7 +102,7 @@
         font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         font-size: 0.875rem;
         color: rgb(0, 0, 0);
-        font-weight: normal;
+        font-weight: 600;
 
     }
 
@@ -93,12 +115,18 @@
 
         .actions-btn-part1 {
             margin-left: -0.5rem;
+            img{
+                width: 24px;
+                height: 24px;
+            }
         }
 
         .actions-btn-part2 {
             .save {
                 img {
                     margin-left: 0.6875rem;
+                    width: 24px;
+                    height: 24px;
                 }
             }
         }
@@ -147,7 +175,8 @@
             margin-left: 11rem;
 
             .emjoi-btn {
-                width: 1rem;
+                width: 0.8125rem;
+                height: 0.8125rem;
                 margin-right: -0.3125rem;
             }
 
