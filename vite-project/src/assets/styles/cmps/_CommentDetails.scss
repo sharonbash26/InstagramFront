@@ -2,19 +2,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .data-comment {
         display: flex;
         justify-content: space-between;
-    img{
-        border-radius:50% ;
-        object-fit: cover;
-    }
+
+        img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
 
-  .profile-comment-img {
-        width: 32px;
-        height: 32px;
-      
+    .profile-comment-img {
+        img {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+        }
+
+
     }
 
     .three-dot {
@@ -24,7 +30,7 @@
     &:hover {
         .three-dot {
             display: inline-block;
-            
+
         }
     }
 }
@@ -32,54 +38,64 @@
 .comment-details {
     display: flex;
     align-items: flex-start;
-cursor: pointer;
+    cursor: pointer;
+
     .textual {
         margin-left: 1rem;
-        .textual-1{
+
+        .textual-1 {
             display: flex;
-            gap:12px;
-            h4{
-                font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            gap: 12px;
+
+            h4 {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                 font-weight: 600;
                 font-size: 0.875rem;
-                
+
             }
-            .comment-txt{
+
+            .comment-txt {
                 font-weight: 400;
             }
         }
-        .textual-2{
+
+        .textual-2 {
             display: flex;
-            .date-time{
+
+            .date-time {
                 margin-right: 7px;
                 font-weight: 400;
                 font-size: 0.75rem;
-                color:rgb(115, 115, 115);
+                color: rgb(115, 115, 115);
             }
-            .likes-on-comment{
-                margin-right:7px;
+
+            .likes-on-comment {
+                margin-right: 7px;
                 font-weight: 600;
-                color:rgb(115, 115, 115);
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+                color: rgb(115, 115, 115);
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                 font-size: 0.75rem;
             }
-            p{
+
+            p {
                 font-size: 0.75rem;
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                 font-weight: 600;
-                color:rgb(115,115,115);
+                color: rgb(115, 115, 115);
             }
         }
-        .textual-1 h4, .textual-2 h4 {
+
+        .textual-1 h4,
+        .textual-2 h4 {
             margin: 0;
             padding: 0;
         }
-    
- 
+
+
     }
 
-  .like-img-red{
-        width:0.75rem;
+    .like-img-red {
+        width: 0.75rem;
         height: 0.75rem;
 
     }
