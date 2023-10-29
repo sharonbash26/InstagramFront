@@ -1,4 +1,4 @@
-import { asyncStorageService} from './async-storage.service'
+import { asyncStorageService } from './async-storage.service'
 import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -24,8 +24,6 @@ function getUsers() {
     // return httpService.get(`user`)
 }
 
-
-
 async function getById(userId) {
     const user = await asyncStorageService.get('user', userId)
     // const user = await httpService.get(`user/${userId}`)
@@ -37,10 +35,13 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({_id, score}) {
-    const user = await asyncStorageService.get('user', _id)
-    user.score = score
-    await asyncStorageService.put('user', user)
+
+// made some changes
+async function update({ _id, imgUrl }) {
+    // const user = await asyncStorageService.get('user', _id)
+    const user = getLoggedinUser()
+    user.imgUrl = imgUrl
+    // await asyncStorageService.put('user', user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
     // // Handle case in which admin updates other user's details
@@ -80,8 +81,8 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    console.log('user',user.username)
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl,userName:user.username}
+    console.log('user', user.username)
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, userName: user.username }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

@@ -35,7 +35,7 @@ export function CommentDetails({pst, comment }) {
             {/* <div className="comment"> */}
             <div className="data-comment">
                 <div className='profile-comment-img'>
-                    <img src={user.imgUrl}></img>
+                    <img src={pst.by.imgUrl}></img>
                 </div>
                 <section className='textual'>
                     <div className='textual-1'>
@@ -50,16 +50,8 @@ export function CommentDetails({pst, comment }) {
                         <p className='reply'>Reply</p>
                         <button className='three-dot' onClick={toggleMenu}><img src="3dot.svg"></img></button>
                         {isMenuVisible && <MenuComment comment={comment} onClose={toggleMenu} />}
-
-
                     </div>
-         
-
                 </section>
-
-      
-
-
                 {/* <button className='three-dot' onClick={openMenuComment}><img src="3dot.svg"></img></button> */}
                 {isMenuComment && <MenuComment comment={comment} />}
                 {/* <div className="like-btn">

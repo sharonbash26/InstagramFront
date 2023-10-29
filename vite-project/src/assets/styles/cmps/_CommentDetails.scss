@@ -5,11 +5,16 @@
     .data-comment {
         display: flex;
         justify-content: space-between;
+    img{
+        border-radius:50% ;
+        object-fit: cover;
+    }
     }
 
   .profile-comment-img {
         width: 32px;
         height: 32px;
+      
     }
 
     .three-dot {
