@@ -7,17 +7,17 @@
     font-style: normal;
     margin-inline: auto;
     font-weight: normal;
-    margin-top: 1.375rem;
-
+    margin-top: 3px;
+     
     .info-start {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .info-start-content {
+        .info-start-content1 {
             display: flex;
             align-items: center;
-            margin-left: -0.125rem;
+            margin-left: 0rem;
 
             .dot-upper {
                 font-size: 0.875rem;
@@ -167,12 +167,13 @@
         }
 
         .view-all-comments {
-            padding: 0;
+            padding: 1.2px;
             font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 0.875rem;
             color: rgb(115, 115, 115);
             font-weight: 400;
             cursor: pointer;
+
 
         }
 
