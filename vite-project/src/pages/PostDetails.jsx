@@ -12,8 +12,9 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     // const [pst, setPst] = useState(null)
     const [isDotModalOpen, setIsDotModalOpen] = useState(false)
     const navigate = useNavigate()
-      const pst = useSelector(storeState => storeState.pstModule.selectedPost)
+    const pst = useSelector(storeState => storeState.pstModule.selectedPost)
     let userLogged = userService.getLoggedinUser()
+
     function closeModalWithRouter() {
         navigate('/pst')
     }
@@ -31,18 +32,17 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     // }
     if (!pst) return <p>Loading...</p>
     return (
+        <section className="pst-details-container">
+            
+            <section className='pst-details'>
+                {/* <pre>{JSON.stringify(pst)}</pre> */}
+                <div className='img-side-details'>
+                    <img className="details-img" src={pst.imgUrl} ></img>
+                </div>
 
-
-        <section className='pst-details'>
-
-            {/* <pre>{JSON.stringify(pst)}</pre> */}
-            <div className='img-side-details'>
-                <img className="details-img" src={pst.imgUrl} ></img>
-            </div>
-
-            <div className='header-container-details-modal'>
-                <div className='all'>
-                <section className='details-subject'>
+                <div className='header-container-details-modal'>
+                    <div className='all'>
+                        <section className='details-subject'>
                             <section className='first'>
                                 <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
                                 {/* <h4>{userLogged.userName}</h4> */}
@@ -60,24 +60,27 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                                 </svg>
                             </section>
                         </section>
-                    <div className='body-container-details-modal'>
-                        <section className='first'>
-                            <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
-                            <h4 className='pst-by'>{pst.by.fullname}</h4>
-                            <h4>{pst.txt}</h4>
-                        </section>
-                        {/* <div className='time'> */}
+                        <div className='body-container-details-modal'>
+                            <section className='first'>
+                                <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
+                                <h4 className='pst-by'>{pst.by.fullname}</h4>
+                                <h4>{pst.txt}</h4>
+                            </section>
+                            {/* <div className='time'> */}
                             <p className='timee'>3d</p>
                             {/* </div> */}
-                    </div>
+                        </div>
 
-                    <CommentList pst={pst} />
+                        <CommentList pst={pst} />
 
-                    <div className='actions-container'>
+                        <div className='actions-container'>
 
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <div className="overlay" onClick={closeModalWithRouter}></div>
         </section>
+
     )
 }

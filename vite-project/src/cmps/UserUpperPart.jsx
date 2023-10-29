@@ -8,16 +8,16 @@ export function UserUpperPart() {
     const user = useSelector(storeState => storeState.userModule.user)
 
     // const [showImgUploader, setShowImgUploader] = useState(false)
-const [showMenu,setShowMenu]=useState(false)
+    const [showMenu, setShowMenu] = useState(false)
     let countPost = 0
     let countFollowers = 0
     let countFollowing = 0
-//  function onsetShowImgUploader(){
-//     setShowImgUploader(true)
-// }
-function openMenu(){
-    setShowMenu(!showMenu)
-}
+    //  function onsetShowImgUploader(){
+    //     setShowImgUploader(true)
+    // }
+    function openMenu() {
+        setShowMenu(!showMenu)
+    }
 
     return (
         <section className='user-upper-part'>
@@ -27,8 +27,8 @@ function openMenu(){
             <section className='internal-user-upper-part'>
 
                 <button className='user-button' onClick={openMenu}>
-                    <img className="empty-user" src="emptyUser.jpeg" alt="User Placeholder"/>
-                </button>{showMenu&&<MenuUploadUserPhoto />}
+                    <img className="empty-user" src={user.imgUrl || "emptyUser.jpeg"} alt="User Placeholder"/>
+                </button>{showMenu && <MenuUploadUserPhoto />}
 
                 {/* {showImgUploader && <ImgUploader design={'alternative'} />}  This will conditionally render the ImgUploader component based on the state */}
 

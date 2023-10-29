@@ -139,7 +139,7 @@ export function PostPreview({ pst, onRemovePst }) {
                         {/* <p className="userComment">{newComment}</p> */}
 
                     </div>)}
-                    <div className="comment-input-container" ref={emojiPickerRef}>
+                    <div className="comment-input-container1" ref={emojiPickerRef}>
                         <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
                         <div className="empjiPostbtn">
                             {<Emoji unified={selectedEmoji} size={28} />}
@@ -147,7 +147,7 @@ export function PostPreview({ pst, onRemovePst }) {
                                 <button className="post-btn" onClick={onSendComment}>Post</button>
                             ) : null}
 
-                            <button onClick={openMenuEmoji} className="emoji"><img className="emjoi-btn" src="emjoi-btn.svg"></img></button>
+                            <button onClick={openMenuEmoji} className="emoji1"><img className="emjoi-btn1" src="emjoi-btn.svg"></img></button>
 
                             <div className="emoji-picker-container">
                                 {showEmojiPicker && <EmojiPicker onEmojiClick={onClick} />}

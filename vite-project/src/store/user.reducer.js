@@ -1,7 +1,7 @@
 import { userService } from '../services/user.service.js'
 
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
+export const IMG_CHANGE = 'IMG_CHANGE'
+export const IMG_REMOVE = 'IMG_REMOVE'
 export const CHANGE_COUNT = 'CHANGE_COUNT'
 export const SET_USER = 'SET_USER'
 export const SET_WATCHED_USER = 'SET_WATCHED_USER'
@@ -13,17 +13,17 @@ const initialState = {
     count: 10,
     user: userService.getLoggedinUser(),
     users: [],
-    watchedUser : null
+    watchedUser: null
 }
 
 export function userReducer(state = initialState, action) {
     var newState = state
     switch (action.type) {
-        case INCREMENT:
-            newState = { ...state, count: state.count + 1 }
+        case IMG_CHANGE:
+            newState = { ...state, user: { ...state.user, imgUrl: action.imgUrl } }
             break
-        case DECREMENT:
-            newState = { ...state, count: state.count - 1 }
+        case IMG_REMOVE:
+            newState = { ...state, user: { ...state.user, imgUrl: null } }
             break
         case CHANGE_COUNT:
             newState = { ...state, count: state.count + action.diff }

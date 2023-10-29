@@ -4,7 +4,7 @@ import { store } from '../store/store.js'
 
 import { showErrorMsg } from '../services/event-bus.service.js'
 // import { LOADING_DONE, LOADING_START } from "./system.reducer.js";
-import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from "./user.reducer.js";
+import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER, IMG_CHANGE, IMG_REMOVE } from "./user.reducer.js";
 import { pstService } from "../services/pst.service.local.js";
 
 export async function loadUsers() {
@@ -73,6 +73,17 @@ export async function logout() {
     }
 }
 
+export async function updateUser(updatedUser) {
+    try {
+        console.log(updatedUser)
+        const user = await userService.update(updatedUser)
+        console.log(user)
+        store.dispatch({ type: IMG_CHANGE, imgUrl: updatedUser.imgUrl })
+    } catch (err) {
+        console.log('Failed to update user', err)
+    }
+}
+
 export async function loadUser(userId) {
     try {
         const user = await userService.getById(userId);
@@ -88,7 +99,7 @@ export async function loadUserLoggedPsts() {
         const loggedInUser = userService.getLoggedinUser();
         if (!loggedInUser) throw new Error('No user logged in');
 
-        const userPsts = await pstService.query({by: loggedInUser._id});
+        const userPsts = await pstService.query({ by: loggedInUser._id });
         // const userPsts = allPsts.filter(pst => pst.userId === loggedInUser._id);
 
         console.log('Psts for logged-in user:', userPsts);
