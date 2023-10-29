@@ -15,6 +15,11 @@
         .user-button {
             width: 8rem;
 
+            img {
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
         }
 
         .info {

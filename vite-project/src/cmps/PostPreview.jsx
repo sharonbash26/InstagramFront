@@ -93,7 +93,7 @@ export function PostPreview({ pst, onRemovePst }) {
         <section className="pst-Preview">
             <div className="info-start">
                 <div className="info-start-content">
-                    <img className="profile-prev" src={loggedUser.imgUrl}></img>
+                    <img className="profile-prev" src={by.imgUrl }></img>
                     <h2>{by.fullname||loggedUser.userName} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
                     {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>

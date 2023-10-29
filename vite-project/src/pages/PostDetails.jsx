@@ -25,11 +25,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
         loadPost(pstId)
     }, [])
 
-    // async function loadPost() {
-    //     const pst = await pstService.getById(pstId)
-    //     setPst(pst)
-    //     console.log('pst txt', pst.by.fullname)
-    // }
+
     if (!pst) return <p>Loading...</p>
     return (
         <section className="pst-details-container">
@@ -44,7 +40,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                     <div className='all'>
                         <section className='details-subject'>
                             <section className='first'>
-                                <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
+                                <img className='profile-details-img' src={pst.by.imgUrl} alt="pst preview"></img>
                                 {/* <h4>{userLogged.userName}</h4> */}
                                 {/* <h4 style={{margin-top:6px}}>{pst.by.fullname}</h4> */}
                                 <h4 style={{ marginTop: '6px' }}>{pst.by.fullname}</h4>
@@ -62,7 +58,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                         </section>
                         <div className='body-container-details-modal'>
                             <section className='first'>
-                                <img className='profile-details-img' src={userLogged.imgUrl} alt="pst preview"></img>
+                                <img className='profile-details-img' src={pst.by.imgUrl} alt="pst preview"></img>
                                 <h4 className='pst-by'>{pst.by.fullname}</h4>
                                 <h4>{pst.txt}</h4>
                             </section>

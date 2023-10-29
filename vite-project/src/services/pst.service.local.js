@@ -128,7 +128,7 @@ function _createPst() {
             by: {
                 _id: "u101",
                 fullname: "yuile23",
-                imgUrl: "s3.jpg"
+                imgUrl: "y1p.jpg"
             },
             loc: { // Optional
                 lat: 11.11,
@@ -143,7 +143,7 @@ function _createPst() {
                     by: {
                         _id: "u105",
                         fullname: "sharon_bash",
-                        imgUrl: "http://some-img"
+                        imgUrl: "s2.jpg"
                     },
                     txt: "וואו",
                     likedBy: [ // Optional
@@ -160,7 +160,7 @@ function _createPst() {
                     by: {
                         _id: "u107",
                         fullname: "Tomer12",
-                        imgUrl: "http://some-img"
+                        imgUrl: "tomer.jpg"
                     },
                     txt: "מדהיםםםםםםם",
                 },
@@ -169,7 +169,7 @@ function _createPst() {
                     by: {
                         _id: "u108",
                         fullname: "Yovel",
-                        imgUrl: "http://some-img"
+                        imgUrl: "yoval.jpg"
                     },
                     txt: "מדהיםם",
                 }
@@ -190,12 +190,12 @@ function _createPst() {
         }, {
             _id: "s102",
             txt: "My last photo from party",
-            imgUrl: "b2.jpg",
+            imgUrl: "yael.jpg",
             uploadTime: utilService.randomTimeString(),
             by: {
                 _id: "u109",
                 fullname: "yaelK1",
-                imgUrl: "s3.jpg"
+                imgUrl: "b2.jpg"
             },
             loc: { // Optional
                 lat: 11.11,
@@ -210,7 +210,7 @@ function _createPst() {
                     by: {
                         _id: "u1055",
                         fullname: "sharon_bash",
-                        imgUrl: "http://some-img"
+                        imgUrl: "s2.jpg"
                     },
                     txt: "וואו",
                     likedBy: [ // Optional
@@ -226,7 +226,7 @@ function _createPst() {
                     by: {
                         _id: "u106",
                         fullname: "Dob",
-                        imgUrl: "http://some-img"
+                        imgUrl: "bob.jpg"
                     },
                     txt: "מהמםםםםםםםםם",
                 },
@@ -235,7 +235,7 @@ function _createPst() {
                     by: {
                         _id: "u1072",
                         fullname: "Tomer12",
-                        imgUrl: "http://some-img"
+                        imgUrl: "tomer.jpg"
                     },
                     txt: "מדהיםםםם",
                 },
@@ -244,7 +244,7 @@ function _createPst() {
                     by: {
                         _id: "u108",
                         fullname: "Yovel",
-                        imgUrl: "http://some-img"
+                        imgUrl: "yoval.jpg"
                     },
                     txt: "מדהיםם",
                 }
@@ -271,7 +271,7 @@ function _createPst() {
             by: {
                 _id: utilService.makeId(),
                 fullname: "mor_cohen",
-                imgUrl: "s3.jpg"
+                imgUrl: "mor.jpg"
             },
             loc: { // Optional
                 lat: 11.11,
@@ -286,7 +286,7 @@ function _createPst() {
                     by: {
                         _id: "u105",
                         fullname: "sharon_bash",
-                        imgUrl: "http://some-img"
+                        imgUrl: "s2.jpg"
                     },
                     txt: "וואו",
                     likedBy: [ // Optional
@@ -302,7 +302,7 @@ function _createPst() {
                     by: {
                         _id: "u106",
                         fullname: "Dob",
-                        imgUrl: "http://some-img"
+                        imgUrl: "bob.jpg"
                     },
                     txt: "מהמםםםםםםםםם",
                 },
@@ -311,7 +311,7 @@ function _createPst() {
                     by: {
                         _id: "u107",
                         fullname: "Tomer12",
-                        imgUrl: "http://some-img"
+                        imgUrl: "tomer.jpg"
                     },
                     txt: "מדהיםםםםםםם",
                 },
@@ -320,7 +320,7 @@ function _createPst() {
                     by: {
                         _id: "u108",
                         fullname: "Yovel",
-                        imgUrl: "http://some-img"
+                        imgUrl: "yoval.jpg"
                     },
                     txt: "מדהיםם",
                 }
