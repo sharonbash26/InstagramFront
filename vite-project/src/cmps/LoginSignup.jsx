@@ -66,7 +66,7 @@ export function LoginSignup(props) {
                     {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
                 </select>
 
-                <button>Login!</button>
+                <button className='login-btn'>Login</button>
                 <div className="login-with-facebook">
                     {!profile ? (
                         <LoginSocialFacebook
@@ -122,7 +122,7 @@ export function LoginSignup(props) {
                         required
                     />
                     {/* <ImgUploader onUploaded={onUploaded} /> */}
-                    <button >Signup!</button>
+                    <button >Sign up</button>
                 </form>}
             </div>
             <div className='apps-options'>

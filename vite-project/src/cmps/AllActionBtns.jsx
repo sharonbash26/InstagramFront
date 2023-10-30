@@ -122,7 +122,17 @@ export function AllActionBtns({ pst }) {
                 </div>
 
                 <div className="comment-input-container" ref={emojiPickerRef}>
-                    <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} />
+                    <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }} 
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {  // Check for Enter key press without Shift
+                          e.preventDefault();  // Prevent default to avoid newline in input
+                          onSendComment();     // Call the function to handle comment submission
+                        }}}
+                    
+                    
+                        
+                    
+                    />
                     <div className="empjiPostbtn">
                         {<Emoji unified={selectedEmoji} size={28} />}
                         {comment.length > 0 || selectedEmoji ? (
