@@ -68,7 +68,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                         </div>
 
                         <CommentList pst={pst} />
-
+                    
                         <div className='actions-container'>
 
                         </div>
