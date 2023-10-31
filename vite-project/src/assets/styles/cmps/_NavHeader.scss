@@ -94,7 +94,8 @@
             align-items: center;
 
             .modal-content {
-                width: 36.5625rem;
+                width: 43.75rem;
+                height: 43.75rem;
                 background-color: #ffffff;
                 border-radius: 0.625rem;
                 position: relative;
@@ -102,6 +103,8 @@
                 .inner-container {
                     display: block;
                     border-top: 0.5px solid#595959;
+                    height: 100%;
+                    width: 100%;
 
                     .icon-upload-background {
                         margin-top: 16.0625rem;

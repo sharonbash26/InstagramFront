@@ -2,7 +2,7 @@ import { ImgUploader } from './ImgUploader';
 // import React from 'react';
 import React, { useState } from 'react';
 import { AddTextToPost } from './AddTextToPost';
-import { TextBox } from "./TextBox";
+
 
 import { closeModal } from '../store/pst.actions';
 import { SelectedImgForEditing } from './SelectedImgForEditing';
@@ -38,7 +38,7 @@ export function UploadModal({ onAddPst }) {
       console.log('upload',uploadedImageUrl)
       break;
     case 'text':
-      content = <TextBox uploadedImageUrl={uploadedImageUrl}  onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload}/>;
+      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl}  onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload}/>;
       break;
     default:
       content = <p>Invalid step</p>;
