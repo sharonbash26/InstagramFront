@@ -22,10 +22,7 @@ export function ImgUploader({ onUploaded = null ,design = 'default'}) {
     onUploaded && onUploaded(secure_url)
   }
 
-  function getUploadLabel() {
-    if (imgData.imgUrl) return 'Upload Another?'
-    return isUploading ? 'Uploading....' : 'Upload Image'
-  }
+  
 
 
   const handleButtonClick = () => {
