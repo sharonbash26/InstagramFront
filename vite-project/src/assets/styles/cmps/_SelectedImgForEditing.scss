@@ -1,0 +1,28 @@
+.selected-img-for-editing {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .spacer {
+        flex: 1;
+        /* Flex grow to take up available space */
+    }
+
+    .title {
+        flex: 2;
+        /* Optionally adjust this to control title width */
+        text-align: center;
+        /* Center the title text */
+    }
+
+
+
+    .full-img {
+
+        margin-left: -2px;
+        margin-top: -16px;
+    }
+}
