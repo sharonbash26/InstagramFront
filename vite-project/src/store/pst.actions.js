@@ -33,7 +33,6 @@ export function getActionUpdatePst(pst) {
 export async function loadPsts() {
     try {
         const psts = await pstService.query()
-        console.log('Psts from DB:', psts)
         store.dispatch({
             type: SET_PSTS,
             psts
@@ -48,8 +47,6 @@ export async function loadPsts() {
 
 export async function removePst(pstId) {
     try {
-        console.log('try to remove')
-        console.log('pstId',pstId)
         await pstService.remove(pstId)
         store.dispatch(getActionRemovePst(pstId))
     } catch (err) {
@@ -59,7 +56,6 @@ export async function removePst(pstId) {
 }
 
 export async function removeComment(commentId){
-    console.log('iddd',commentId)
     try{
         const updatedPost = await pstService.removeComment(commentId)
 

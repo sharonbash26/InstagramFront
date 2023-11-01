@@ -52,8 +52,6 @@ export function AllActionBtns({ pst }) {
     function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
         setNewComment(comment)
-        console.log('pstid', pst._id)
-        console.log('comment', comment)
         pstService.addComment(pst._id, comment);
 
 
@@ -73,7 +71,6 @@ export function AllActionBtns({ pst }) {
             setIsLiked(true)
             setLikesCount(likesCount + 1)
         }
-        console.log('press like')
     }
 
     function onClick(emojiData, event) {
@@ -87,8 +84,6 @@ export function AllActionBtns({ pst }) {
     async function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
         setNewComment(comment)
-        console.log('pstid', pst._id)
-        console.log('comment', comment)
         const updatedPst =  await pstService.addComment(pst._id, comment);
         dispatch({type: 'SET_SELECTED_POST', post: updatedPst})
         setComment('');

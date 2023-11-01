@@ -41,8 +41,6 @@ export function PostIndex() {
         const pst = pstService.getEmptyPst()
         pst.imgUrl = urlFromCloud
         pst.txt=txtDescription
-        console.log('pst imgUrlllllll', pst.imgUrl)
-        console.log('pst descrptionnnn', pst.txt)
         try {
             const savedPst = await addPst(pst)
             console.log('saved pst from index', savedPst)

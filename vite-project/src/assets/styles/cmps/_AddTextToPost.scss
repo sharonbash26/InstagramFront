@@ -9,9 +9,46 @@
 
         .share {
             color: rgb(0, 149, 246);
-            font-size: 16px;
+            font-size: 0.875rem;
             font-weight: 600;
         }
 
+    }
+
+    .text-box {
+   
+        .user-display-data {
+            display: flex;
+            img {
+                left: 621px;
+                top: 188px;
+            
+            }
+
+            h4 {
+                margin-left: 485px;
+                margin-top: 8px;
+            }
+        }
+
+        .enter-text {
+            margin-left: 439px;
+        }
+
+        .empji-container {
+            margin-top: -27px;
+            .emoji1 {
+                margin-left: 4px;
+                .emjoi-btn1{
+                    margin-left: 432px;
+                    margin-bottom: 220px;
+                    margin-top: -362px;
+                }
+            }
+        }
+    }
+ .prev-img-editor{
+        margin-top: -248px;
+        
     }
 }

@@ -6,4 +6,10 @@
         right: 0.3125rem;
         top: 1.25rem;
     }
+
+    &.modal-large {
+        width: 3200px; /* Example larger width */
+        /* You might need to adjust other styles like padding or max-width */
+    }      
 }
+
