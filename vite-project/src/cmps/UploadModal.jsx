@@ -34,11 +34,11 @@ export function UploadModal({ onAddPst }) {
       break;
     case 'edit':
       content = <SelectedImgForEditing uploadedImageUrl={uploadedImageUrl} onNext={handleNextToTextEditor} />;
-      console.log('content',content)
-      console.log('upload',uploadedImageUrl)
+      console.log('content', content)
+      console.log('upload', uploadedImageUrl)
       break;
     case 'text':
-      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl}  onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload} />;
+      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl} onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload} />;
       break;
     default:
       content = <p>Invalid step</p>;
@@ -46,34 +46,35 @@ export function UploadModal({ onAddPst }) {
   }
 
   return (
-    
-    <div className="modal">
-      <svg onClick={closeModal} aria-label="Close" className="cross-icon" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18">
-        <title>Close</title>
-        <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"></polyline>
-        <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
-      </svg>
-      <div className="modal-content">
-    
-     { currentStep==='upload'&&<h3>Create new post</h3>}
-        {/* {!showAddText ? (
+    <div className={`modal ${currentStep === 'text' ? 'modal-large' : ''}`}>
+
+        <svg onClick={closeModal} aria-label="Close" className="cross-icon" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18">
+          <title>Close</title>
+          <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"></polyline>
+          <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
+        </svg>
+        <div className="modal-content">
+
+          {currentStep === 'upload' && <h3>Create new post</h3>}
+          {/* {!showAddText ? (
           <ImgUploader onUploaded={handleImageUpload} />
         ) : (
           // <AddTextToPost uploadedImageUrl={uploadedImageUrl} />
           <SelectedImgForEditing  uploadedImageUrl={uploadedImageUrl}/>
         )} */}
-        <div className='inner-container'>
-          {currentStep==='upload'&&
-          <img className='icon-upload-background' src="upload-window.svg" alt="Upload Window Background" />}
-          {currentStep==='upload'&&<h3>Drag photos and videos here</h3>}
-          {/* <ImgUploader onUploaded={(url) => {
+          <div className='inner-container'>
+            {currentStep === 'upload' &&
+              <img className='icon-upload-background' src="upload-window.svg" alt="Upload Window Background" />}
+            {currentStep === 'upload' && <h3>Drag photos and videos here</h3>}
+            {/* <ImgUploader onUploaded={(url) => {
             onAddPst(url)
             closeModal()
           }} */}
-          {/* /> */}
-          {content}
+            {/* /> */}
+            {content}
+          </div>
         </div>
-      </div>
+    
     </div>
   )
 }
