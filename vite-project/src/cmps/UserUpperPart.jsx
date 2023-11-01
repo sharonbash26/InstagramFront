@@ -20,10 +20,14 @@ export function UserUpperPart() {
     }
 
     return (
+        <>
+        <div>
+        <NavHeader />
+    </div>
         <section className='user-upper-part'>
-            <div>
+            {/* <div>
                 <NavHeader />
-            </div>
+            </div> */}
             <section className='internal-user-upper-part'>
 
                 <button className='user-button' onClick={openMenu}>
@@ -48,5 +52,6 @@ export function UserUpperPart() {
                 </div>
             </section>
         </section>
+        </>
     )
 }

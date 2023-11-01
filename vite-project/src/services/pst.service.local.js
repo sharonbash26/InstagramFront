@@ -5,7 +5,6 @@ import { userService } from './user.service.js'
 const STORAGE_KEY = 'pst'
 
 var psts = _createPst()
-console.log('create psts startttttt', psts)
 
 export const pstService = {
     query,
@@ -32,7 +31,6 @@ async function query(filterBy = {}) {
     // if (filterBy.price) {
     //     psts = psts.filter(pst => pst.price <= filterBy.price)
     // }
-    console.log('filterBy', filterBy.id)
     if (filterBy.id) {
         // psts=psts.filter(pst.by._id===filterBy.id)
 
@@ -116,7 +114,6 @@ function getEmptyPst() {
 
 
 function _createPst() {
-    console.log('create post in Instagram start')
     let psts = utilService.loadFromStorage(STORAGE_KEY)
     console.log('posts', psts)
     if (!psts || !psts.length) {

@@ -25,7 +25,6 @@ export function PostPreview({ pst, onRemovePst }) {
     const [countComment, setCountComment] = useState(pst.comments?.length || 0);
     const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen);
     let loggedUser = userService.getLoggedinUser()
-    console.log('userrrr', loggedUser)
 
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
@@ -59,9 +58,7 @@ export function PostPreview({ pst, onRemovePst }) {
             setIsLiked(true)
             setLikesCount(likesCount + 1)
         }
-        console.log('press like')
     }
-    console.log('time', pstService.psts[0].uploadTime)
     function openDetailsModal() {
 
     }
@@ -75,8 +72,6 @@ export function PostPreview({ pst, onRemovePst }) {
     function onSendComment() {
         setCountComment(prevCount => prevCount + 1)
         setNewComment(comment)
-        console.log('pstid', pst._id)
-        console.log('comment', comment)
         pstService.addComment(pst._id, comment);
         setComment('');
         setInputValue('');
@@ -88,7 +83,7 @@ export function PostPreview({ pst, onRemovePst }) {
             (inputValue) =>
                 inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
         );
-    } console.log('hhh', by.fullname)
+    }
     return (
         <section className="pst-Preview">
             <div className="info-start">

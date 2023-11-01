@@ -11,7 +11,6 @@ export function JustUpload({ imgUrl }) {
       setIsUploading(true);
       try {
         const { secure_url } = await uploadService.uploadImg({ url: imgUrl });
-        console.log('Image uploaded:', secure_url);
         // You might want to do something with the secure_url here
       } catch (error) {
         console.error('Error uploading image:', error);

@@ -38,7 +38,7 @@ export function UploadModal({ onAddPst }) {
       console.log('upload',uploadedImageUrl)
       break;
     case 'text':
-      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl}  onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload}/>;
+      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl}  onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload} />;
       break;
     default:
       content = <p>Invalid step</p>;
@@ -46,6 +46,7 @@ export function UploadModal({ onAddPst }) {
   }
 
   return (
+    
     <div className="modal">
       <svg onClick={closeModal} aria-label="Close" className="cross-icon" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18">
         <title>Close</title>
