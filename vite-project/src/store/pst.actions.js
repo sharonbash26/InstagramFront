@@ -1,8 +1,8 @@
 import { pstService } from "../services/pst.service.local.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { SET_SELECTED_POST, ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST,CLOSE_MODAL,OPEN_MODAL,REMOVE_COMMENT } from "./pst.reducer.js";
-import {  useState } from 'react'
+import { SET_SELECTED_POST, ADD_PST, REMOVE_PST, SET_PSTS, UNDO_REMOVE_PST, UPDATE_PST, CLOSE_MODAL, OPEN_MODAL, REMOVE_COMMENT, ADD_COMMENT } from "./pst.reducer.js";
+import { useState } from 'react'
 
 // Action Creators:
 export function getActionRemovePst(pstId) {
@@ -11,12 +11,21 @@ export function getActionRemovePst(pstId) {
         pstId
     }
 }
-export function getActionRemoveComment(commentId){
-    return{
-        type:REMOVE_COMMENT,
+export function getActionRemoveComment(commentId) {
+    return {
+        type: REMOVE_COMMENT,
         commentId
     }
 }
+
+export function getActionAddComment(comment, pstId) {
+    return {
+        type: ADD_COMMENT,
+        comment,
+        pstId
+    };
+}
+
 export function getActionAddPst(pst) {
     return {
         type: ADD_PST,
@@ -55,24 +64,38 @@ export async function removePst(pstId) {
     }
 }
 
-export async function removeComment(commentId){
-    try{
+export async function removeComment(commentId) {
+    try {
         const updatedPost = await pstService.removeComment(commentId)
 
         store.dispatch(getActionRemoveComment(commentId))
-    }catch(err){
+    } catch (err) {
         throw err
     }
 }
+
+// addComment
+export async function addComment(pstId, comment) {
+    try {
+        const updatedPost = await pstService.addComment(pstId, comment);
+
+        store.dispatch(getActionAddComment(updatedPost, pstId)); // Use pstId instead of commentId
+    } catch (err) {
+        throw err;
+    }
+}
+
 // loadPost
 export async function loadPost(pstId) {
     try {
+        // showLoader()
         const post = await pstService.getById(pstId)
-        store.dispatch({type: SET_SELECTED_POST, post})
-    } catch(err) {
+        // hideLoader()
+        store.dispatch({ type: SET_SELECTED_POST, post })
+    } catch (err) {
         console.log(err)
     }
-    }
+}
 
 
 export async function addPst(pst) {

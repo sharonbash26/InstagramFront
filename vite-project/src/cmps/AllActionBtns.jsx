@@ -4,10 +4,11 @@ import { Emoji, EmojiStyle } from 'emoji-picker-react';
 import { ThreeDotModal } from './ThreeDotModal';
 import { pstService } from "../services/pst.service.local";
 import { SET_SELECTED_POST } from '../store/pst.reducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const { useState, useEffect, useRef } = React
-export function AllActionBtns({ pst }) {
+export function AllActionBtns() {
+    const pst = useSelector(storeState => storeState.pstModule.selectedPost)
     const [likeUrl, setLikeUrl] = useState("like.svg")
     const [isLiked, setIsLiked] = useState(false)
     const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
@@ -46,20 +47,19 @@ export function AllActionBtns({ pst }) {
     function openDotModal() {
         setIsDotModalOpen(true)
     }
+
     function closeDotModal() {
         setIsDotModalOpen(false)
     }
-    function onSendComment() {
-        setCountComment(prevCount => prevCount + 1)
-        setNewComment(comment)
-        pstService.addComment(pst._id, comment);
 
+    // function onSendComment() {
+    //     setCountComment(prevCount => prevCount + 1)
+    //     setNewComment(comment)
+    //     pstService.addComment(pst._id, comment);
+    //     setComment('');
+    //     setInputValue('');
+    // }
 
-
-
-        setComment('');
-        setInputValue('');
-    }
     function toggleLike() {
         if (isLiked) {
             setLikeUrl("like.svg")
@@ -92,8 +92,6 @@ export function AllActionBtns({ pst }) {
     return (
         <section className='all-action-btns'>
 
-
-
             <div className="actions-btn">
 
                 <div className="actions-btn-part1">
@@ -106,8 +104,6 @@ export function AllActionBtns({ pst }) {
                 <div className="actions-btn-part2">
                     <button className="save"><img src="save.svg"></img></button>
                 </div>
-
-
             </div>
 
             <div className="comment-text-area">

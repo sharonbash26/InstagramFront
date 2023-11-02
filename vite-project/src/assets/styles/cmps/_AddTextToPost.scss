@@ -5,50 +5,82 @@
         font-size: 16px;
         font-weight: 600;
         text-align: center;
+        border-bottom: 1px solid rgb(220, 220, 220);
+        
         cursor: pointer;
-
         .share {
             color: rgb(0, 149, 246);
             font-size: 0.875rem;
             font-weight: 600;
+            padding-right: 15px;
+        }
+        h4{
+         font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+         font-size: 16px;
+         font-weight: 600;
+         text-align: center;
         }
 
     }
 
     .text-box {
-   
+
         .user-display-data {
             display: flex;
+
             img {
-                left: 621px;
-                top: 188px;
-            
+                left: 1166px;
+                top: 155px;
+
             }
 
             h4 {
-                margin-left: 485px;
+                margin-left: 817px;
                 margin-top: 8px;
+                font-size: 14px;
+               font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+               font-weight: 600;
             }
         }
 
         .enter-text {
-            margin-left: 439px;
-        }
+            margin-left:772px;
+            border-bottom: 1px rgb(220, 220, 220) solid;
 
-        .empji-container {
-            margin-top: -27px;
-            .emoji1 {
-                margin-left: 4px;
-                .emjoi-btn1{
-                    margin-left: 432px;
-                    margin-bottom: 220px;
-                    margin-top: -362px;
+            textarea {
+                width: 98%;
+                overflow-y: scroll;
+                /* Your existing style */
+                border: none;
+                /* Removes the border */
+                outline: none;
+                /* Removes the focus outline - consider accessibility issues */
+
+                /* Other optional styles */
+                background-color: transparent;
+                /* If you want to make the background transparent */
+                resize: none;
+                /* If you don't want users to be able to resize the textarea */
+                .textarea-placeholder::placeholder {
+                    font-size: 16px;
                 }
             }
+            .count-chars{
+                font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                font-weight: 400;
+                color: rgb(199, 199, 199);
+                padding-right:15px;
+            }
         }
+
+
     }
- .prev-img-editor{
-        margin-top: -248px;
-        
+
+    .prev-img-editor {
+        margin-left: 0 !important; /* Corrected syntax and !important usage */
+        margin-top: -228px;        /* Only one margin-top is needed, choose the correct value */
     }
+
+
+
 }

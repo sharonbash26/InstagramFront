@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ImgUploader } from './ImgUploader';
 
-import { UploadModal } from './uploadModal';
+import { UploadModal } from './UploadModal';
 import { useNavigate } from 'react-router-dom';
 
 import { closeModal } from '../store/pst.actions';
@@ -14,6 +14,7 @@ export function NavHeader({ onAddPst }) {
     const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen);
     const [isMoreModalOpen, setIsMoreModalOpen] = useState(false)
     let userImgPorfile = userService.getLoggedinUser().imgUrl
+    // let userImgPorfile =useSelector(storeState=>storeState.userModule.user)
     const navigate = useNavigate();
     function onOpenMoreModal() {
         setIsMoreModalOpen(true)
@@ -35,7 +36,7 @@ export function NavHeader({ onAddPst }) {
                     <button className='item'><img src="mess.svg"></img><span>Messages</span></button>
                     <button className='item'><img src="svgs_collection/svg6.svg"></img><span>Notifications</span></button>
                     <button className='item' onClick={openModal}><img src="create.svg"></img><span>Create</span></button>
-                    <button className='item' onClick={() => navigate('/profile/psts')}><img className="profile-icon-img" src={userImgPorfile}></img><span>Profile</span> </button>
+                    <button className='item' onClick={() => navigate('/profile/psts')}><img className="profile-icon-img" src={userImgPorfile || "emptyUser.jpeg"}></img><span>Profile</span> </button>
 
                 </div>
 

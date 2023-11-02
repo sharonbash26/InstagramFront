@@ -4,7 +4,7 @@ import { store } from '../store/store.js'
 
 import { showErrorMsg } from '../services/event-bus.service.js'
 // import { LOADING_DONE, LOADING_START } from "./system.reducer.js";
-import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER, IMG_CHANGE, IMG_REMOVE } from "./user.reducer.js";
+import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER, UPDATE_USER } from "./user.reducer.js";
 import { pstService } from "../services/pst.service.local.js";
 
 export async function loadUsers() {
@@ -78,7 +78,7 @@ export async function updateUser(updatedUser) {
         console.log(updatedUser)
         const user = await userService.update(updatedUser)
         console.log(user)
-        store.dispatch({ type: IMG_CHANGE, imgUrl: updatedUser.imgUrl })
+        store.dispatch({ type: UPDATE_USER, user })
     } catch (err) {
         console.log('Failed to update user', err)
     }

@@ -1,4 +1,4 @@
-export function SelectedImgForEditing({ uploadedImageUrl, onNext }) {
+export function SelectedImgForEditing({ uploadedImageUrl, onNext ,onBack}) {
     if (!uploadedImageUrl) {
         return null
     }
@@ -7,7 +7,7 @@ export function SelectedImgForEditing({ uploadedImageUrl, onNext }) {
     return (
         <section className="selected-img-for-editing" >
             <section className="header">
-                <button className="back"><img src="back.svg"></img></button>
+                <button className="back" onClick={onBack}><img src="back.svg"></img></button>
                 <h4>Crop</h4>
                 <button className="next" onClick={onNext}>Next</button>
             </section>

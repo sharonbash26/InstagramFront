@@ -1,0 +1,23 @@
+.menu-report-comment {
+    position: fixed; // Fixes the position relative to the viewport
+    display: flex;
+    flex-direction: column;
+    top: 50%; // Center vertically
+    left: 50%; // Center horizontally
+    transform: translate(-50%, -50%); // Ensures true centering regardless of modal size
+    z-index: 1000; // Ensures the modal appears above other content
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); // Adds a subtle shadow
+    width: 300px;
+    height: 140px;
+
+    .report-btn {
+        padding: 10px 20px;
+        color: red;
+        font-weight: bold;
+    }
+
+
+}

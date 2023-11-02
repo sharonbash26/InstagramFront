@@ -26,19 +26,25 @@ export function UploadModal({ onAddPst }) {
     setCurrentStep('text'); // Move to text editor after editing
   }
 
+  const handleBackFromTextEditor = () => {
+    setCurrentStep('edit'); // Go back to image editing step
+};
 
+const handleBackFromImageEditing = () => {
+    setCurrentStep('upload'); // Go back to image upload step
+};
   let content;
   switch (currentStep) {
     case 'upload':
       content = <ImgUploader onUploaded={handleImageUpload} />;
       break;
     case 'edit':
-      content = <SelectedImgForEditing uploadedImageUrl={uploadedImageUrl} onNext={handleNextToTextEditor} />;
+      content = <SelectedImgForEditing uploadedImageUrl={uploadedImageUrl} onNext={handleNextToTextEditor}  onBack={handleBackFromImageEditing}/>;
       console.log('content', content)
       console.log('upload', uploadedImageUrl)
       break;
     case 'text':
-      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl} onAddPst={onAddPst} closeModal={closeModal} onReset={resetUpload} />;
+      content = <AddTextToPost uploadedImageUrl={uploadedImageUrl} onAddPst={onAddPst} closeModal={closeModal}  onBack={handleBackFromTextEditor} onReset={resetUpload} />;
       break;
     default:
       content = <p>Invalid step</p>;
@@ -46,14 +52,14 @@ export function UploadModal({ onAddPst }) {
   }
 
   return (
-    <div className={`modal ${currentStep === 'text' ? 'modal-large' : ''}`}>
+    <div className='modal'>
 
         <svg onClick={closeModal} aria-label="Close" className="cross-icon" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18">
           <title>Close</title>
           <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"></polyline>
           <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
         </svg>
-        <div className="modal-content">
+        <div className={`modal-content ${currentStep === 'text' ? 'modal-large' : ''}`}>
 
           {currentStep === 'upload' && <h3>Create new post</h3>}
           {/* {!showAddText ? (

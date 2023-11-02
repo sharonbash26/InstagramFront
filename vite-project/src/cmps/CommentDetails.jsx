@@ -35,7 +35,7 @@ export function CommentDetails({pst, comment }) {
             {/* <div className="comment"> */}
             <div className="data-comment">
                 <div className='profile-comment-img'>
-                    <img src={comment.by.imgUrl}></img>
+                    <img src={comment.by.imgUrl ||"emptyUser.jpeg"}></img>
                 </div>
                 <section className='textual'>
                     <div className='textual-1'>
