@@ -67,9 +67,10 @@ export async function removePst(pstId) {
 export async function removeComment(commentId) {
     try {
         const updatedPost = await pstService.removeComment(commentId)
-
+console.log('updatepost',updatedPost)
         store.dispatch(getActionRemoveComment(commentId))
     } catch (err) {
+        console.log('err',err)
         throw err
     }
 }

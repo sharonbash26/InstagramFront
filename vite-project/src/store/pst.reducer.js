@@ -67,6 +67,7 @@ export function pstReducer(state = initialState, action) {
             psts[pstIdx] = { ...psts[pstIdx], comments: [...psts[pstIdx].comments.slice(0, commentIdx), ...psts[pstIdx].comments.slice(commentIdx + 1)] };
 
             newState = { ...state, psts, selectedPost: psts[pstIdx] };
+            console.log('newState',newState)
             break;
         case ADD_COMMENT:
             case ADD_COMMENT:
