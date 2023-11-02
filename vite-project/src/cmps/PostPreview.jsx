@@ -59,6 +59,7 @@ export function PostPreview({ pst, onRemovePst }) {
             setLikesCount(likesCount + 1)
         }
     }
+
     function openDetailsModal() {
 
     }
