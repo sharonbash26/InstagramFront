@@ -34,7 +34,7 @@ export function pstReducer(state = initialState, action) {
             newState = { ...state, psts, lastRemovedPst }
             break
         case ADD_PST:
-            newState = { ...state, psts: [...state.psts, action.pst] }
+            newState = { ...state, psts: [action.pst, ...state.psts] }
             break
         case UPDATE_PST:
             psts = state.psts.map(pst => (pst._id === action.pst._id) ? action.pst : pst)
