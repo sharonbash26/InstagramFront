@@ -46,6 +46,7 @@ async function update({ _id, imgUrl }) {
     // const user = await httpService.put(`user/${_id}`, {_id, score})
     // // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+    console.log('user from service', user)
     return user
 }
 
@@ -81,8 +82,9 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, userName: user.username }
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    const { _id, fullname, imgUrl, username } = user
+    const userToSave = { _id, fullname, imgUrl, username }
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(userToSave))
     return user
 }
 

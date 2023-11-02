@@ -88,8 +88,8 @@ export function PostPreview({ pst, onRemovePst }) {
         <section className="pst-Preview">
             <div className="info-start">
                 <div className="info-start-content">
-                    <img className="profile-prev" src={by.imgUrl }></img>
-                    <h2>{by.fullname||loggedUser.userName} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
+                    <img className="profile-prev" src={by.imgUrl || "emptyUser.jpeg"}></img>
+                    <h2>{by.fullname || loggedUser.username} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
                     {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
                 </div>
@@ -120,31 +120,42 @@ export function PostPreview({ pst, onRemovePst }) {
 
                 <h4 className="description"><span>{by.fullname}</span>  {txt}</h4>
                 <div className="comment-text-area">
-                    <div className="see-comments">
+                    {/* <div className="see-comments">
                         <Link to={`/pst/${pst._id}`}>
                             <button className="view-all-comments" onClick={openDetailsModal}>View all {countComment} comments</button>
                         </Link>
+                    </div> */}
+                    <div className="see-comments">
+                        {countComment > 0 && (
+                            <Link to={`/pst/${pst._id}`}>
+                                <button className="view-all-comments" onClick={openDetailsModal}>
+                                    View all {countComment} comments
+                                </button>
+                            </Link>
+                        )}
                     </div>
-                    {newComment && 
-                    (<div className="newComment">
-                        {/* <h4 style={padding:0,margin:0}>{loggedUser.userName}</h4> */}
-                        <h4 style={{ padding: 0, margin: 0 }}>{loggedUser.userName}</h4>
 
-                        {newComment}
-                        {/* <p className="userComment">{newComment}</p> */}
+                    {newComment &&
+                        (<div className="newComment">
+                            {/* <h4 style={padding:0,margin:0}>{loggedUser.userName}</h4> */}
+                            <h4 style={{ padding: 0, margin: 0 }}>{loggedUser.username}</h4>
 
-                    </div>)}
+                            {newComment}
+                            {/* <p className="userComment">{newComment}</p> */}
+
+                        </div>)}
                     <div className="comment-input-container1" ref={emojiPickerRef}>
                         <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }}
-                        
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !e.shiftKey) {  // Check for Enter key press without Shift
-                              e.preventDefault();  // Prevent default to avoid newline in input
-                              onSendComment();     // Call the function to handle comment submission
-                            }}}
-                        
-                        
-                        
+
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && !e.shiftKey) {  // Check for Enter key press without Shift
+                                    e.preventDefault();  // Prevent default to avoid newline in input
+                                    onSendComment();     // Call the function to handle comment submission
+                                }
+                            }}
+
+
+
                         />
                         <div className="empjiPostbtn">
                             {<Emoji unified={selectedEmoji} size={28} />}

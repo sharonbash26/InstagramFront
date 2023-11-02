@@ -33,11 +33,13 @@ export function EmojiContainer({onEmojiSelect}) {
 
 
     return (
-        <div className="empji-container">
+        // <div className="empji-container-add-text" {styyle :margin-left:'755px',margin-top:'-527px'}>
+        <div className="emoji-container-add-text" style={{ marginLeft: '758px', marginTop: '-523px' }}>
+
             {<Emoji unified={selectedEmoji} size={28} />}
        
 
-            <button onClick={openMenuEmoji} className="emoji1"><img className="emjoi-btn1" src="emjoi-btn.svg"></img></button>
+            <button onClick={openMenuEmoji} className="emoji-add-text"><img className="emjoi-btn-add-text" style={{marginTop:'-5px'}}src="emjoi-btn.svg"></img></button>
 
             <div className="emoji-picker-container">
                 {showEmojiPicker && <EmojiPicker onEmojiClick={onClick} />}

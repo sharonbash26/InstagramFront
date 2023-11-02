@@ -37,10 +37,10 @@ export function PostIndex() {
         }, 1500);
     }
 
-    async function onAddPst(urlFromCloud,txtDescription) {
+    async function onAddPst(urlFromCloud, txtDescription) {
         const pst = pstService.getEmptyPst()
         pst.imgUrl = urlFromCloud
-        pst.txt=txtDescription
+        pst.txt = txtDescription
         try {
             const savedPst = await addPst(pst)
             console.log('saved pst from index', savedPst)

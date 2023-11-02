@@ -101,6 +101,17 @@
                 border-radius: 0.625rem;
                 position: relative;
 
+                &.modal-large {
+                    // width: 58rem;
+                    max-height: 898px;
+                    max-width: 1195px;
+                    min-height: 391px;
+                    min-width: 688px;
+                    width: 1084px;
+                    height: 784px;
+
+                }
+
                 .inner-container {
                     display: block;
                     border-top: 0.5px solid#595959;

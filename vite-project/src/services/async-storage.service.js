@@ -6,10 +6,15 @@ export const asyncStorageService = {
     remove,
 }
 
-function query(entityType, delay = 700) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || []
-    return new Promise(resolve => setTimeout(() => resolve(entities), delay))
+// function query(entityType) {
+//     var entities = JSON.parse(localStorage.getItem(entityType)) || []
+//     return new Promise(resolve => setTimeout(() => resolve(entities)))
+// }
+function query(entityType) {
+    var entities = JSON.parse(localStorage.getItem(entityType)) || [];
+    return Promise.resolve(entities);
 }
+
 
 async function get(entityType, entityId) {
     // try {
@@ -48,8 +53,6 @@ function put(entityType, updatedEntity) {
 }
 
 function remove(entityType, entityId) {
-    console.log('entitytYPE',entityType)
-    console.log('entityId',entityId)
     return query(entityType).then(entities => {
         const _idx = entities.findIndex(entity => entity._id === entityId)
         if (_idx < 0) throw new Error(`Remove failed, cannot find entity with _id: ${entityId} in: ${entityType}`)
