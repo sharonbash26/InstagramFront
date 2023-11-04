@@ -31,11 +31,12 @@ async function query(filterBy = {}) {
     // if (filterBy.price) {
     //     psts = psts.filter(pst => pst.price <= filterBy.price)
     // }
-    if (filterBy.id) {
+    console.log('filterby', filterBy)
+    if (filterBy.by) {
         // psts=psts.filter(pst.by._id===filterBy.id)
-
-        psts = psts.filter(pst => pst.by._id === filterBy.id);
-
+        console.log('ENTERED')
+        console.log(filterBy)
+        psts = psts.filter(pst => pst.by._id === filterBy.by);
 
     }
     return psts
