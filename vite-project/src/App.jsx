@@ -12,9 +12,14 @@ import { UserPst } from './cmps/UserPst'
 import { UserReel } from './cmps/UserReels'
 import { UserSaved } from './cmps/UserSaved'
 import { UserTagged } from './cmps/UserTagged'
+import { NavHeader } from './cmps/NavHeader'
+import { OtherUserProfile } from './pages/OtherUserProfile'
+// import { addPst } from './store/pst.actions'
+
 
 export function App() {
-
+    // const user = useSelector(storeState => storeState.userModule.user)
+    // const userId = user._id
     return (
         <Provider store={store}>
             <Router>
@@ -24,6 +29,7 @@ export function App() {
                             <Route path="/pst" element={<PostIndex />} >
                                 <Route path='/pst/:pstId' element={<PostDetails />} />
                             </Route>
+                            <Route path="/profile/:userId" element={<OtherUserProfile />}></Route>
                             <Route path="/login" element={<LoginSignupPage />} />
                             <Route element={<LoginSignupPage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />

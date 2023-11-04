@@ -1,18 +1,37 @@
 .profile-user-page {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; 
-    height: 100vh; 
-    padding: 1.25rem; 
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 1.25rem;
     font-size: 1.25rem;
-    .nested-route{
-        img{
-            width:309px;
-            height:309px;
-        }
-    }
-    }
+    
+  }
+  
+.profile-user-page .nested-route ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+    grid-gap: 5px; /* Smaller space between the items */
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+}
 
+.profile-user-page .nested-route ul li {
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    width: 309px; /* Set the width of image container */
+    height: 309px; /* Set the height of image container */
+    background-color: #f0f0f0; /* Default background color */
+    overflow: hidden; /* Hide any part of the image that overflows the container */
+}
+
+.profile-user-page .nested-route ul li img {
+    max-width: 100%; /* Ensure image doesn't overflow the container horizontally */
+    max-height: 100%; /* Ensure image doesn't overflow the container vertically */
+    object-fit: cover; /* Image covers the whole area without distortion */
+    display: block; /* Remove any margins or spacing */
+}
 
 

@@ -3,7 +3,7 @@ import { CommentDetails } from './CommentDetails';
 import { AllActionBtns } from './AllActionBtns';
 
 export function CommentList({ pst}) {
-    const psts = useSelector(storeState => storeState.pstModule.psts) || [];
+    // const psts = useSelector(storeState => storeState.pstModule.psts) || [];
     
     return (
         <section className='comment-list'>
