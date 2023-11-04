@@ -88,6 +88,7 @@
 /* This pseudo-element is for the default line for all parts */
 .user-bottom-part a::before {
     content: '';
+    
     display: block;
     position: absolute;
     bottom: 100%; /* Position it right under the bottom of the `a` tag */
@@ -102,10 +103,13 @@
 .user-bottom-part a.active-link::before {
     background: rgb(154, 154, 154); /* The line color for the active link */
     height: 1px; /* Adjusted the thickness for active line */
+   
 }
 
 .user-bottom-part a.active-link {
-    color: #000000;  /* Color when the link is active */
+    color: #000000; 
+    line-height: 4;
+     /* Color when the link is active */
 }
 
 .user-bottom-part img {

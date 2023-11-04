@@ -33,10 +33,10 @@ export function UserPst() {
                         <div className='user-pst-preview' onMouseEnter={() => { toggleIcons(true) }} onMouseLeave={() => { toggleIcons(false) }}>
                             <p>{pst.txt}</p>
                             <p>{pst.tag}</p>
-                            {isIconShown && <div className="prev-icons">
+                            {/* {isIconShown && <div className="prev-icons">
                                 <img className="like"src="like.svg"></img>
                                 <img src="comment.svg"></img>
-                            </div>}
+                            </div>} */}
                             <Link to={`/profile/psts/${pst._id}`}>
                                 <img src={pst.imgUrl} alt="Post Image" />
                             </Link>
