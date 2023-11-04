@@ -21,37 +21,44 @@ export function UserUpperPart() {
 
     return (
         <>
-        <div>
-        <NavHeader />
-    </div>
-        <section className='user-upper-part'>
-            {/* <div>
+            <div>
+                <NavHeader />
+            </div>
+            <section className='user-upper-part'>
+                {/* <div>
                 <NavHeader />
             </div> */}
-            <section className='internal-user-upper-part'>
+                <section className='internal-user-upper-part'>
 
-                <button className='user-button' onClick={openMenu}>
-                    <img className="empty-user" src={user.imgUrl || "emptyUser.jpeg"} alt="User Placeholder"/>
-                </button>{showMenu && <MenuUploadUserPhoto />}
+                    <button className='user-button' onClick={openMenu}>
+                        <img className="empty-user" src={user.imgUrl || "emptyUser.jpeg"} alt="User Placeholder" />
+                    </button>{showMenu && <MenuUploadUserPhoto />}
 
-                {/* {showImgUploader && <ImgUploader design={'alternative'} />}  This will conditionally render the ImgUploader component based on the state */}
+                    {/* {showImgUploader && <ImgUploader design={'alternative'} />}  This will conditionally render the ImgUploader component based on the state */}
 
-                <div className='info-container'>
-                    <div className='info'>
-                        <h2>{user.fullname}</h2>
-                        <button className='edit-profile'>Edit profile</button>
-                        <button className='view-archive'>View Archive</button>
-                        <button className='settings'><img src='setting.svg' alt='Settings Icon'></img></button>
+                    <div className='info-container'>
+                        <div className='info'>
+                            <h2>{user.username}</h2>
+                            <button className='edit-profile'>Edit profile</button>
+                            <button className='view-archive'>View Archive</button>
+                            <button className='settings'><img src='setting.svg' alt='Settings Icon'></img></button>
+                        </div>
+                        <section className='counts'>
+                            <div className='details-about-user'>
+                                {/* <h4>{user.username}</h4> */}
+
+                                <h4> <span className='count-post'>{10}</span>posts</h4>
+                                <h4> <span className='count-followers'>{10}</span>followers</h4>
+                                <h4><span className='count-following'>{20}</span> following</h4>
+                            </div>
+                            <div className='fullname-of-user'>
+                                <h4>{user.fullname}</h4>
+                            </div>
+
+                        </section>
                     </div>
-                    <section className='counts'>
-                        <h4>{user.fullname}</h4>
-                        <h4>{countPost} posts</h4>
-                        <h4>{countFollowers} followers</h4>
-                        <h4>{countFollowing} following</h4>
-                    </section>
-                </div>
+                </section>
             </section>
-        </section>
         </>
     )
 }

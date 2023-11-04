@@ -2,7 +2,7 @@ import { pstService } from '../services/pst.service.local';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MenuComment } from './MenuComment';
-
+import { useParams, useNavigate, Link } from 'react-router-dom'
 export function CommentDetails({pst, comment }) {
 
     const [likeUrl, setLikeUrl] = useState("like.svg")
@@ -11,7 +11,9 @@ export function CommentDetails({pst, comment }) {
     const [isMenuComment, setMenuComment] = useState(false)
     const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
-    const [isMenuVisible, setMenuVisible] = useState(false);
+    const [isMenuVisible, setMenuVisible] = useState(false)
+    const userId = user._id
+    const navigate = useNavigate()
     const toggleMenu = () => {
         setMenuVisible(!isMenuVisible);
     };
@@ -30,12 +32,19 @@ export function CommentDetails({pst, comment }) {
     function openMenuComment() {
         setMenuComment(!isMenuComment)
     }
+
+    
+    const navigateProfileUser = () => {
+        navigate(`/profile/${userId}`);
+      }
     return (
         <section className="comment-details">
             {/* <div className="comment"> */}
             <div className="data-comment">
                 <div className='profile-comment-img'>
+                    <button onClick={navigateProfileUser}>
                     <img src={comment.by.imgUrl ||"emptyUser.jpeg"}></img>
+                    </button>
                 </div>
                 <section className='textual'>
                     <div className='textual-1'>

@@ -1,7 +1,116 @@
-.user-bottom-part{
+
+// .user-bottom-part {
+//     display: flex;
+//     flex-direction: row;
+//     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+//     gap: 5rem;
+//     color:#737373;
+//     font-weight: 600;
+//     justify-content: center;
+//     align-items: center;
+//     margin-top: 10rem;
+//     cursor: pointer;
+//     font-size: 12px;
+//     border-top: 1px solid #e0e0e0;  /* Adjust the thickness (1px) and color (#e0e0e0) as needed */
+//     width: 48%;  /* This ensures the element takes up the full width of its parent */
+// }
+
+// // #000000
+
+
+// .user-bottom-part a {
+//     text-decoration: none;
+//     color: black;
+//     display: flex;
+//     align-items: center;
+//     gap: 0.5rem;
+//     position: relative; /* Each link provides positioning context for its active line */
+// }
+
+
+
+// /* This pseudo-element is for the default line for all parts */
+// .user-bottom-part a::before {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     bottom: 100%; /* Position it right under the bottom of the `a` tag */
+//     left: 0; /* Align to the left side of the `a` tag */
+//     width: 100%; /* Full width of the `a` tag */
+//     height: 1px; /* Adjusted the thickness for default line */
+//     background: transparent; /* Make the line transparent by default */
+//     transition: background-color 0.3s; /* Smooth transition for the background color */
+// }
+// // .user-bottom-part a.active-link {
+// //     color: #000000;  /* Color when the link is active */
+// // }
+// /* This pseudo-element is for the active line */
+// .user-bottom-part a.active-link::before {
+//     background: rgb(154, 154, 154); /* The line color for the active link */
+//     height: 1px; /* Adjusted the thickness for active line */
+//     //     color: #000000;  /* Color when the link is active */
+
+// }
+
+
+// .user-bottom-part img {
+//     width: 12px;
+//     height: 12px;
+    
+// }
+
+
+.user-bottom-part {
     display: flex;
     flex-direction: row;
-    gap:5rem;
-    margin-left: 35rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    gap: 5rem;
+    color: #737373;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
     margin-top: 10rem;
+    cursor: pointer;
+    font-size: 12px;
+    border-top: 1px solid #e0e0e0;  /* Adjust the thickness (1px) and color (#e0e0e0) as needed */
+    width: 48%;  /* This ensures the element takes up the full width of its parent */
 }
+
+.user-bottom-part a {
+    text-decoration: none;
+    color: inherit;  /* this will make it inherit the color from .user-bottom-part */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative; /* Each link provides positioning context for its active line */
+}
+
+/* This pseudo-element is for the default line for all parts */
+.user-bottom-part a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 100%; /* Position it right under the bottom of the `a` tag */
+    left: 0; /* Align to the left side of the `a` tag */
+    width: 100%; /* Full width of the `a` tag */
+    height: 1px; /* Adjusted the thickness for default line */
+    background: transparent; /* Make the line transparent by default */
+    transition: background-color 0.3s; /* Smooth transition for the background color */
+}
+
+/* This pseudo-element is for the active line */
+.user-bottom-part a.active-link::before {
+    background: rgb(154, 154, 154); /* The line color for the active link */
+    height: 1px; /* Adjusted the thickness for active line */
+}
+
+.user-bottom-part a.active-link {
+    color: #000000;  /* Color when the link is active */
+}
+
+.user-bottom-part img {
+    width: 12px;
+    height: 12px;
+}
+
+

@@ -53,13 +53,17 @@ export function pstReducer(state = initialState, action) {
             break
         case REMOVE_COMMENT:
             // Find the index of the post containing the comment
+            console.log('action.commentId', action.commentId)
+
             const pstIdx = state.psts.findIndex(pst => pst.comments.some(comment => comment.id === action.commentId));
+            console.log('pstIdx', pstIdx)
 
             if (pstIdx === -1) break;  // Exit if post not found
 
             // Find the index of the comment to remove
             const commentIdx = state.psts[pstIdx].comments.findIndex(comment => comment.id === action.commentId);
 
+            console.log('commentIdx', commentIdx)
             if (commentIdx === -1) break; // Exit if comment not found
 
             // Remove the comment without mutating the state directly
@@ -67,10 +71,10 @@ export function pstReducer(state = initialState, action) {
             psts[pstIdx] = { ...psts[pstIdx], comments: [...psts[pstIdx].comments.slice(0, commentIdx), ...psts[pstIdx].comments.slice(commentIdx + 1)] };
 
             newState = { ...state, psts, selectedPost: psts[pstIdx] };
-            console.log('newState',newState)
+            console.log('newState', newState)
             break;
+        // case ADD_COMMENT:
         case ADD_COMMENT:
-            case ADD_COMMENT:
             // Find the index of the post containing the comment
             let pstIndex = state.psts.findIndex(pst => pst._id === action.pstId); // Use action.pstId
 

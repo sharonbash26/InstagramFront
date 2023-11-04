@@ -10,6 +10,7 @@ import { PostDetails } from "../pages/PostDetails";
 
 import { userService } from "../services/user.service";
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 import { closeModal, openModal } from "../store/pst.actions";
 export function PostPreview({ pst, onRemovePst }) {
@@ -22,6 +23,9 @@ export function PostPreview({ pst, onRemovePst }) {
     const [selectedEmoji, setSelectedEmoji] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [newComment, setNewComment] = useState('');
+    const navigate = useNavigate();
+   const user = useSelector(storeState => storeState.userModule.user)
+     const userId = user._id
     const [countComment, setCountComment] = useState(pst.comments?.length || 0);
     const isModalOpen = useSelector(storeState => storeState.pstModule.isModalOpen);
     let loggedUser = userService.getLoggedinUser()
@@ -29,6 +33,7 @@ export function PostPreview({ pst, onRemovePst }) {
     var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
 
     const emojiPickerRef = useRef(null);
+  
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -85,11 +90,16 @@ export function PostPreview({ pst, onRemovePst }) {
                 inputValue + (emojiData.isCustom ? emojiData.unified : emojiData.emoji)
         );
     }
+    
+        const navigateProfileUser = () => {
+            navigate(`/profile/${userId}`);
+          }
+    
     return (
         <section className="pst-Preview">
             <div className="info-start">
                 <div className="info-start-content">
-                    <img className="profile-prev" src={by.imgUrl || "emptyUser.jpeg"}></img>
+                  <button onClick={navigateProfileUser}><img className="profile-prev" src={by.imgUrl || "emptyUser.jpeg"}></img></button> 
                     <h2>{by.fullname || loggedUser.username} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
                     {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
                     <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
