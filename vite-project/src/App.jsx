@@ -14,6 +14,7 @@ import { UserSaved } from './cmps/UserSaved'
 import { UserTagged } from './cmps/UserTagged'
 import { NavHeader } from './cmps/NavHeader'
 import { OtherUserProfile } from './pages/OtherUserProfile'
+import { UserSinglePstDetails } from './cmps/UserSinglePstDetails'
 // import { addPst } from './store/pst.actions'
 
 
@@ -34,7 +35,9 @@ export function App() {
                             <Route element={<LoginSignupPage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
                             <Route element={<ProfileUserPage />} path="/profile" >
-                                <Route path="/profile/psts" element={<UserPst />}></Route>
+                                <Route path="/profile/psts" element={<UserPst />}>
+                                    <Route path="/profile/psts/:pstId" element={<PostDetails />}></Route>
+                                </Route>
                                 <Route path="/profile/reels" element={<UserReel />}></Route>
                                 <Route path="/profile/saved" element={<UserSaved />}></Route>
                                 <Route path="/profile/tagged" element={<UserTagged />}></Route>
