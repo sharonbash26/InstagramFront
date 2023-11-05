@@ -23,9 +23,9 @@ export function Explore() {
       <div className="grid">
         {psts.map((pst) => (
           <div className="grid-item" key={pst._id} >
-            {/* <Link to={`/explore/${pst._id}`}> */}
+            <Link to={`/explore/${pst._id}`}>
             <img src={pst.imgUrl} alt={pst.txt} />
-            {/* </Link> */}
+            </Link>
           </div>
         ))}
       </div>
