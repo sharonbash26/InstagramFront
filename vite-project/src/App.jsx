@@ -35,7 +35,7 @@ export function App() {
                                 <Route path=':pstId' element={<PostDetails />} />
                             </Route>
 
-                            <Route path="/profile/:userId" element={<OtherUserProfile />}></Route>
+                            <Route path="/profile/:userId" element={<ProfileUserPage />}></Route>
                             <Route path="/login" element={<LoginSignupPage />} />
                             <Route element={<LoginSignupPage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
