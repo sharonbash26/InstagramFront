@@ -20,6 +20,7 @@ export function NavHeader({ onAddPst }) {
         setIsMoreModalOpen(true)
 
     }
+ 
     return (
         <section className="container-nav-side">
             <div className="logo">
@@ -31,7 +32,7 @@ export function NavHeader({ onAddPst }) {
                 <div className='first'>
                     <button className='item item-first' onClick={() => navigate('/pst')}><img src="svgs_collection/svg1.svg"></img><span className="home-span">Home</span></button>
                     <button className='item'><img src="search-icon-white.svg"></img><span>Search</span></button>
-                    <button className='item'><img src="explore-white.svg"></img><span>Explore</span></button>
+                    <button className='item'onClick={() => navigate('/explore')}><img src="explore-white.svg"></img><span>Explore</span></button>
                     <button className='item'><img src="Reels.svg"></img><span>Reels</span></button>
                     <button className='item'><img src="mess.svg"></img><span>Messages</span></button>
                     <button className='item'><img src="svgs_collection/svg6.svg"></img><span>Notifications</span></button>

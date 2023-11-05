@@ -15,6 +15,7 @@ import { UserTagged } from './cmps/UserTagged'
 import { NavHeader } from './cmps/NavHeader'
 import { OtherUserProfile } from './pages/OtherUserProfile'
 import { UserSinglePstDetails } from './cmps/UserSinglePstDetails'
+import { Explore } from './pages/Explore'
 // import { addPst } from './store/pst.actions'
 
 
@@ -30,6 +31,10 @@ export function App() {
                             <Route path="/pst" element={<PostIndex />} >
                                 <Route path='/pst/:pstId' element={<PostDetails />} />
                             </Route>
+                            <Route path='/explore' element={<Explore />}>
+                                <Route path=':pstId' element={<PostDetails />} />
+                            </Route>
+
                             <Route path="/profile/:userId" element={<OtherUserProfile />}></Route>
                             <Route path="/login" element={<LoginSignupPage />} />
                             <Route element={<LoginSignupPage />} path="/" />

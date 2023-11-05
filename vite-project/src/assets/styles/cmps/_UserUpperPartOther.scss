@@ -1,0 +1,119 @@
+.user-upper-part-other {
+    display: flex;
+
+    .internal-user-upper-part {
+        display: flex;
+        margin-right: 70px;
+
+        .other-user-profile {
+            margin-left: 181px;
+            img{
+                width: 150px;
+                height: 150px;
+            }
+     
+        }
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            .info {
+                margin-right: -9px;
+                h2 {
+                    margin-left: 19px;
+                    margin-right: 15px;
+                }
+            }
+
+            .counts {
+                display: flex;
+                flex-direction: column;
+
+                .details-about-user {
+                    display: flex;
+                    flex-direction: row;
+
+                    span {
+                        font-weight: 600;
+                    }
+
+                    h4 {
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                        font-size: 16px;
+                        text-align: center;
+                        font-weight: 400;
+                        margin-left: 12px;
+
+                        .count-post {
+                            padding-right: 5px;
+                        }
+
+
+                        margin-right: 20px;
+
+                        .count-followers {
+                            padding-right: 5px;
+                        }
+
+
+                        .count-following {
+                            padding-right: 2px;
+                        }
+
+                    }
+
+                }
+
+                .fullname-of-user {
+                    h4 {
+                        font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                        font-weight: 600;
+                        font-size: 14px;
+                        margin-top: -16px;
+                        margin-left: -151px;
+
+                    }
+
+
+                }
+
+
+
+            }
+
+        }
+
+        .user-button {
+            width: 150px;
+            height: 150px;
+
+            img {
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+
+
+            h2 {
+                margin-right: auto;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+
+            }
+
+       
+        }
+
+        .counts {
+            display: flex;
+            gap: 0.625rem;
+            align-items: center;
+        }
+
+    }
+}
