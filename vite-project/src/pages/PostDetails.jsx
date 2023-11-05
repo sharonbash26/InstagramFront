@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../services/user.service'
 import { loadPost } from '../store/pst.actions'
 
+
 export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     // const [pst, setPst] = useState(null)
     const [isDotModalOpen, setIsDotModalOpen] = useState(false)
@@ -18,8 +19,9 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
       const userId = user._id
 
     function closeModalWithRouter() {
-        navigate('/pst')
+        navigate(-1)
     }
+
 
     const { pstId } = useParams()
 
