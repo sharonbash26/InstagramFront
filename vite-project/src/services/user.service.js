@@ -131,7 +131,7 @@ function _createUsers() {
                 createdAt: 16310323801011
             },
             {
-                _id: 'c100416666',
+                _id: '1',
                 fullname: 'mor cohen',
                 username: 'mor_cohen',
                 imgUrl: 'mor.jpg',

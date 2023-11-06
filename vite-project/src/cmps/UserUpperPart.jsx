@@ -5,28 +5,31 @@ import { ImgUploader } from './ImgUploader';
 import { MenuUploadUserPhoto } from './MenuUploadUserPhoto';
 import { useParams } from 'react-router-dom';
 import { userService } from '../services/user.service';
+import { pstService } from '../services/pst.service.local';
 
 export function UserUpperPart() {
-    const user = useSelector(storeState => storeState.userModule.user);
-    const { userId } = useParams();
-    const [currentUser, setCurrentUser] = useState(null);
-    const [showMenu, setShowMenu] = useState(false);
+    const user = useSelector(storeState => storeState.userModule.user)
+    const { userId } = useParams()
+    const [currentUser, setCurrentUser] = useState(null)
+    const [showMenu, setShowMenu] = useState(false)
+    const [pstCount, setPstCount] = useState(0)
 
-    let isCurrentUser = user._id === userId;
+    let isCurrentUser = user._id === userId
 
     useEffect(() => {
         const loadUser = async () => {
             try {
-                const currUser = await userService.getById(userId);
-                console.log('currUser',currUser)
-                setCurrentUser(currUser);
+                const currUser = await userService.getById(userId)
+                const pstNum = await pstService.getUserPostCount(userId)
+                setPstCount(pstNum)
+                setCurrentUser(currUser)
             } catch (err) {
-                console.log('Error loading user', err);
+                console.log('Error loading user', err)
             }
         }
 
-        loadUser();
-        
+        loadUser()
+
 
         return () => {
             // Component unmount
@@ -60,15 +63,15 @@ export function UserUpperPart() {
                                 </>
                             ) : (
                                 <>
-                                <button className='follow-button'>Follow</button>
-                                <button className='add-btn'><img src="addUser.svg"></img></button>
-                                <button className='three-dot'><img src="3dot.svg"></img></button>
+                                    <button className='follow-button'>Follow</button>
+                                    <button className='add-btn'><img src="addUser.svg"></img></button>
+                                    <button className='three-dot'><img src="3dot.svg"></img></button>
                                 </>
                             )}
                         </div>
                         <section className='counts'>
                             <div className='details-about-user'>
-                                <h4> <span className='count-post'>{10}</span>posts</h4>
+                                <h4> <span className='count-post'>{pstCount}</span>posts</h4>
                                 <h4> <span className='count-followers'>{10}</span>followers</h4>
                                 <h4><span className='count-following'>{20}</span> following</h4>
                             </div>
