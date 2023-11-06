@@ -131,7 +131,7 @@ function _createUsers() {
                 createdAt: 16310323801011
             },
             {
-                _id: 'c10041',
+                _id: 'c100416666',
                 fullname: 'mor cohen',
                 username: 'mor_cohen',
                 imgUrl: 'mor.jpg',
@@ -139,7 +139,7 @@ function _createUsers() {
                 createdAt: 163122323801011
             } ,
             {
-                _id: utilService.makeId(),
+                _id: '10',
                 fullname: 'yosi shef',
                 username: 'yosi',
                 imgUrl: 'shef.jpg',
@@ -147,7 +147,7 @@ function _createUsers() {
                 createdAt: 163122323801091
             } ,
             {
-                _id: 's1025111',
+                _id: '11',
                 fullname: 'shop dress',
                 username: 'shopDressCode',
                 imgUrl: 'shopdresslogo.jpg',

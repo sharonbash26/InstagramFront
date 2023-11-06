@@ -28,9 +28,9 @@
     .cross-icon {
         display: block;
         position: absolute;
-        left: 1272px;
-        right: 0px;
-        top: 0px;
+        left: 1376px;
+        right: -67px;
+        top: -67px;
         cursor: pointer;
     }
 
@@ -76,17 +76,19 @@
 
             .first {
                 display: flex;
+                align-items: center;
                 flex-direction: row;
-                margin-top: 7px;
+                margin-top: 10px;
 
 
                 .profile-details-img {
                     width: 2rem;
                     height: 2rem;
+                    text-align: center;
                     cursor: pointer;
                     object-fit: cover;
                     border-radius: 50%;
-                    margin-bottom: 1rem;
+                    margin-bottom: 0rem;
                     margin-left: 0.55rem;
                     border-radius: 50%;
                 }
@@ -94,6 +96,7 @@
                 .three-dot-icon {
                     color: black;
                     cursor: pointer;
+                    text-align: center;
                 }
 
                 h4 {

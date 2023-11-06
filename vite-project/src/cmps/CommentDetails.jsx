@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MenuComment } from './MenuComment';
 import { useParams, useNavigate, Link } from 'react-router-dom'
+import { closeModal, openModal, updatePst } from "../store/pst.actions";
 
 export function CommentDetails({ pst, comment }) {
     const [likeUrl, setLikeUrl] = useState("like.svg")
@@ -13,22 +14,41 @@ export function CommentDetails({ pst, comment }) {
     const [likesCount, setLikesCount] = useState(likedBy?.length || 0)
     const [isMenuVisible, setMenuVisible] = useState(false)
     const userId = user._id
+    let loggedUser = userService.getLoggedinUser()
+
     const navigate = useNavigate()
 
     const toggleMenu = () => {
         setMenuVisible(!isMenuVisible);
     }
 
-    function toggleLike() {
+
+    
+    useEffect(() => {
+        const bIsLiked = pst.likedBy.find(user => userService.getLoggedinUser()._id === user._id) ? true : false
+
+        setIsLiked(bIsLiked)
+        bIsLiked ? setLikeUrl("red-likes.svg") : setLikeUrl("like.svg")
+    }, [])
+
+
+    async function toggleLike() {
         if (isLiked) {
             setLikeUrl("like.svg")
             setIsLiked(false)
             setLikesCount(likesCount - 1)
+            const pstCpy = { ...pst }
+            const idx = pst.likedBy.findIndex(user => user._id === loggedUser._id)
+            pstCpy.likedBy.splice(idx, 1)
+            updatePst(pst)
 
         } else {
             setLikeUrl("red-likes.svg")
             setIsLiked(true)
             setLikesCount(likesCount + 1)
+            const pstCpy = { ...pst }
+            pstCpy.likedBy.push(loggedUser)
+            updatePst(pst)
         }
     }
 
@@ -39,10 +59,25 @@ export function CommentDetails({ pst, comment }) {
     const navigateProfileUser = () => {
         navigate(`/profile/${comment.by._id}`)
     }
-
+    function getRandomTimeStringV2() {
+        // Decide randomly whether to return hours or minutes
+        const isHour = Math.random() < 0.5; 
+      
+        if (isHour) {
+          // Generate a random hour between 1 and 3
+          const hour = Math.floor(Math.random() * 3) + 1;
+          return `${hour}h`;
+        } else {
+          // Generate a random minute between 1 and 59
+          const minute = Math.floor(Math.random() * 59) + 1;
+          return `${minute}m`;
+        }
+      }
+      
+      // Example usage:
+      
     return (
         <section className="comment-details">
-            {/* <div className="comment"> */}
             <div className="data-comment">
                 <div className='profile-comment-img'>
                     <button onClick={navigateProfileUser}>
@@ -56,8 +91,10 @@ export function CommentDetails({ pst, comment }) {
                     </div>
 
                     <div className='textual-2'>
-                        <p className='date-time'>1d</p>
-                        <p className='likes-on-comment'>3likes</p>
+                        <p className='date-time'>{getRandomTimeStringV2()}</p>
+                        {/* <p className='likes-on-comment'>3likes</p> */}
+                        {likesCount > 0 && <h4 className="count-likes">{likesCount} {likesCount === 1 ? 'like' : 'likes'}</h4>}
+
                         {/* <button className='reply'>Reply</button> */}
                         <p className='reply'>Reply</p>
                         <button className='three-dot' onClick={toggleMenu}><img src="3dot.svg"></img></button>

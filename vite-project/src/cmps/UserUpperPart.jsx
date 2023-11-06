@@ -18,6 +18,7 @@ export function UserUpperPart() {
         const loadUser = async () => {
             try {
                 const currUser = await userService.getById(userId);
+                console.log('currUser',currUser)
                 setCurrentUser(currUser);
             } catch (err) {
                 console.log('Error loading user', err);
