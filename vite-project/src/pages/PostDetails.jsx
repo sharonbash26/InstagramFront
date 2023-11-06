@@ -17,6 +17,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     let userLogged = userService.getLoggedinUser()
     const user = useSelector(storeState => storeState.userModule.user)
     const userId = user._id
+    
 
     function closeModalWithRouter() {
         navigate(-1)
@@ -73,15 +74,19 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                                 <h4>{pst.txt}</h4>
                             </section>
                             {/* <div className='time'> */}
-                            <p className='timee'>3d</p>
+                            <div className='time-div'>
+
+
+                                <p className='timee'>3d</p>
+                            </div>
                             {/* </div> */}
                         </div>
 
                         <CommentList pst={pst} />
 
-                        <div className='actions-container'>
+                        {/* <div className='actions-container'>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
