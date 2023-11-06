@@ -337,6 +337,210 @@ function _createPst() {
             ],
             tags: ["fun", "romantic"]
         },
+        {
+            _id: "s101",
+            txt: "תראוו מה הכנתיי בעצמיי",
+            imgUrl: "food11.jpg",
+            uploadTime: utilService.randomTimeString(),
+            by: {
+                _id: "u101",
+                fullname: "yuile23",
+                imgUrl: "y1p.jpg"
+            },
+            loc: { // Optional
+                lat: 11.11,
+                lng: 22.22,
+                name: "Tel Aviv"
+            },
+
+
+            comments: [
+                {
+                    id: "c1001",
+                    by: {
+                        _id: "u105",
+                        fullname: "sharon_bash",
+                        imgUrl: "s2.jpg"
+                    },
+                    txt: "וואו",
+                    likedBy: [ // Optional
+                        {
+                            "_id": "u105",
+                            "fullname": "Bob",
+                            "imgUrl": "http://some-img"
+                        }
+                    ]
+                },
+  
+                {
+                    id: "c1003",
+                    by: {
+                        _id: "u107",
+                        fullname: "Tomer12",
+                        imgUrl: "tomer.jpg"
+                    },
+                    txt: "מדהיםםםםםםם",
+                },
+                {
+                    id: "c1004",
+                    by: {
+                        _id: "u108",
+                        fullname: "Yovel",
+                        imgUrl: "yoval.jpg"
+                    },
+                    txt: "מדהיםם",
+                }
+            ],
+            likedBy: [
+                {
+                    _id: "u105",
+                    fullname: "Bob",
+                    imgUrl: "http://some-img"
+                },
+                {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "http://some-img"
+                }
+            ],
+            tags: ["fun", "romantic"]
+        },
+        {
+            _id: "s101",
+            txt: "נעמה הבכורה שליי בת 5",
+            imgUrl: "yulidat.jpg",
+            uploadTime: utilService.randomTimeString(),
+            by: {
+                _id: "u101",
+                fullname: "yuile23",
+                imgUrl: "y1p.jpg"
+            },
+            loc: { // Optional
+                lat: 11.11,
+                lng: 22.22,
+                name: "Tel Aviv"
+            },
+
+
+            comments: [
+                {
+                    id: "c1001",
+                    by: {
+                        _id: "u105",
+                        fullname: "sharon_bash",
+                        imgUrl: "s2.jpg"
+                    },
+                    txt: "וואו",
+                    likedBy: [ // Optional
+                        {
+                            "_id": "u105",
+                            "fullname": "Bob",
+                            "imgUrl": "http://some-img"
+                        }
+                    ]
+                },
+  
+                {
+                    id: "c1003",
+                    by: {
+                        _id: "u107",
+                        fullname: "Tomer12",
+                        imgUrl: "tomer.jpg"
+                    },
+                    txt: "מדהיםםםםםםם",
+                },
+                {
+                    id: "c1004",
+                    by: {
+                        _id: "u108",
+                        fullname: "Yovel",
+                        imgUrl: "yoval.jpg"
+                    },
+                    txt: "מדהיםם",
+                }
+            ],
+            likedBy: [
+                {
+                    _id: "u105",
+                    fullname: "Bob",
+                    imgUrl: "http://some-img"
+                },
+                {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "http://some-img"
+                }
+            ],
+            tags: ["fun", "romantic"]
+        },
+        {
+            _id: "s101",
+            txt: "תראוו מה הכנתי לאכול בעצמיי",
+            imgUrl: "food11.jpg",
+            uploadTime: utilService.randomTimeString(),
+            by: {
+                _id: "u101",
+                fullname: "yuile23",
+                imgUrl: "y1p.jpg"
+            },
+            loc: { // Optional
+                lat: 11.11,
+                lng: 22.22,
+                name: "Tel Aviv"
+            },
+
+
+            comments: [
+                {
+                    id: "c1001",
+                    by: {
+                        _id: "u105",
+                        fullname: "sharon_bash",
+                        imgUrl: "s2.jpg"
+                    },
+                    txt: "וואו",
+                    likedBy: [ // Optional
+                        {
+                            "_id": "u105",
+                            "fullname": "Bob",
+                            "imgUrl": "http://some-img"
+                        }
+                    ]
+                },
+  
+                {
+                    id: "c1003",
+                    by: {
+                        _id: "u107",
+                        fullname: "Tomer12",
+                        imgUrl: "tomer.jpg"
+                    },
+                    txt: "מדהיםםםםםםם",
+                },
+                {
+                    id: "c1004",
+                    by: {
+                        _id: "u108",
+                        fullname: "Yovel",
+                        imgUrl: "yoval.jpg"
+                    },
+                    txt: "מדהיםם",
+                }
+            ],
+            likedBy: [
+                {
+                    _id: "u105",
+                    fullname: "Bob",
+                    imgUrl: "http://some-img"
+                },
+                {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "http://some-img"
+                }
+            ],
+            tags: ["fun", "romantic"]
+        },
 
 
 
@@ -484,76 +688,9 @@ function _createPst() {
         tags: ["fun", "romantic"]
     },
     
-{
-    _id: utilService.makeId(),
-    txt:"אטליז יוסי  מבצע רק היום",
-    imgUrl: "food7.jpg",
-    uploadTime: utilService.randomTimeString(),
-    by: {
-        _id: utilService.makeId(),
-        fullname: "Yossi Cohen",
-        imgUrl: "shef.jpg"
-    },
-    loc: { // Optional
-        lat: 11.11,
-        lng: 22.22,
-        name: "Tel Aviv"
-    },
-
-
-    comments: [
-        {
-            id: utilService.makeId(),
-            by: {
-                _id: utilService.makeId(),
-                fullname: "sharon_bash",
-                imgUrl: "s2.jpg"
-            },
-            txt: "וואו",
-            likedBy: [ // Optional
-                {
-                    "_id": "u105",
-                    "fullname": "Bob",
-                    "imgUrl": "http://some-img"
-                }
-            ]
-        },
-
-        {
-            id: utilService.makeId(),
-            by: {
-                _id: utilService.makeId(),
-                fullname: "Tomer12",
-                imgUrl: "tomer.jpg"
-            },
-            txt: "מדהיםםםםםםם",
-        },
-        {
-            id: utilService.makeId(),
-            by: {
-                _id: "u108",
-                fullname: "Yovel",
-                imgUrl: "yoval.jpg"
-            },
-            txt: "מדהיםם",
-        }
-    ],
-    likedBy: [
-        {
-            _id: "u105",
-            fullname: "Bob",
-            imgUrl: "http://some-img"
-        },
-        {
-            _id: "u106",
-            fullname: "Dob",
-            imgUrl: "http://some-img"
-        }
-    ],
-    tags: ["fun", "romantic"]
-}, {
+ {
     _id: "s1025111",
-    txt: "כול החנות במבצע לרגל המצב-20 אחוז הנחה",
+    txt: "כול החנות במבצע-20 אחוז הנחה",
     imgUrl: "shop-dress.jpg",
     uploadTime: utilService.randomTimeString(),
     by: {
@@ -702,7 +839,83 @@ function _createPst() {
         }
     ],
     tags: ["fun", "romantic"]
+},{
+    _id: utilService.makeId(),
+    txt: "איןן כמו ארוחת בוקר ישראלית וטובה",
+    imgUrl: "food1.jpg",
+    uploadTime: utilService.randomTimeString(),
+    by: {
+        _id: utilService.makeId(),
+        fullname: "mor_cohen",
+        imgUrl: "mor.jpg"
+    },
+    loc: { // Optional
+        lat: 11.11,
+        lng: 22.22,
+        name: "Tel Aviv"
+    },
+
+
+    comments: [
+        {
+            id: "c1001",
+            by: {
+                _id: "u105",
+                fullname: "sharon_bash",
+                imgUrl: "s2.jpg"
+            },
+            txt: "וואו",
+            likedBy: [ // Optional
+                {
+                    "_id": "u105",
+                    "fullname": "Bob",
+                    "imgUrl": "http://some-img"
+                }
+            ]
+        },
+        {
+            id: "c1002",
+            by: {
+                _id: "u106",
+                fullname: "Dob",
+                imgUrl: "bob.jpg"
+            },
+            txt: "מהמםםםםםםםםם",
+        },
+        {
+            id: "c1003",
+            by: {
+                _id: "u107",
+                fullname: "Tomer12",
+                imgUrl: "tomer.jpg"
+            },
+            txt: "מדהיםםםםםםם",
+        },
+        {
+            id: "c1004",
+            by: {
+                _id: "u108",
+                fullname: "Yovel",
+                imgUrl: "yoval.jpg"
+            },
+            txt: "מדהיםם",
+        }
+    ],
+    likedBy: [
+        {
+            _id: "u105",
+            fullname: "Bob",
+            imgUrl: "http://some-img"
+        },
+        {
+            _id: "u106",
+            fullname: "Dob",
+            imgUrl: "http://some-img"
+        }
+    ],
+    tags: ["fun", "romantic"]
 }
+
 
         ]
 
