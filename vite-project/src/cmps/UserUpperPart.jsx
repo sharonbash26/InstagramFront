@@ -58,7 +58,11 @@ export function UserUpperPart() {
                                     <button className='settings'><img src='setting.svg' alt='Settings Icon' /></button>
                                 </>
                             ) : (
+                                <>
                                 <button className='follow-button'>Follow</button>
+                                <button className='add-btn'><img src="addUser.svg"></img></button>
+                                <button className='three-dot'><img src="3dot.svg"></img></button>
+                                </>
                             )}
                         </div>
                         <section className='counts'>
