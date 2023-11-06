@@ -94,12 +94,13 @@ export async function loadUser(userId) {
     }
 }
 
-export async function loadUserLoggedPsts() {
+export async function loadUserLoggedPsts(userId) {
     try {
-        const loggedInUser = userService.getLoggedinUser();
-        if (!loggedInUser) throw new Error('No user logged in');
+        // const loggedInUser = userService.getLoggedinUser();
+        // if (!loggedInUser) throw new Error('No user logged in');
 
-        const filterBy = { by: loggedInUser._id }
+        // const filterBy = { by: loggedInUser._id }
+        const filterBy = { by: userId }
 
         const userPsts = await pstService.query(filterBy);
         // const userPsts = allPsts.filter(pst => pst.userId === loggedInUser._id);

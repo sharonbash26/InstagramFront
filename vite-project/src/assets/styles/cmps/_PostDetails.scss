@@ -54,8 +54,9 @@
 
     .header-container-details-modal {
         grid-column: 2;
-        overflow-y: auto;
+
         max-height: 3000px;
+        overflow-y: auto;
 
         &::-webkit-scrollbar {
             display: none;
@@ -107,6 +108,11 @@
 
                 }
 
+            }
+
+            .second {
+                display: flex;
+                align-items: center;
             }
         }
 

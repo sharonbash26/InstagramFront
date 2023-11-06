@@ -9,11 +9,11 @@ export function ProfileUserPage() {
     console.log('user', user)
     const navigate = useNavigate('/')
     const { userId } = useParams()
-    // useEffect(() => {
-    //     const { userId } = useParams()
-    //     navigate(`/profile/${userId}/psts`)
-       
-    // }, [])
+
+    useEffect(() => { 
+        navigate(`/profile/${userId}/psts`)
+    }, [])
+
     return (
         <section className='profile-user-page'>
             <UserUpperPart />

@@ -199,7 +199,7 @@ export function PostPreview({ pst, onRemovePst }) {
 
             </section>
 
-            <hr />
+            {/* <hr /> */}
 
         </section>
     )
