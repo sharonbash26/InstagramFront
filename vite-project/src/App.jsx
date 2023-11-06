@@ -35,18 +35,20 @@ export function App() {
                                 <Route path=':pstId' element={<PostDetails />} />
                             </Route>
 
-                            <Route path="/profile/:userId" element={<ProfileUserPage />}></Route>
                             <Route path="/login" element={<LoginSignupPage />} />
                             <Route element={<LoginSignupPage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
-                            <Route element={<ProfileUserPage />} path="/profile" >
-                                <Route path="/profile/psts" element={<UserPst />}>
-                                    <Route path="/profile/psts/:pstId" element={<PostDetails />}></Route>
+
+                            <Route element={<ProfileUserPage />} path="/profile/:userId" >
+                                <Route path="psts" element={<UserPst />}>
+                                    <Route path=":pstId" element={<PostDetails />}></Route>
                                 </Route>
-                                <Route path="/profile/reels" element={<UserReel />}></Route>
-                                <Route path="/profile/saved" element={<UserSaved />}></Route>
-                                <Route path="/profile/tagged" element={<UserTagged />}></Route>
+                                <Route path="reels" element={<UserReel />}></Route>
+                                <Route path="saved" element={<UserSaved />}></Route>
+                                <Route path="tagged" element={<UserTagged />}></Route>
                             </Route>
+
+                            
                         </Routes>
                     </main>
                 </section>

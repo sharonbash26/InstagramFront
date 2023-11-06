@@ -37,7 +37,8 @@ export function UserPst() {
                                 <img className="like"src="like.svg"></img>
                                 <img src="comment.svg"></img>
                             </div>} */}
-                            <Link to={`/profile/psts/${pst._id}`}>
+                            {/* maybe */}
+                            <Link to={`/profile/${pst.by._id}/psts/${pst._id}`}>
                                 <img src={pst.imgUrl} alt="Post Image" />
                             </Link>
                         </div>
