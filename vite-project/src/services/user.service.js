@@ -1,5 +1,6 @@
 import { asyncStorageService } from './async-storage.service'
 import { httpService } from './http.service'
+import { utilService } from './util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -18,6 +19,7 @@ export const userService = {
 
 window.userService = userService
 
+_createUsers()
 
 function getUsers() {
     return asyncStorageService.query('user')
@@ -92,11 +94,48 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
+function _createUsers() {
+    let users = utilService.loadFromStorage('user')
+    if (!users || !users.length) {
+        users = [
+            {
+                _id: 'u101',
+                fullname: 'yulie maor',
+                username: 'Yulie',
+                imgUrl: 'y1p.jpg',
+                password: 123,
+                createdAt: 1631031801011,
+            },
+            {
+                _id: 'u102',
+                fullname: 'sharon',
+                username: 'sharon123',
+                imgUrl: 's2.jpg',
+                password: 123,
+                createdAt: 1631031801011,
+            },
+            {
+                _id: 'u103',
+                fullname: 'tomer',
+                username: 'tomer123',
+                imgUrl: 'tomer.jpg',
+                password: 123,
+                createdAt: 1631031801011
+            }
+       ]
 
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123'})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123'})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123'})
+        utilService.saveToStorage('user', users)
+    }
+}
+
+// ; (async () => {
+//     await userService.signup({ fullname: 'Puki Norma', username: 'puki', password: '123' })
+//     await userService.signup({ fullname: 'Master Adminov', username: 'admin', password: '123' })
+//     await userService.signup({
+//         username: 'yulie123',
+//         fullname: "yuile23",
+//         imgUrl: "y1p.jpg"
+//     })
 // })()
 
 

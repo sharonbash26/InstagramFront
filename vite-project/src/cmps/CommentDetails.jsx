@@ -3,20 +3,22 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MenuComment } from './MenuComment';
 import { useParams, useNavigate, Link } from 'react-router-dom'
-export function CommentDetails({pst, comment }) {
 
+export function CommentDetails({ pst, comment }) {
     const [likeUrl, setLikeUrl] = useState("like.svg")
     const [isLiked, setIsLiked] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     const [isMenuComment, setMenuComment] = useState(false)
     const { txt, imgUrl, by, _id, comments, likedBy, uploadTime } = pst
-    var [likesCount, setLikesCount] = useState(likedBy?.length || 0)
+    const [likesCount, setLikesCount] = useState(likedBy?.length || 0)
     const [isMenuVisible, setMenuVisible] = useState(false)
     const userId = user._id
     const navigate = useNavigate()
+
     const toggleMenu = () => {
         setMenuVisible(!isMenuVisible);
-    };
+    }
+
     function toggleLike() {
         if (isLiked) {
             setLikeUrl("like.svg")
@@ -29,21 +31,22 @@ export function CommentDetails({pst, comment }) {
             setLikesCount(likesCount + 1)
         }
     }
+
     function openMenuComment() {
         setMenuComment(!isMenuComment)
     }
 
-    
     const navigateProfileUser = () => {
-        navigate(`/profile/${userId}`);
-      }
+        navigate(`/profile/${comment.by._id}`)
+    }
+
     return (
         <section className="comment-details">
             {/* <div className="comment"> */}
             <div className="data-comment">
                 <div className='profile-comment-img'>
                     <button onClick={navigateProfileUser}>
-                    <img src={comment.by.imgUrl ||"emptyUser.jpeg"}></img>
+                        <img src={comment.by.imgUrl || "emptyUser.jpeg"}></img>
                     </button>
                 </div>
                 <section className='textual'>
@@ -70,10 +73,10 @@ export function CommentDetails({pst, comment }) {
                 </div> */}
             </div>
             <div className="like-btn">
-                    <button className="like" onClick={toggleLike}>
-                        <img className='like-img-red' src={likeUrl}></img>
-                    </button>
-                </div>
+                <button className="like" onClick={toggleLike}>
+                    <img className='like-img-red' src={likeUrl}></img>
+                </button>
+            </div>
             {/* </div> */}
         </section>
 

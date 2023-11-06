@@ -105,7 +105,7 @@ export function PostPreview({ pst, onRemovePst }) {
     }
 
     const navigateProfileUser = () => {
-        navigate(`/profile/${userId}`);
+        navigate(`/profile/${pst.by._id}`);
     }
 
     return (

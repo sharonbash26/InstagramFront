@@ -336,7 +336,373 @@ function _createPst() {
                 }
             ],
             tags: ["fun", "romantic"]
+        },
+
+
+
+{
+        _id: utilService.makeId(),
+        txt:"אטליז יוסי  מבצע רק היום",
+        imgUrl: "food7.jpg",
+        uploadTime: utilService.randomTimeString(),
+        by: {
+            _id: utilService.makeId(),
+            fullname: "Yossi Cohen",
+            imgUrl: "shef.jpg"
+        },
+        loc: { // Optional
+            lat: 11.11,
+            lng: 22.22,
+            name: "Tel Aviv"
+        },
+
+
+        comments: [
+            {
+                id: utilService.makeId(),
+                by: {
+                    _id: utilService.makeId(),
+                    fullname: "sharon_bash",
+                    imgUrl: "s2.jpg"
+                },
+                txt: "וואו",
+                likedBy: [ // Optional
+                    {
+                        "_id": "u105",
+                        "fullname": "Bob",
+                        "imgUrl": "http://some-img"
+                    }
+                ]
+            },
+
+            {
+                id: utilService.makeId(),
+                by: {
+                    _id: utilService.makeId(),
+                    fullname: "Tomer12",
+                    imgUrl: "tomer.jpg"
+                },
+                txt: "מדהיםםםםםםם",
+            },
+            {
+                id: utilService.makeId(),
+                by: {
+                    _id: "u108",
+                    fullname: "Yovel",
+                    imgUrl: "yoval.jpg"
+                },
+                txt: "מדהיםם",
+            }
+        ],
+        likedBy: [
+            {
+                _id: "u105",
+                fullname: "Bob",
+                imgUrl: "http://some-img"
+            },
+            {
+                _id: "u106",
+                fullname: "Dob",
+                imgUrl: "http://some-img"
+            }
+        ],
+        tags: ["fun", "romantic"]
+    }, {
+        _id: "s1025",
+        txt: "!!!שימו לב:שיין נגדנו !! ומוכרת דגל פלסטין באתר",
+        imgUrl: "news5.jpeg",
+        uploadTime: utilService.randomTimeString(),
+        by: {
+            _id: "u1095",
+            fullname: "TopNews",
+            imgUrl: "newsp.jpg"
+        },
+        loc: { // Optional
+            lat: 11.11,
+            lng: 22.22,
+            name: "Tel Aviv"
+        },
+
+
+        comments: [
+            {
+                id: "c1009922",
+                by: {
+                    _id: "u1055",
+                    fullname: "yael",
+                    imgUrl: "b2.jpg"
+                },
+                txt: "נמחוקקקק את האפלקצייההההה עכשווווווווווו",
+                likedBy: [ // Optional
+                    {
+                        "_id": "u105",
+                        "fullname": "Bob",
+                        "imgUrl": "http://some-img"
+                    }
+                ]
+            },
+            {
+                id: "c10076",
+                by: {
+                    _id: "u106",
+                    fullname: "Dob",
+                    imgUrl: "bob.jpg"
+                },
+                txt: "לאאאא מאמיןןן כמה כסףףף בזבזזנווו שם",
+            },
+            {
+                id: "c100323",
+                by: {
+                    _id: "u1072",
+                    fullname: "Tomer12",
+                    imgUrl: "tomer.jpg"
+                },
+                txt:"די הגיעעעע זמןןן שנקנההה רק כחול לבןןןןק ",
+            },
+            {
+                id: "c10041",
+                by: {
+                    _id: "u108",
+                    fullname: "Yovel",
+                    imgUrl: "yoval.jpg"
+                },
+                txt: "בסדר מי צריך אותם יותר גם ככה איכות על הפניםם ",
+            }
+        ],
+        likedBy: [
+            {
+                _id: "u105",
+                fullname: "Bob",
+                imgUrl: "http://some-img"
+            },
+            {
+                _id: "u106",
+                fullname: "Dob",
+                imgUrl: "http://some-img"
+            }
+        ],
+        tags: ["fun", "romantic"]
+    },
+    
+{
+    _id: utilService.makeId(),
+    txt:"אטליז יוסי  מבצע רק היום",
+    imgUrl: "food7.jpg",
+    uploadTime: utilService.randomTimeString(),
+    by: {
+        _id: utilService.makeId(),
+        fullname: "Yossi Cohen",
+        imgUrl: "shef.jpg"
+    },
+    loc: { // Optional
+        lat: 11.11,
+        lng: 22.22,
+        name: "Tel Aviv"
+    },
+
+
+    comments: [
+        {
+            id: utilService.makeId(),
+            by: {
+                _id: utilService.makeId(),
+                fullname: "sharon_bash",
+                imgUrl: "s2.jpg"
+            },
+            txt: "וואו",
+            likedBy: [ // Optional
+                {
+                    "_id": "u105",
+                    "fullname": "Bob",
+                    "imgUrl": "http://some-img"
+                }
+            ]
+        },
+
+        {
+            id: utilService.makeId(),
+            by: {
+                _id: utilService.makeId(),
+                fullname: "Tomer12",
+                imgUrl: "tomer.jpg"
+            },
+            txt: "מדהיםםםםםםם",
+        },
+        {
+            id: utilService.makeId(),
+            by: {
+                _id: "u108",
+                fullname: "Yovel",
+                imgUrl: "yoval.jpg"
+            },
+            txt: "מדהיםם",
         }
+    ],
+    likedBy: [
+        {
+            _id: "u105",
+            fullname: "Bob",
+            imgUrl: "http://some-img"
+        },
+        {
+            _id: "u106",
+            fullname: "Dob",
+            imgUrl: "http://some-img"
+        }
+    ],
+    tags: ["fun", "romantic"]
+}, {
+    _id: "s1025111",
+    txt: "כול החנות במבצע לרגל המצב-20 אחוז הנחה",
+    imgUrl: "shop-dress.jpg",
+    uploadTime: utilService.randomTimeString(),
+    by: {
+        _id: "u109509",
+        fullname: "shopDressCode",
+        imgUrl: "shopdresslogo.jpg"
+    },
+    loc: { // Optional
+        lat: 11.11,
+        lng: 22.22,
+        name: "Tel Aviv"
+    },
+
+
+    comments: [
+        {
+            id: "c1009922",
+            by: {
+                _id: "u1055",
+                fullname: "yael",
+                imgUrl: "b2.jpg"
+            },
+            txt: "יואוו כמה היא עולהה??",
+            likedBy: [ // Optional
+                {
+                    "_id": "u105",
+                    "fullname": "Bob",
+                    "imgUrl": "http://some-img"
+                }
+            ]
+        },
+        {
+            id: "c10076",
+            by: {
+                _id: "u106",
+                fullname: "Dob",
+                imgUrl: "bob.jpg"
+            },
+            txt: "יש לכם גיפט קארד?",
+        },
+        {
+            id: "c100323",
+            by: {
+                _id: "u1072",
+                fullname: "Tomer12",
+                imgUrl: "tomer.jpg"
+            },
+            txt:"די הגיעעעע זמןןן שנקנההה רק כחול לבןןןןק ",
+        },
+        {
+            id: "c10041",
+            by: {
+                _id: "u108",
+                fullname: "Yovel",
+                imgUrl: "yoval.jpg"
+            },
+            txt: "איפה אתם נמצאים?",
+        }
+    ],
+    likedBy: [
+        {
+            _id: "u105",
+            fullname: "Bob",
+            imgUrl: "http://some-img"
+        },
+        {
+            _id: "u106",
+            fullname: "Dob",
+            imgUrl: "http://some-img"
+        }
+    ],
+    tags: ["fun", "romantic"]
+},
+{
+    _id: "s1025111",
+    txt: "מי רוצה את המושלמת הזאת?נוחה וקלילה",
+    imgUrl: "shop3.jpg",
+    uploadTime: utilService.randomTimeString(),
+    by: {
+        _id: "u109509",
+        fullname: "shopDressCode",
+        imgUrl: "shopdresslogo.jpg"
+    },
+    loc: { // Optional
+        lat: 11.11,
+        lng: 22.22,
+        name: "Tel Aviv"
+    },
+
+
+    comments: [
+        {
+            id: "c1009922",
+            by: {
+                _id: "u1055",
+                fullname: "yael",
+                imgUrl: "b2.jpg"
+            },
+            txt: "יואוו כמה היא עולהה??",
+            likedBy: [ // Optional
+                {
+                    "_id": "u105",
+                    "fullname": "Bob",
+                    "imgUrl": "http://some-img"
+                }
+            ]
+        },
+        {
+            id: "c10076",
+            by: {
+                _id: "u106",
+                fullname: "Dob",
+                imgUrl: "bob.jpg"
+            },
+            txt: "יש לכם גיפט קארד?",
+        },
+        {
+            id: "c100323",
+            by: {
+                _id: "u1072",
+                fullname: "Tomer12",
+                imgUrl: "tomer.jpg"
+            },
+            txt:"די הגיעעעע זמןןן שנקנההה רק כחול לבןןןןק ",
+        },
+        {
+            id: "c10041",
+            by: {
+                _id: "u108",
+                fullname: "Yovel",
+                imgUrl: "yoval.jpg"
+            },
+            txt: "איפה אתם נמצאים?",
+        }
+    ],
+    likedBy: [
+        {
+            _id: "u105",
+            fullname: "Bob",
+            imgUrl: "http://some-img"
+        },
+        {
+            _id: "u106",
+            fullname: "Dob",
+            imgUrl: "http://some-img"
+        }
+    ],
+    tags: ["fun", "romantic"]
+}
 
         ]
 

@@ -16,7 +16,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     const pst = useSelector(storeState => storeState.pstModule.selectedPost)
     let userLogged = userService.getLoggedinUser()
     const user = useSelector(storeState => storeState.userModule.user)
-      const userId = user._id
+    const userId = user._id
 
     function closeModalWithRouter() {
         navigate(-1)
@@ -30,16 +30,16 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     }, [])
 
     const navigateProfileUser = () => {
-        navigate(`/profile/${userId}`);
-      }
+        navigate(`/profile/${pst.by._id}`);
+    }
     if (!pst) return <p>Loading...</p>
     return (
         <section className="pst-details-container">
-            
+
             <section className='pst-details'>
                 {/* <pre>{JSON.stringify(pst)}</pre> */}
                 <div className='img-side-details'>
-                    
+
                     <img className="details-img" src={pst.imgUrl} ></img>
                 </div>
 
@@ -47,7 +47,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                     <div className='all'>
                         <section className='details-subject'>
                             <section className='first'>
-                                <button onClick={navigateProfileUser}><img className='profile-details-img' src={pst.by.imgUrl ||"emptyUser.jpeg" } alt="pst preview"></img>
+                                <button onClick={navigateProfileUser}><img className='profile-details-img' src={pst.by.imgUrl || "emptyUser.jpeg"} alt="pst preview"></img>
                                 </button>
                                 {/* <h4>{userLogged.userName}</h4> */}
                                 {/* <h4 style={{margin-top:6px}}>{pst.by.fullname}</h4> */}
@@ -67,7 +67,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                         <div className='body-container-details-modal'>
                             <section className='first'>
                                 <button onClick={navigateProfileUser}>
-                                <img className='profile-details-img' src={pst.by.imgUrl ||"emptyUser.jpeg" } alt="pst preview"></img>
+                                    <img className='profile-details-img' src={pst.by.imgUrl || "emptyUser.jpeg"} alt="pst preview"></img>
                                 </button>
                                 <h4 className='pst-by'>{pst.by.fullname}</h4>
                                 <h4>{pst.txt}</h4>
@@ -78,7 +78,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                         </div>
 
                         <CommentList pst={pst} />
-                    
+
                         <div className='actions-container'>
 
                         </div>
