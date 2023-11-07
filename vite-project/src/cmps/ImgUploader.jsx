@@ -21,9 +21,6 @@ export function ImgUploader({ onUploaded = null ,design = 'default'}) {
     onUploaded && onUploaded(secure_url)
   }
 
-  
-
-
   const handleButtonClick = () => {
     fileInputRef.current.click()
   }

@@ -33,6 +33,22 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
     const navigateProfileUser = () => {
         navigate(`/profile/${pst.by._id}`);
     }
+
+    function getRandomTimeStringV2() {
+        // Decide randomly whether to return hours or minutes
+        const isHour = Math.random() < 0.5; 
+      
+        if (isHour) {
+          // Generate a random hour between 1 and 3
+          const hour = Math.floor(Math.random() * 3) + 1;
+          return `${hour}h`;
+        } else {
+          // Generate a random minute between 1 and 59
+          const minute = Math.floor(Math.random() * 59) + 1;
+          return `${minute}m`;
+        }
+      }
+
     if (!pst) return <p>Loading...</p>
     return (
         <section className="pst-details-container">
@@ -77,7 +93,7 @@ export function PostDetails({ openDotModal, closeDotModal, onRemovePst }) {
                             <div className='time-div'>
 
 
-                                <p className='timee'>3d</p>
+                                <p className='timee'>{getRandomTimeStringV2()}</p>
                             </div>
                             {/* </div> */}
                       

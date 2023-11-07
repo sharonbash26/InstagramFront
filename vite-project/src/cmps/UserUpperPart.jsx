@@ -54,7 +54,11 @@ export function UserUpperPart() {
 
                     <div className='info-container'>
                         <div className='info'>
-                            <h2>{currentUser?.username}</h2>
+                            <div>
+                                {/* <h2>{currentUser?.username}</h2> */}
+                                <h2 className={isCurrentUser ? 'current-user' : 'other-user'}>{currentUser?.username}</h2>
+
+                            </div>
                             {isCurrentUser ? (
                                 <>
                                     <button className='edit-profile'>Edit profile</button>
@@ -62,11 +66,12 @@ export function UserUpperPart() {
                                     <button className='settings'><img src='setting.svg' alt='Settings Icon' /></button>
                                 </>
                             ) : (
-                                <>
+                                <div className='other-user'>
                                     <button className='follow-button'>Follow</button>
+                                    <button className='message'>Message</button>
                                     <button className='add-btn'><img src="addUser.svg"></img></button>
                                     <button className='three-dot'><img src="3dot.svg"></img></button>
-                                </>
+                                </div>
                             )}
                         </div>
                         <section className='counts'>

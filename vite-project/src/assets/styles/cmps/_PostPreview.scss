@@ -88,7 +88,29 @@
 
         }
 
+
+
+
+    }
+
+    .comment-text-area {
+
+        // display: flex;
         .newComment {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .username-plus-hisComment {
+                display: flex;
+
+                h4 {
+                    margin-right: 5px !important;
+                }
+            }
+
+            .like-prev-out {}
+
             h4 {
                 margin-bottom: 0.25rem;
             }
@@ -98,8 +120,6 @@
                 margin-top: 0;
             }
         }
-
-
     }
 
     .count-likes {
@@ -161,7 +181,9 @@
             color: rgb(0, 0, 0);
             font-weight: normal;
 
-
+            text {
+                margin-bottom: 10px;
+            }
 
 
 

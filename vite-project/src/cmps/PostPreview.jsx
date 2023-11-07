@@ -107,7 +107,44 @@ export function PostPreview({ pst, onRemovePst }) {
     const navigateProfileUser = () => {
         navigate(`/profile/${pst.by._id}`);
     }
+    const [time, setTime] = useState(uploadTime);
 
+    useEffect(() => {
+        if (uploadTime === 'now') {
+          // Set the interval to run every 5 minutes (300000 milliseconds)
+          const interval = setInterval(() => {
+            // Generate a random time display
+            setTime(generateRandomTime());
+          }, 20580); // 300000ms = 5 minutes
+      
+          // Cleanup function to clear the interval when the component unmounts
+          return () => clearInterval(interval);
+        }
+        // The empty array as the second argument to useEffect makes it run only on mount and unmount
+      }, []);
+      
+  
+    // Function to generate random time strings
+    const generateRandomTime = () => {
+      const randomNumber = Math.random();
+      if (randomNumber < 0.5) {
+        // 50% chance to display '1s'
+        return '1s';
+      } else if (randomNumber < 0.8) {
+        // 30% chance to display between '4m-10m'
+        const minutes = Math.floor(Math.random() * (10 - 4 + 1)) + 4;
+        return `${minutes}m`;
+      } 
+      
+    };
+  
+    const displayTime = () => {
+      if (time === 'now') {
+        return 'now';
+      } else {
+        return time;
+      }}
+      
     return (
         <section className="pst-Preview">
             <div className="info-start">
@@ -115,7 +152,8 @@ export function PostPreview({ pst, onRemovePst }) {
                     <button onClick={navigateProfileUser}><img className="profile-prev" src={by.imgUrl || "emptyUser.jpeg"}></img></button>
                     <h2>{by.fullname || loggedUser.username} <span className="dot-upper" style={{ color: 'gray' }}>•</span></h2>
                     {/* <h4 className="timeWhenUpload">{pstService.psts[0].uploadTime}</h4> */}
-                    <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4>
+                    {/* <h4 className="timeWhenUpload">{pst.uploadTime === 'now' ? 'now' : pstService.psts[0].uploadTime}</h4> */}
+                    <h4 className="timeWhenUpload">{displayTime()}</h4>
                 </div>
                 <button onClick={openDotModal}><img className="three-dot-icon" src="3dot.svg"></img></button>
                 {isDotModalOpen && <ThreeDotModal closeDotModal={closeDotModal} pst={pst}></ThreeDotModal>}
@@ -149,7 +187,7 @@ export function PostPreview({ pst, onRemovePst }) {
                             <button className="view-all-comments" onClick={openDetailsModal}>View all {countComment} comments</button>
                         </Link>
                     </div> */}
-                    <div className="see-comments">
+                    {/* <div className="see-comments">
                         {countComment > 0 && (
                             <Link to={`/pst/${pst._id}`}>
                                 <button className="view-all-comments" onClick={openDetailsModal}>
@@ -157,16 +195,41 @@ export function PostPreview({ pst, onRemovePst }) {
                                 </button>
                             </Link>
                         )}
+                    </div> */}
+
+                    {/* <div className="see-comments">
+                        {countComment > 0 && (
+                            <Link to={`/pst/${pst._id}`}>
+                                <button className="view-all-comments" onClick={openDetailsModal}>
+                                    View all {countComment} {countComment === 1 ? 'comment' : 'comments'}
+                                </button>
+                            </Link>
+                        )}
+                    </div> */}
+                    <div className="see-comments">
+                        {countComment > 0 && (
+                            <Link to={`/pst/${pst._id}`}>
+                                <button className="view-all-comments" onClick={openDetailsModal}>
+                                    {countComment === 1 ? 'View 1 comment' : `View all ${countComment} comments`}
+                                </button>
+                            </Link>
+                        )}
                     </div>
+
 
                     {newComment &&
                         (<div className="newComment">
+                            <div className="username-plus-hisComment">
                             {/* <h4 style={padding:0,margin:0}>{loggedUser.userName}</h4> */}
                             <h4 style={{ padding: 0, margin: 0 }}>{loggedUser.username}</h4>
-
                             {newComment}
+                            </div>
+                            <div className="like-prev-out">
+                            <button className="like-in-preview-out" onClick={toggleLike}>
+                                <img src={likeUrl} style={{ width: '13px', height: '13px' }} alt="like" />
+                            </button>
+                            </div>
                             {/* <p className="userComment">{newComment}</p> */}
-
                         </div>)}
                     <div className="comment-input-container1" ref={emojiPickerRef}>
                         <input type="text" placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value); setInputValue(e.target.value) }}
