@@ -185,6 +185,14 @@ function _createUsers() {
                 imgUrl: "newsp.jpg",
                 password: 123,
                 createdAt: 183161073891011
+            },
+            {
+                _id: 'u12',
+                fullname: 'Sport Center',
+                username: 'Sport Center',
+                imgUrl: "SpLogo.jpeg",
+                password: 123,
+                createdAt: 18313333891011
             }
             
        ]
