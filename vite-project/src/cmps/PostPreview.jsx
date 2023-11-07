@@ -115,7 +115,7 @@ export function PostPreview({ pst, onRemovePst }) {
           const interval = setInterval(() => {
             // Generate a random time display
             setTime(generateRandomTime());
-          }, 20580); // 300000ms = 5 minutes
+          }, 30580); // 300000ms = 5 minutes
       
           // Cleanup function to clear the interval when the component unmounts
           return () => clearInterval(interval);
