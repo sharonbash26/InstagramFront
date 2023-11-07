@@ -99,7 +99,7 @@ function _createUsers() {
     if (!users || !users.length) {
         users = [
             {
-                _id: 'u101',
+                _id: 'u1',
                 fullname: 'yulie maor',
                 username: 'Yulie maor',
                 imgUrl: 'y1p.jpg',
@@ -107,7 +107,7 @@ function _createUsers() {
                 createdAt: 1631031801011,
             },
             {
-                _id: 'u102',
+                _id: 'u2',
                 fullname: 'sharon',
                 username: 'sharon123',
                 imgUrl: 's2.jpg',
@@ -115,7 +115,7 @@ function _createUsers() {
                 createdAt: 1631031801011,
             },
             {
-                _id: 'u103',
+                _id: 'u4',
                 fullname: 'tomer',
                 username: 'tomer123',
                 imgUrl: 'tomer.jpg',
@@ -123,7 +123,7 @@ function _createUsers() {
                 createdAt: 1631031801011
             },
             {
-                _id: 'c10041',
+                _id: 'u5',
                 fullname: 'yovel gran',
                 username: 'yovel23',
                 imgUrl: 'yoval.jpg',
@@ -131,7 +131,7 @@ function _createUsers() {
                 createdAt: 16310323801011
             },
             {
-                _id: '1',
+                _id: 'u8',
                 fullname: 'mor cohen',
                 username: 'mor_cohen',
                 imgUrl: 'mor.jpg',
@@ -139,7 +139,7 @@ function _createUsers() {
                 createdAt: 163122323801011
             } ,
             {
-                _id: '10',
+                _id: 'u9',
                 fullname: 'yosi shef',
                 username: 'yosi',
                 imgUrl: 'shef.jpg',
@@ -147,13 +147,45 @@ function _createUsers() {
                 createdAt: 163122323801091
             } ,
             {
-                _id: '11',
+                _id: 'u11',
                 fullname: 'shop dress',
                 username: 'shopDressCode',
                 imgUrl: 'shopdresslogo.jpg',
                 password: 123,
                 createdAt: 163122323891011
-            } 
+            },
+            {
+                _id: 'u3',
+                fullname: 'bob butren',
+                username: 'bob_bobi',
+                imgUrl: "http://some-img",
+                password: 123,
+                createdAt: 183122323891011
+            } ,
+            {
+                _id: 'u6',
+                fullname: 'dob moshe',
+                username: 'dob1954',
+                imgUrl: "http://some-img",
+                password: 123,
+                createdAt: 183122773891011
+            },
+            {
+                _id: 'u7',
+                fullname: 'yael maronly',
+                username: 'yael_77',
+                imgUrl: "b2.jpg",
+                password: 123,
+                createdAt: 183171773891011
+            },
+            {
+                _id: 'u10',
+                fullname: 'News',
+                username: 'Top-News',
+                imgUrl: "newsp.jpg",
+                password: 123,
+                createdAt: 183161073891011
+            }
             
        ]
 
