@@ -196,8 +196,8 @@ function _createUsers() {
             },
             {
                 _id: 'u13',
-                fullname: 'Boutique Chocolate',
-                username: 'Boutique Chocolate',
+                fullname: 'BChoco',
+                username: 'BChoco',
                 imgUrl: "logoChoc.jpg",
                 password: 123,
                 createdAt: 183133232291011
