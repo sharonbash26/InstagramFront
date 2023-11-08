@@ -26,7 +26,7 @@ export function NavHeader({ onAddPst }) {
     return (
         <section className="container-nav-side">
             <div className="logo">
-                <img src="logo.svg"></img>
+                <img src="newLogo.jpeg"></img>
             </div>
 
             <section className="btn-container">

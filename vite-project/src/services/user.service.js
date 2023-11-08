@@ -108,8 +108,8 @@ function _createUsers() {
             },
             {
                 _id: 'u2',
-                fullname: 'sharon',
-                username: 'sharon123',
+                fullname: 'sharon_bash',
+                username: 'sharon_bash',
                 imgUrl: 's2.jpg',
                 password: 123,
                 createdAt: 1631031801011,
@@ -193,6 +193,14 @@ function _createUsers() {
                 imgUrl: "SpLogo.jpeg",
                 password: 123,
                 createdAt: 18313333891011
+            },
+            {
+                _id: 'u13',
+                fullname: 'Boutique Chocolate',
+                username: 'Boutique Chocolate',
+                imgUrl: "logoChoc.jpg",
+                password: 123,
+                createdAt: 183133232291011
             }
             
        ]
