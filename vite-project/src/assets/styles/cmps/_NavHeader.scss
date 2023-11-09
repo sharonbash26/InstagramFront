@@ -4,21 +4,22 @@
     display: flex;
     flex-direction: column;
     width: 21rem;
+
     .btn-container {
-       
-        
+
+
         display: flex;
         flex-direction: column;
         top: 0;
         left: 0;
         z-index: 100;
-        margin-top:3.0625rem;
+        margin-top: 3.0625rem;
         height: 100%;
         justify-content: space-between;
         width: 12.9rem;
-    
-      
-     
+
+
+
         &::after {
             content: "";
             background: rgb(217, 215, 215);
@@ -28,18 +29,21 @@
             margin-top: -80px;
             right: 0;
         }
-        .item{
-            width:100%;
+
+        .item {
+            width: 100%;
             padding: 1.5625rem 0.75rem 1rem;
             align-items: center;
         }
-        .first{
+
+        .first {
             width: 21rem;
         }
-        .item-first{
-           padding-top: 0.75rem;
+
+        .item-first {
+            padding-top: 0.75rem;
         }
-   
+
 
 
         button {
@@ -53,7 +57,7 @@
             letter-spacing: normal;
             transition: background-color 0.3s, color 0.3s;
         }
-    
+
         .profile-icon-img {
             width: 1.5em;
             border-radius: 50%;
@@ -66,13 +70,16 @@
         }
 
         img,
-        i {
+        i  {
             width: 1.5rem;
             height: 1.5rem;
             margin-right: 0.8rem;
             margin-left: 0.5rem;
 
+            &.epr-emoji-img {
+                margin: 0;
 
+            }
         }
 
         span {
@@ -93,6 +100,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 100;
 
             .modal-content {
                 width: 43.75rem;
@@ -109,6 +117,13 @@
                     min-width: 688px;
                     width: 1084px;
                     height: 784px;
+
+                    // .back {
+                    //     width: 3rem;
+                    //     height: 3rem;
+                    //     margin-right: 0.8rem;
+                    //     margin-left: 0.5rem;
+                    // }
 
                 }
 
@@ -171,11 +186,12 @@
             margin-top: 2.375rem;
             width: 15.3rem;
         }
-        .item-down{
+
+        .item-down {
             margin-bottom: -1.875rem;
-            width:15.3rem;
+            width: 15.3rem;
         }
-       
+
 
 
 
@@ -186,7 +202,8 @@
         width: 10.4374em;
         height: 1.875em;
         padding-top: 2rem;
-        img{
+
+        img {
             margin-left: 0rem;
             margin-top: -23px;
         }
