@@ -23,7 +23,7 @@ export function App() {
     // const user = useSelector(storeState => storeState.userModule.user)
     // const userId = user._id
     return (
-        <Provider store={store}>
+        <Provider store={store}>    
             <Router>
                 <section className="main-layout app">
                     <main>
